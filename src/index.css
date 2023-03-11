@@ -1,0 +1,653 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+html{
+  font-size: 62.5%;
+  user-select: none;
+
+
+}
+::selection{
+  background-color: rgb(85, 20, 170);
+  color: white;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+/* .................Header.................... */
+.header{
+  position: fixed;
+  width: 100%;
+ background-color: rgba(23, 4, 44, 0.4);
+  z-index: 10;
+}
+
+.navbar {
+  z-index: 1;
+  position: fixed;
+    width: 100%;
+}
+/* ...........when scrol then bg color show....... */
+.header-bg{
+  background-color: #000;
+  transition: 0.5s;
+  color: rebeccapurple !important;
+box-shadow: 0 0 10px white;
+}
+/* ........scroll end.............................. */
+.navbar .container{
+  position: sticky;
+  top: 0;
+}
+.container .navbar-brand{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.container .navbar-brand img{
+  margin-right:.6rem ;
+  height:5rem;
+  width: 5rem;
+}
+.navbar .navbar-nav .nav-item .nav-link {
+  color: white;
+  font-size: 1.7rem;
+  margin-right: 2rem;
+}
+h3{
+  background: linear-gradient(red, blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* Header Secrtion end */
+
+/* ................Home Section Start.......... */
+.animated img{
+  margin-top: 100px;
+  height: 200px;
+  position: absolute;
+  bottom: 640px;
+  right: 250px;
+  animation:updown 2s ease-in-out  alternate-reverse both ;
+  animation-duration: 2s;
+  animation-iteration-count: 1;  
+  overflow: hidden;
+}
+@keyframes updown {
+  0%{
+    transform: translateY(0px);
+  }
+  100%{
+    transform: translateY(520px);
+  } 
+}
+
+.Home h1{
+  font-size: 5rem;
+  color: rebeccapurple;
+}
+.homebtn .btn1{
+  background-color: transparent;
+  /* background-color: rebeccapurple; */
+  padding:2px 15px;
+  outline: 2px solid white;
+  font-size: 2rem;
+  margin-top: 50px;
+  border-radius: 50px;
+  border: 3px solid black;
+  box-shadow: inset 0px 0px 20px white;
+  transition-duration: .3s;
+  transition-timing-function: ease-in-out;
+}
+.btn1:hover{
+  transform: scale(1.1) translateY(-5px);
+  transition: .4s;
+}
+.homebtn a{
+  color:white;
+  text-decoration: none;
+}
+.homebtn a i{
+  color: rgb(59, 153, 51);
+}
+.homebtn:hover i{
+  color: rgb(239, 245, 243);
+}
+.homebtn .at{
+  margin-left: 30px;
+}
+.skr .tex{
+  font-size: 4rem;
+  color:palevioletred;
+}
+.back{
+  background-image: url('../src/Components/images/background.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+ height: 100vh;
+ margin-bottom: 4rem;
+}
+.Home .infor h3{
+    margin-bottom: 3rem;
+}
+.home .infor .tex{
+  color: white;
+}
+.infor{
+  padding: 12rem;
+}
+/* ..Home end.. */
+
+/*................ ..........About Section.......................................... */
+.imx img{
+  border-radius: 200px 20px 200px 20px;
+  height: 56rem;
+  border: 4px solid rebeccapurple;
+  outline: 2px solid white;
+  box-shadow: 0px 0px 10px white;
+  object-fit: cover;
+}
+.subtitle{
+  font-size: 2rem;
+  color: white;
+}
+.about-content h2{
+  font-size: 5rem;
+}
+.about-content p{
+  font-size: 1.6rem;
+}
+.btt{
+  font-size: 2rem;
+  border-radius: 30px;
+}
+.nav-pills{
+  border: 1px solid rebeccapurple;
+  border-radius: 3px;
+}
+.tab-pane .single-progress h6{
+    font-size: 2rem;
+    margin: 8px;
+}
+.progress .progress-bar {
+  background-image: radial-gradient(rgb(180 20 109), rgb(67 23 235));
+}
+span .label{
+  font-size: 30px;
+}
+.about_wrapper .single-progress .label{
+  position: absolute;
+  color:blueviolet;
+  font-size: 10px;
+}
+.tab-pane{
+  font-size: 2rem;
+}
+.More{
+  background-color: transparent;
+  border: 3px solid black;
+  outline: 3px solid white;
+  box-shadow: 0px 0px 25px white inset;
+  margin-left: 10px;
+  border-radius: 30px;
+  margin-top: 20px;
+}
+.More a{
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+/* .............................Service.............................. */
+.hed h1{
+  font-size: 3.5rem;
+  color: rebeccapurple;
+}
+.hed p{
+  font-size: 1.6rem;
+}
+.service .card{
+  background: linear-gradient( burlywood,rgb(204, 29, 58) );
+box-shadow: 0px 0px 10px black;
+overflow: hidden;
+}
+.card .icon{
+  text-align: center;
+  font-size: 7rem;
+  color: rgb(204, 29, 58);
+  opacity: .7;
+}
+.card .card-body{
+  text-align: center;
+}
+.card .card-title{
+  color: blueviolet;
+  font-size: 3.5rem;
+}
+.card .card-text{
+  color: black;
+  font-size: 1.5rem;
+  text-align: justify;
+  font-weight: bold; 
+}
+.card .butt a{
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  border: 2px solid rgb(204, 29, 58);
+  outline: 2px solid white;
+  box-shadow: inset 0px 0px 20px white;
+  border-radius: 3rem;
+  visibility: hidden;
+}
+
+.card:hover .icon {
+  transform: scale(1.2);
+  transition-duration: 2s;
+  color:white;
+  opacity: 1;
+}
+.card:hover .card-title 
+{
+  color: White;
+  transform: scale(1.2);
+  transition-duration: 5s;
+  background: linea;
+}
+
+.card:hover .butt a{
+  visibility:visible;
+}
+
+/* ............ */
+.service
+{
+    position: relative;
+    /* margin: 1px; */
+    width: 30rem;
+    /* height: 54.2rem; */
+    background: white;
+    box-shadow: 0 0 10px black;
+    border-radius: 20px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
+}
+.service .card{
+    color: #fff;
+    font-size: 9em;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 1;
+    height: 54.2rem;
+    /* opacity: 0; */
+
+}
+.service::before{
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 1000px;
+    left: 100px;
+    top: -50px;
+    background: linear-gradient(#d91111, #3506b7 );
+    animation: animate 4s linear infinite;
+    animation-delay: 1s;
+}
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+.icon img{
+  height: 34rem;
+}
+.hed{
+  color: White;
+  text-align: center;
+}
+
+/* ......Service end................ */
+
+/* .......Portfolio Section......... */
+#portfolio{
+  background-image: url('../src/Components/images/myproject.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding:40px 0;
+  background-color: rgb(228, 228, 25);
+}
+.work-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,  2fr));
+  grid-gap: 40px;
+  margin-top: 50px;
+}
+.work{
+  border: 1px solid rebeccapurple;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.work img{
+  width: 100%;
+  height: 45rem;
+  border-radius: 10px	;
+  display: block;
+  transition: transform 0.5s;
+  transform:scale(1.1) ;
+}
+.layer{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(231, 110, 110,0.1), rebeccapurple);
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 0px;
+			overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0px 40px;
+  text-align: center;
+  color: white;
+  transition: height 0.5s;
+  transition-delay: 2s;
+}
+.layer h4{
+  font-weight: 500;
+  font-size: 3rem;
+  margin-bottom:20px ;
+}
+.layer p{
+  font-size: 2rem;
+  text-align: justify;
+}
+.layer a{
+  margin-top: 20px;
+  color: #ff004f;
+  font-size: 18px;
+  line-height: 60px;
+  background-color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.work:hover img{
+  transform:scale(1) ;
+}
+.work:hover .layer{
+  height: 0;
+}
+/* Portfolio Section end */
+
+/* .................Teams section start................... */
+.contant{
+  position: relative;
+  color: wheat;
+  text-align: center;
+}
+.card{
+  text-align: center;
+  box-shadow:inset 0 0 60px rebeccapurple;
+}
+.card img{
+  width: 100%;
+  height: 300px;
+  border-radius: 80px;
+  padding: 50px 0;
+}
+.card .card-titl{
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-top:18px;
+}
+.card .card-tex{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.butto{
+  position: absolute;
+  top: 230px;
+  left: 85px;
+  background-color: rebeccapurple;
+  padding: 5px 10px;
+  border-radius: 30px;
+  border: 4px solid rgb(12, 11, 11);
+  outline: 4px solid white;
+  box-shadow: 0px 0px 20px white inset;
+}
+.card:hover .butto {
+  background-color:white;
+  color: black;
+  animation: animats 2s linear infinite;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+@keyframes animats{
+  0%{
+    background-color: rgb(238, 234, 243);
+  }
+  25%{
+    background-color: rgb(55, 184, 23);
+  }
+  50%{
+    background-color: rgb(38, 245, 234);
+  }
+  75%{
+    background-color: rgb(129, 9, 45);
+  }
+  100%{
+    background-color: rgb(94, 46, 6);
+  }
+} 
+.butto a{
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+ .sci{
+  position: absolute;
+  bottom: 50px;
+  display: flex;
+ }
+ .sci li{
+  list-style: none;
+  margin: 0 10px;
+  transform: translateY(40px);
+  transition: 0.5s;
+  opacity: 0;
+  transition-delay:calc(0.1s * var(--i));
+}
+.card:hover .sci li{
+  transform: translateY(-274px);
+  opacity: 1;
+}
+ .card .sci li a{
+  color: rebeccapurple;
+  font-size: 30px;
+}
+/*.. teams end ..*/
+
+/* .....Contact Section.......... */
+.contact_div{
+  /* box-shadow: inset 0px -10px 10px rgb(34, 32, 32); */
+}
+.para{
+  color: black;
+}
+.ful-box{
+  display: flex;
+  flex-direction: column;
+}
+.box .icons{
+  color: rebeccapurple;
+  font-size: 3rem;
+}
+.box .materoal h3{
+  color: #df0ba7;
+  font-size: 2rem;
+}
+.box .materoal a{
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: rgb(13, 107, 170);
+}
+label{
+  font-size: 2rem;
+  color: rebeccapurple;
+}
+input{
+  height: 3.5rem;
+}
+.button .btn{
+ background-color: rebeccapurple;
+ font-size: 2rem;
+ color: white;
+ border: 2px solid black;
+}
+.msg{
+  color:rebeccapurple;
+  font-size: 3rem;
+  margin: 10px 0;
+}
+.paraa{
+  text-align: center;
+  font-size: 1.5rem;
+}
+.msg{
+  color: rgb(13, 107, 170);
+
+}
+.text-center{
+  color: rebeccapurple;
+  font-size: 4rem;
+}
+.contentBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 10px black;
+  padding: 50px;
+}
+.contentBox .adder-box{
+ font-size: 2rem;
+}
+.contentBox .cont-box a{
+  font-size: 2rem;
+  text-decoration:none;
+ }
+ /* ............Contact end............ */
+
+ /* ................Footer start ............*/
+/* .....Footer......... */
+.footer{
+  position: relative;
+  background-color: rebeccapurple;
+  border-top-left-radius: 100px;
+  /* border-top-right-radius: 100px; */
+  padding-top: 50px;
+  margin-top: 0px !important;
+  /* box-shadow: 0px 0px 10px white; */
+  box-shadow: -0px -10px 2px white;
+}
+.f-image span{
+  color: White;
+  font-size: 1.2rem;
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 50%;
+  text-align: center;
+}
+.f-image img{
+ margin-left: 80px;
+  height: 50px;
+  width: 100px;
+  margin-bottom: 10px;
+  border-radius: 40%;
+}
+.f-title p{
+  color: white;
+  font-size: 1.3rem;
+  text-align: justify;
+}
+.location h3{
+      font-size: 3rem;
+      color: white;
+      margin-left: 13px;
+      margin-bottom: 25px;
+}
+.location span{
+  border-bottom: 2px solid white;
+
+}
+.location ul li{
+  list-style: none;
+  font-size: 1.6rem;
+  list-style-position:inside;
+  color: white;
+}
+.location ul li a{
+  color: white;
+}
+.f-icon ul{
+    display: flex;
+}
+.f-icon ul li{
+  margin-right:30px ;
+  font-size: 3rem;
+}
+.cpright{
+  background-color: rgb(29, 41, 34);
+  color: white;
+  text-align: center;
+  font-size: 1.6rem;
+  padding: 10px;
+}
+.class{
+  position: absolute;
+  top: -28px;
+  left: 400px;
+  background-color:white;
+  height:50px;
+  width: 600px;
+  border-radius: 50px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-size: 2.2rem;
+ color: white;
+ box-shadow: 0px -10px 2px white;
+}
