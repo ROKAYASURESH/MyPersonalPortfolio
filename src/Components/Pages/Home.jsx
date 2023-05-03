@@ -59,11 +59,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* <About />
-      <Service />
-      <Portfolio />
-      <Teams />
-      <Contact /> */}
+      {/* <About /> */}
+      {/* <Service /> */}
+      {/* <Portfolio /> */}
+      {/* <Teams /> */}
+      {/* <Contact /> */}
     </>
   )
 }
