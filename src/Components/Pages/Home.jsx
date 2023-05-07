@@ -1,5 +1,7 @@
 import React ,{useEffect}from 'react';
 import logo from '../images/MY RESUME.pdf'
+import abs from '../images/myphotoss.jpg'
+import avs from '../images/myphotoss (2).jpg'
 import { NavLink } from 'react-router-dom';
 import About from './About';
 import Service from './Service';
@@ -59,6 +61,70 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <div className='about'>
+        <div className='left'>
+            <h1 style={{color:'white',fontSize:'4rem'}}>Who Am I?</h1>
+            <p style={{color:'white', fontSize:'2rem'}}> I am react Frontend developer. I create responsive secure website for my clinet</p>
+            <Link to='/Contact'  ><button className='btn' style={{color:'white', fontSize:'2rem' ,background:'blue'}}>Contact</button></Link>
+        </div>
+        <div className='right' >
+            <div className='img-container'>
+                <div className='img-stack top'>
+                    <img src={abs} alt='' title="suresh"/>
+                    
+                </div>
+                <div className='img-stack bottom'>
+                    <img src={avs} alt=''/>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+    {/* ........Contact............... */}
+   <div className="containers">
+  <div className="content">
+    <div className="left-side">
+      <div className="address details">
+        <i className="fas fa-map-marker-alt" />
+        <div className="topic">Address</div>
+        <div className="text-one">Koteshwor, 32</div>
+        <div className="text-two">Kathmandu </div>
+      </div>
+      <div className="phone details">
+        <i className="fas fa-phone-alt" />
+        <div className="topic">Phone</div>
+        <div className="text-one">-977 9869504717</div>
+      </div>
+      <div className="email details">
+        <i className="fas fa-envelope" />
+        <div className="topic">Email</div>
+        <div className="text-one">rokayasuresh028@gmail.com</div>
+        <div className="text-two">sureshrokay@ismt.edu.np</div>
+      </div>
+    </div>
+    <div className="right-side">
+      <div className="topic-text">Send us a message</div>
+      <p style={{fontSize:'1.5rem'}}>If you have any work from me or any types of quries , you can send me message from here. It's my pleasure to help you.</p>
+      <form action="#">
+        <div className="input-box">
+          <input type="text" placeholder="Enter your name" />
+        </div>
+        <div className="input-box">
+          <input type="text" placeholder="Enter your email" />
+        </div>
+        <div className="input-box message-box">
+        <input type="text" placeholder="Comment" />
+
+        </div>
+        <div className="button">
+          <input type="button" defaultValue="Send Now" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
       {/* <About /> */}
       {/* <Service /> */}
       {/* <Portfolio /> */}
