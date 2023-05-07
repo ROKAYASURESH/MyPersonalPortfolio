@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/MyPersonalPortfolio/static/css/main.6087a17c.css",
-    "main.js": "/MyPersonalPortfolio/static/js/main.711ce676.js",
+    "main.css": "/MyPersonalPortfolio/static/css/main.238c4646.css",
+    "main.js": "/MyPersonalPortfolio/static/js/main.360acf8b.js",
     "static/media/6image.png": "/MyPersonalPortfolio/static/media/6image.9b4abb89bb470b726b1e.png",
     "static/media/2image.png": "/MyPersonalPortfolio/static/media/2image.0546ef85595fe4e92196.png",
     "static/media/4image.png": "/MyPersonalPortfolio/static/media/4image.1d49a7bb85d9b1392515.png",
@@ -11,20 +11,22 @@
     "static/media/3image.png": "/MyPersonalPortfolio/static/media/3image.f0e8159cb509d4e66d41.png",
     "static/media/myproject.jpg": "/MyPersonalPortfolio/static/media/myproject.eae6743d1a7f84825c36.jpg",
     "static/media/5image.png": "/MyPersonalPortfolio/static/media/5image.eb90202fcc543d9f00d3.png",
+    "static/media/myphoto.jpg": "/MyPersonalPortfolio/static/media/myphoto.7b966040515d1d32e915.jpg",
     "static/media/image.jpg": "/MyPersonalPortfolio/static/media/image.c11ffd8889f8f5f55557.jpg",
     "static/media/4images.jpg": "/MyPersonalPortfolio/static/media/4images.8f5c8f47516f6bacd335.jpg",
-    "static/media/myphoto.jpg": "/MyPersonalPortfolio/static/media/myphoto.b84e5dce7e4430b725ee.jpg",
+    "static/media/myphotoss (2).jpg": "/MyPersonalPortfolio/static/media/myphotoss (2).b84e5dce7e4430b725ee.jpg",
+    "static/media/myphotoss.jpg": "/MyPersonalPortfolio/static/media/myphotoss.5a81036f9711ed730256.jpg",
     "static/media/MY RESUME.pdf": "/MyPersonalPortfolio/static/media/MY RESUME.bb3a946b5bbf82504f31.pdf",
     "static/media/logo.png": "/MyPersonalPortfolio/static/media/logo.d2ead2042ba655a77a98.png",
     "static/media/background.jpg": "/MyPersonalPortfolio/static/media/background.8acc4a2aa27706f98fe8.jpg",
     "static/media/suresh.webp": "/MyPersonalPortfolio/static/media/suresh.05330a088148220c1532.webp",
     "static/media/logo.svg": "/MyPersonalPortfolio/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/MyPersonalPortfolio/index.html",
-    "main.6087a17c.css.map": "/MyPersonalPortfolio/static/css/main.6087a17c.css.map",
-    "main.711ce676.js.map": "/MyPersonalPortfolio/static/js/main.711ce676.js.map"
+    "main.238c4646.css.map": "/MyPersonalPortfolio/static/css/main.238c4646.css.map",
+    "main.360acf8b.js.map": "/MyPersonalPortfolio/static/js/main.360acf8b.js.map"
   },
   "entrypoints": [
-    "static/css/main.6087a17c.css",
-    "static/js/main.711ce676.js"
+    "static/css/main.238c4646.css",
+    "static/js/main.360acf8b.js"
   ]
 }
