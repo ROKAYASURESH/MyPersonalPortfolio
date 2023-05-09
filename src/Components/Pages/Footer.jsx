@@ -75,6 +75,7 @@ export default function
             <h1 className="class mx-auto bg-dark">Building beautiful and functional interfaces with code</h1>
         </div>
         </div>
+
     </>
   )
 }

@@ -13,7 +13,6 @@ export default function About() {
   return (
     <>
        <HeroImg heading="About" text="Some Special about Me !!!!!"/>
-       
     <section id="about" className="about_wrapper">
 <div className="container-fluid bg-dark">
  <div className="row justify-content-between align-items center">

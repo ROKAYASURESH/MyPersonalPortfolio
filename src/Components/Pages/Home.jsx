@@ -17,6 +17,7 @@ import myphoto from '../images/myphoto.jpg'
 
 
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
+import Partical from '../Partical/Partical';
 
 
 export default function Home() {
@@ -27,8 +28,8 @@ export default function Home() {
   const [text] = useTypewriter({
     words:['🔺Frontent Developer🔺', '🔺Graphic Design🔺', '🔺Android Developer🔺'],
     loop:{},
-    typeSpeed:150, 
-    deleteSpeed:80,
+    typeSpeed:700, 
+    deleteSpeed:700,
   });
   return (
     <>
@@ -58,6 +59,7 @@ export default function Home() {
               <img src={myphoto} alt="" className='myphoto' />
               <div className="text"><h2> 🔺Frontent Developer🔺</h2></div>
             </div>
+
           </div>
         </div>
       </section>
@@ -130,6 +132,8 @@ export default function Home() {
       {/* <Portfolio /> */}
       {/* <Teams /> */}
       {/* <Contact /> */}
+      <Partical/>
+
     </>
   )
 }
