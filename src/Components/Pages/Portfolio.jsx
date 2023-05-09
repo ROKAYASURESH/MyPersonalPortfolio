@@ -29,7 +29,7 @@ user-friendly and optimized website using various technologies such as HTML, CSS
 						<h4>{Pt.Pheading}</h4>
 						<p>{Pt.PParagraph}</p>
                         {/*<a href={Pt.URL}>ss</a>*/}
-                        <Link to={`/portfoliodetails/${Pt.Pheading}`} target='_blank'>{Pt.Pincon} </Link>          
+                        <Link to={`/portfoliodetails/${Pt.Pheading}`}>{Pt.Pincon} </Link>          
 					</div>
             </div>
             ))}

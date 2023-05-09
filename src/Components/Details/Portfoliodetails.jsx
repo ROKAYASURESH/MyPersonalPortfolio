@@ -20,7 +20,7 @@ document.title=`Project Details`
     <>
     <div className="container">
         <div className="row">
-            <div className="col-lg-12">
+            <div className="col-lg-12 py-5 my-5">
                 <img src={portfolios.Project} alt="" width="100%" />
             </div>
         </div>
