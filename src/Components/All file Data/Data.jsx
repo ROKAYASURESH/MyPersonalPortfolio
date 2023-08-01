@@ -187,7 +187,7 @@ const teamdata=[
         Fluttortitle:"flutter",
         FluttorPercentages:"30%",
         Fluttorwidth:"30%",
-        WorkExp:"No work Experence",
+        WorkExp:"work Experence",
         Linkedin:"https://www.linkedin.com/in/rahul-kumar-thakur-009226216/" ,
         message:"http://m.me/Devrahul2003",
         Whatsapp:"https://wa.me/9779821810341?text=Hi%20There!'"

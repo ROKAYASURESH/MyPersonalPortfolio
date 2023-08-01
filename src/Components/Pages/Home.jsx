@@ -26,7 +26,7 @@ export default function Home() {
     document.title = `Home page`;
   });
   const [text] = useTypewriter({
-    words:['🔺Frontent Developer🔺', '🔺Graphic Design🔺', '🔺Android Developer🔺'],
+    words:['🔺Frontend Developer🔺', '🔺Graphic Design🔺', '🔺Android Developer🔺'],
     loop:{},
     typeSpeed:700, 
     deleteSpeed:700,
