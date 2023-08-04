@@ -132,7 +132,7 @@ export default function Home() {
       {/* <Portfolio /> */}
       {/* <Teams /> */}
       {/* <Contact /> */}
-      <Partical/>
+      {/* <Partical/> */}
 
     </>
   )
