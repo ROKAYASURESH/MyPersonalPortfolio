@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { tabcontent } from '../All file Data/Data';
 import about from '../images/image.jpg';
 import HeroImg from '../Common/HeroImg';
+import Partical from '../Partical/Partical';
+
 
 export default function About() {
   useEffect(() => {
@@ -89,6 +91,7 @@ export default function About() {
    </div>
  </div>
 </div>
+  
 </section>
 </>
   )

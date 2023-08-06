@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 import {FaFacebook,FaWhatsappSquare,FaLinkedin } from 'react-icons/fa/';
 import { Link } from 'react-router-dom';
 import { teamdata } from '../All file Data/Data';
-import HeroImg from '../Common/HeroImg';
+import HeroImg from '../Common/HerojImg';
 
 export default function Teams() {
     useEffect(() => {
