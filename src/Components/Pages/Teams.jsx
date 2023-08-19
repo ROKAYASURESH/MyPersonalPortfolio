@@ -2,7 +2,8 @@ import React,{useEffect} from 'react';
 import {FaFacebook,FaWhatsappSquare,FaLinkedin } from 'react-icons/fa/';
 import { Link } from 'react-router-dom';
 import { teamdata } from '../All file Data/Data';
-import HeroImg from '../Common/HerojImg';
+// import HeroImg from '../Common/HerojImg';
+import HeroImg from '../Common/HeroImg';
 
 export default function Teams() {
     useEffect(() => {
@@ -11,6 +12,7 @@ export default function Teams() {
       });
   return (
     <>
+{/* <HeroImg heading="Our Teams" text="Your vision, our passion. Design and development that exceed expectation"/> */}
 <HeroImg heading="Our Teams" text="Your vision, our passion. Design and development that exceed expectation"/>
 
     <div className="container-fluid py-5 bg-dark ">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink ,Link} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import logo from '../images/logo.png'
 import { useState } from 'react';
 
@@ -24,10 +24,10 @@ export default function Header() {
     <div className={color ?"header header-bg":"header"}>
         <nav className="navbar navbar-expand-lg" >
         <div className="container suresh">
-          <Link className="navbar-brand" to="/">
+          <NavLink className="navbar-brand" to="/">
             <img src={logo} alt="" />
            
-          </Link>
+          </NavLink>
           <h3>SURESH ROKAYA</h3>
           <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon bg-light text-light" />
