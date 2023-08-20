@@ -13,7 +13,7 @@ import { AiFillContacts} from "@react-icons/all-files/ai/AiFillContacts";
 import { Link } from 'react-router-dom';
 
 import img from '../images/suresh.webp'
-import myphoto from '../images/myphoto.jpg'
+import myphoto from '../images/myphoto.png'
 
 
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
@@ -26,7 +26,7 @@ export default function Home() {
     document.title = `Home page`;
   });
   const [text] = useTypewriter({
-    words:['🔺Frontend Developer🔺', '🔺Graphic Design🔺', '🔺Android Developer🔺'],
+    words:['🔺Frontend Developer🔺', '🔺Graphic Design🔺', '🔺Custom Website🔺'],
     loop:{},
     typeSpeed:700, 
     deleteSpeed:700,
@@ -38,7 +38,7 @@ export default function Home() {
           <div className="row">
             <div className="col-lg-6 infor skr ">
               <h3>WELCOME TO MY WEBSITE</h3>
-              <h1>I'm Suresh Rokaya  <br />
+              <h1>I'm SureshRokaya  <br />
                 <span className='tex' style={{fontSize:"35px"}}> {text}</span>
                 <Cursor cursorColor='pink'  /><br />
                 based in Nepal

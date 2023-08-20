@@ -86,7 +86,7 @@ html {
 }
 
 h3 {
-  background: linear-gradient(red, blue);
+  background: linear-gradient(red, rgb(243, 243, 247));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -129,7 +129,7 @@ h3 {
   font-size: 2rem;
   margin-top: 50px;
   border-radius: 50px;
-  border: 3px solid black;
+  border: 3px solid transparent;
   box-shadow: inset 0px 0px 20px white;
   transition-duration: .3s;
   transition-timing-function: ease-in-out;
@@ -159,11 +159,18 @@ h3 {
 
 .skr .tex {
   font-size: 4rem;
-  color: palevioletred;
+  color: black;
+}
+.skr h1{
+  font-size: 6rem;
+  color: black;
+  font-weight: 900;
+  font-family: 'Playfair Display', serif;
+
 }
 
 .back {
-  background-image: url('../src/Components/images/profile2.jpg');
+  background-image: url('../src/Components/images/profile1.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

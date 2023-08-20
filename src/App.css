@@ -178,9 +178,9 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
-    box-shadow: 0px 0px 30px rebeccapurple, 0px 0px 200px rebeccapurple inset, 0px 10px 10px red ;
+    box-shadow: 0px 0px 30px rebeccapurple, /* 0px 0px 200px rebeccapurple inset,*/ 0px 10px 10px red ;
 
-    border: 10px solid transparent;
+    /* border: 10px solid transparent; */
     border-radius: 50%;
     opacity: 0;
   }
