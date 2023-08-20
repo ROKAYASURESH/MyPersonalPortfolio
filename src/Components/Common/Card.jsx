@@ -6,7 +6,9 @@ export const Card = (props) => {
     <>
         <div className="col-lg-4 col-md-6 service">
             <div className="card px-5">
-                <div className="icon">{props.icons}</div>
+                <div className="icon">{props.icons}
+                <img src={props.sss} alt="" />
+                </div>
                     <div className="card-body">
                         <h1 className="card-title">{props.heading}</h1>
                         <p className="card-text">{props.paragraph}</p>

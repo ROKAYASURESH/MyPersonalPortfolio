@@ -15,6 +15,10 @@ import Ima from '../images/2images.jpg';
 import kc from "../images/4images.jpg";
 import Nikesh from "../images/nikesh.jpg"
 
+import responsive from "../images/respnsive.png"
+import ecomerces from '../images/ecomerce.png'
+import custom from "../images/custom.png"
+
 // ...............................ABOUT PAGE.........................................
 const tabcontent=[
     {
@@ -52,24 +56,32 @@ const tabcontent=[
 const ServiceData=[
     {
         id:1,
+        serv: responsive,
         icon:<FaChrome/>,
-        heading:"Dev Design",
-        paragraph:"Web design is the process of creating visually appealing and user-friendly websites and web applications that involves a combination of graphic design, user experience (UX) design, and technical skills. It requires the use of various tools such as HTML, CSS, JavaScript and design software to create the layout, visual appearance, and functionality of a website.",
+        heading:"Responsive website",
+        // paragraph:"Web design is the process of creating visually appealing and user-friendly websites and web applications that involves a combination of graphic design, user experience (UX) design, and technical skills. It requires the use of various tools such as HTML, CSS, JavaScript and design software to create the layout, visual appearance, and functionality of a website.",
+        paragraph:"Creating dynamic changes to the appearance of a website depending on the screen size and orientation",
         Button:"Learn More"
     },
     {
         id:2,
         icon:<FaGratipay/>,
-        heading:"Graphic Design",
-        paragraph:"Graphic design is the art and practice of creating visual content to communicate information and ideas to an audience. It involves the use of typography, imagery, and color to create designs that are both aesthetically pleasing and effective in conveying a message. Graphic designers use a variety of tools and techniques, including illustration, photography, and digital software such as Adobe Illustrator and Photoshop, to create their designs.",
+        // heading:"Graphic Design",
+        heading:"Ecommerce website",
+        // paragraph:"Graphic design is the art and practice of creating visual content to communicate information and ideas to an audience. It involves the use of typography, imagery, and color to create designs that are both aesthetically pleasing and effective in conveying a message. Graphic designers use a variety of tools and techniques, including illustration, photography, and digital software such as Adobe Illustrator and Photoshop, to create their designs.",
+        paragraph:"Allows you to sell tangible goods or digital products or services online a website based a website based",
         Button:"Learn More"
 
     },
     {
         id:3,
         icon:<FaAndroid/>,
-        heading:"Android Develop",
-        paragraph:"Android development is the process of creating mobile applications for the Android operating system. It involves using the Java or Kotlin programming languages and the Android software development kit (SDK) to create apps that can run on a wide range of devices, including smartphones and tablets. Android developers use a variety of tools and technologies to create and test their apps, such as Android Studio.",
+        // heading:"Android Develop",
+        heading:"Custom website",
+
+        // paragraph:"Android development is the process of creating mobile applications for the Android operating system. It involves using the Java or Kotlin programming languages and the Android software development kit (SDK) to create apps that can run on a wide range of devices, including smartphones and tablets. Android developers use a variety of tools and technologies to create and test their apps, such as Android Studio.",
+        paragraph:"Creating a website based on the user’s requirement or unique to the brand a website based a website based",
+
         Button:"Learn More"
 
     }

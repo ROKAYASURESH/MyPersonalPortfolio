@@ -25,6 +25,7 @@ export default function Servic() {
                     {ServiceData.map((sr)=>(
                     <Card 
                      icons={sr.icon}
+                     sss={sr.serv}
                      heading={sr.heading}
                      paragraph={sr.paragraph}
                      button={sr.Button}
