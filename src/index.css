@@ -221,11 +221,14 @@ span .label{
 
 /* .............................Service.............................. */
 .hed h1{
-  font-size: 3.5rem;
-  color: rebeccapurple;
+  font-size: 4.5rem;
+  color: rgb(163, 13, 123);
 }
 .hed p{
   font-size: 1.6rem;
+  margin: 10px 150px;
+  text-align: justify;
+  text-align-last: center;
 }
 .service .card{
   background: linear-gradient( burlywood,rgb(204, 29, 58) );
@@ -348,10 +351,12 @@ overflow: hidden;
   padding:40px 0;
   background-color: rgb(228, 228, 25);
 }
+
 .work-list{
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(300px,  2fr));
-  grid-gap: 40px;
+  row-gap: 40px;
+  column-gap: 20px;
   margin-top: 50px;
 }
 .work{
@@ -366,12 +371,13 @@ overflow: hidden;
   border-radius: 10px	;
   display: block;
   transition: transform 0.5s;
-  transform:scale(1.1) ;
+  /* transform:scale(1.1) ; */
 }
 .layer{
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(231, 110, 110,0.1), rebeccapurple);
+  /* background: linear-gradient(rgba(231, 110, 110,0.1), rebeccapurple); */
+  background-color: rgb(27, 177, 119);
   border-radius: 10px;
   position: absolute;
   left: 0;
@@ -386,15 +392,19 @@ overflow: hidden;
   color: white;
   transition: height 0.5s;
   transition-delay: 2s;
+border: 4px solid white;
+  visibility: hidden;
 }
 .layer h4{
   font-weight: 500;
   font-size: 3rem;
   margin-bottom:20px ;
+  color: rgb(163, 13, 123);
 }
 .layer p{
   font-size: 2rem;
   text-align: justify;
+  color:black
 }
 .layer a{
   margin-top: 20px;
@@ -411,6 +421,7 @@ overflow: hidden;
 }
 .work:hover .layer{
   height: 0;
+  visibility: visible;
 }
 /* Portfolio Section end */
 
