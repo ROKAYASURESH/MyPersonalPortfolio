@@ -93,6 +93,10 @@
  .footer{
   border-top-left-radius: 0px;
  }
+ .hed p{
+  margin: 10px;
+}
+
  .card img{
   width: 180px;
   height: 300px;

@@ -66,6 +66,7 @@ const ServiceData=[
     {
         id:2,
         icon:<FaGratipay/>,
+        sev:ecomerces,
         // heading:"Graphic Design",
         heading:"Ecommerce website",
         // paragraph:"Graphic design is the art and practice of creating visual content to communicate information and ideas to an audience. It involves the use of typography, imagery, and color to create designs that are both aesthetically pleasing and effective in conveying a message. Graphic designers use a variety of tools and techniques, including illustration, photography, and digital software such as Adobe Illustrator and Photoshop, to create their designs.",
@@ -76,6 +77,7 @@ const ServiceData=[
     {
         id:3,
         icon:<FaAndroid/>,
+        sev:custom,
         // heading:"Android Develop",
         heading:"Custom website",
 
