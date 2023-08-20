@@ -26,7 +26,7 @@ export default function About() {
 
    <div className="col-lg-7 ps-lg-5 text-center text-lg-start py-4">
      <div className="my-3 mb-lg-0 text-center about-content">
-       <span className="subtitle"><h3>My About Details</h3>  </span>
+       <span className="subtitle"><h3> About my Details</h3>  </span>
        <h2>About Me</h2>
        <p>As a web developer, I have a strong understanding of web technologies and the ability to create and maintain websites and web applications. I have a good grasp of programming languages such as HTML, CSS, and JavaScript, as well as experience with frameworks and libraries like Bootstrap , React, and React JS .</p>
      </div>
@@ -58,7 +58,7 @@ export default function About() {
              </div>
            </div>
            ))}
-          <div style={{height:"20px"}}></div>
+          <div style={{height:"50px"}}></div>
          </div>
          {/* Experiance */}
          <div className="tab-pane fade" id="pills-Experiance" role="tabpanel" aria-labelledby="pills-Experiancet-tab" tabIndex={0}>

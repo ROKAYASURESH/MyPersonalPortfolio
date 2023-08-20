@@ -208,11 +208,13 @@ h3 {
 }
 
 .about-content h2 {
+  color:  rgb(163, 13, 123);
   font-size: 5rem;
 }
 
 .about-content p {
   font-size: 1.6rem;
+  color: white;
 }
 
 .btt {
@@ -228,10 +230,11 @@ h3 {
 .tab-pane .single-progress h6 {
   font-size: 2rem;
   margin: 8px;
+  color: rgb(202, 39, 93);
 }
 
 .progress .progress-bar {
-  background-image: radial-gradient(rgb(180 20 109), rgb(67 23 235));
+  background-image: radial-gradient(rgb(243, 227, 236), rgb(23, 235, 118));
 }
 
 span .label {
