@@ -170,7 +170,7 @@ h3 {
 }
 
 .back {
-  background-image: url('../src/Components/images/profile1.webp');
+  background-image: url('../src/Components/images/profile2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -298,8 +298,8 @@ span .label {
 .card .icon img{
   height: 200px;
   width: 200px;
-  /* margin: auto; */
-  /* border-radius: 50%; */
+  border-radius: 0px;
+
 }
 .card .card-body {
   text-align: center;
@@ -307,7 +307,7 @@ span .label {
 
 .card .card-title {
   color: rgb(163, 13, 123);
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 .card .card-text {
@@ -338,7 +338,7 @@ span .label {
 
 .card:hover .card-title {
   color: White;
-  transform: scale(1.2);
+  transform: scale(1);
   transition-duration: 5s;
   background: linea;
 }
