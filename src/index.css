@@ -177,6 +177,13 @@ h3 {
   height: 100vh;
   margin-bottom: 4rem;
 }
+.cont{
+  background-image: url('../src/Components/images/profile2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 40px;
+}
 
 .Home .infor h3 {
   margin-bottom: 3rem;
@@ -272,7 +279,10 @@ span .label {
   font-size: 4.5rem;
   color: rgb(163, 13, 123);
 }
-
+.hed h5{
+  font-size: 20px;
+  margin-bottom: 20px;
+}
 .hed p {
   font-size: 1.6rem;
   margin: 10px 150px;

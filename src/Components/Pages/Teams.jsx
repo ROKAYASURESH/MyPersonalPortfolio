@@ -21,7 +21,7 @@ export default function Teams() {
        
             <div className="row gy-5">
             <div className="hed">
-           <h1>Our Teams</h1>
+           <h1>SUPPORTING</h1>
            <h5>TEAMS WITH ME</h5> 
            <p>My team is composed of web developers, graphic designers, and android developers.
         Together, they have the skills and expertise to design, develop, and launch cutting-edge web and mobile applications

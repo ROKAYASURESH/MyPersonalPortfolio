@@ -41,7 +41,9 @@ document.title="Out Service Detail"
                 <img src={Pt. Project} alt="" />
                 <div class="layer">
 						<h4>{Pt.Pheading}</h4>
-						<p>{Pt.PParagraph}</p>      
+						<p>{Pt.PParagraph}</p>   
+            <Link to={`/portfoliodetails/${Pt.Pheading}`}>{Pt.Pincon} </Link>
+
 					</div>
             </div>
             ))}
