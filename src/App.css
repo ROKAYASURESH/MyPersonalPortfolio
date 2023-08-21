@@ -87,6 +87,11 @@
   .para{
     padding: 2px;
   }
+  .imx img{
+    height: 300px;
+    border-radius: 20px;
+    margin: auto;
+  }
   /* home about */
   .right .img-container{
     margin: auto;
@@ -103,6 +108,7 @@
   /*home contact */
   .containers{
     margin: auto;
+    width: 100%;
   }
 
   .work img{
@@ -136,10 +142,7 @@
 .sci{
   left:80px
 }
-.imx img{
-  height: 300px;
-  border-radius: 20px;
-}
+
 .card-bod h1{
   font-size: 10px;
 }
