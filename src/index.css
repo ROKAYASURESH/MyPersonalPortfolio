@@ -800,6 +800,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
   /* flex-wrap: wrap ; */
   flex-direction: row-reverse;
   height: 100%;
@@ -823,7 +824,7 @@ input {
 .right .img-container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  position: relative;
+  /* position: relative; */
   align-items: center;
   margin-bottom: 60px;
   margin-left: 200px;
@@ -839,8 +840,7 @@ input {
 }
 
 .right .top {
-  width: 300px;
-
+  width: 29vw;
   grid-column: 1 / span 8;
   grid-row: 1;
   padding-top: 20%;
@@ -848,6 +848,8 @@ input {
 }
 
 .right .bottom {
+  width: 29vw;
+
   grid-column: 4 / -1;
   grid-row: 1;
   /* padding-top: 20%; */
@@ -858,7 +860,7 @@ input {
 .containers {
   width: 85%;
   background: #fff;
-  margin-left: 100px;
+  margin: auto;
   margin-bottom: 100px;
   border-radius: 6px;
   padding: 20px 60px 30px 40px;

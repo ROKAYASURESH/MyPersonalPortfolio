@@ -63,18 +63,20 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
       <div className='about'>
         <div className='left'>
           <h1 style={{ color: 'white', fontSize: '4rem' }}>Who Am I?</h1>
           <p style={{ color: 'white', fontSize: '2rem' }}> I am react Frontend developer. I create responsive secure website for my clinet</p>
           <Link to='/Contact'  ><button className='btn' style={{ color: 'white', fontSize: '2rem', background: 'blue' }}>Contact</button></Link>
         </div>
+
         <div className='right' >
           <div className='img-container'>
             <div className='img-stack top'>
               <img src={abs} alt='' title="suresh" />
-
             </div>
+            
             <div className='img-stack bottom'>
               <img src={avs} alt='' />
             </div>
