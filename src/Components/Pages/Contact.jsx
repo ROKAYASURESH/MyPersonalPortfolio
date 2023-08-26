@@ -51,7 +51,7 @@ export default function Contact() {
 
                 </div>
                 <div className="row">
-                    <div className="col-lg-5 col-10 mx-auto" style={{ border: "4px solid transparent", padding: "15px 70px", outline: "4px solid white", boxShadow: "5px 5px 0px white inset, -5px -5px 0px white inset", borderRadius: "10px", background: "skyblue" }}>
+                    <div className="col-lg-5 col-10 mx-auto" style={{ border: "4px solid transparent", padding: "15px 70px", outline: "2px solid #041A80", boxShadow: "2px 2px 0px #041A80 inset, -2px -2px 0px #041A80 inset", borderRadius: "3px" }}>
                         <h1 className='msg'>Send Message</h1>
                         <form action="" onSubmit={formSubmit}>
                             <div>

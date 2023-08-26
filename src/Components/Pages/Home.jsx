@@ -39,7 +39,7 @@ export default function Home() {
             <div className="col-lg-6 infor skr ">
               <h3>WELCOME TO MY WEBSITE</h3>
               <h1>I'm SureshRokaya  <br />
-                <span className='tex' style={{ fontSize: "35px" }}> {text}</span>
+                <span className='tex' > {text}</span>
                 <Cursor cursorColor='pink' /><br />
                 based in Nepal
               </h1>

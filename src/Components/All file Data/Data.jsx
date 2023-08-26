@@ -92,42 +92,12 @@ const ServiceData=[
 // .....................................PORTFOLIO PAGE...............................
 const PortfolioData=[
     {
-        id:1,
-        Project:ecomerce,
-        Pheading:"Professional",
-        PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        Pincon:<FaLink/>,
-        URL: "https://ismt.edu.np/"  
-    },
-    {
-        id:2,
-        Project: CSS ,
-        Pheading:"Ecomerce",
-        PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        Pincon:<FaLink/>,
-    },
-    {
-        id:3,
-        Project:bootstrap,
-        Pheading:"Bootstrap",
-        PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        Pincon:<FaLink/>,
-    },
-    {
         id:4,
         Project:bootstrap2 ,
         Pheading:"Bootstrap",
         PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         Pincon:<FaLink/>,
     },
-    // {
-    //     id:5,
-    //     Project:first ,
-    //     Pheading:"Hotel",
-    //     PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    //     Pincon:<FaLink/>
-    // }
-    ,
     {
         id:5,
         Project:portfolio,
@@ -138,18 +108,53 @@ const PortfolioData=[
     },
     {
         id:5,
+        Project:Hotel ,
+        Pheading:"Hotel",
+        PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        Pincon:<FaLink/>
+    },
+    {
+        id:1,
+        Project:ecomerce,
+        Pheading:"Professional",
+        PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        Pincon:<FaLink/>,
+        URL: "https://ismt.edu.np/"  
+    },
+    
+  
+    {
+        id:3,
+        Project:bootstrap,
+        Pheading:"Bootstrap",
+        PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        Pincon:<FaLink/>,
+    },
+    
+   
+    {
+        id:5,
         Project:Portfolio2 ,
         Pheading:"Library",
         PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         Pincon:<FaLink/>
     },
-    {
-        id:5,
-        Project:Hotel ,
-        Pheading:"Hotel",
-        PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        Pincon:<FaLink/>
-    }
+     // {
+    //     id:2,
+    //     Project: CSS ,
+    //     Pheading:"Ecomerce",
+    //     PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    //     Pincon:<FaLink/>,
+    // },
+    // {
+    //     id:5,
+    //     Project:first ,
+    //     Pheading:"Hotel",
+    //     PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    //     Pincon:<FaLink/>
+    // }
+    ,
+   
 ]
 
 // ...........................TEAM PAGE............................................

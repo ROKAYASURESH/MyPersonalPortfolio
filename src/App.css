@@ -69,11 +69,15 @@
   }
 }
 @media (max-width:380px) {
+  .skr h3{
+    padding: 0 20px;
+  }
   .skr h1{
-    font-size: 5rem;
+    font-size: 4rem;
+    padding: 0 20px;
   }
   .skr .tex{
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
 
 }
@@ -251,7 +255,7 @@
   }
  .text{
   position: absolute;
-  bottom: 140px;
+  bottom: 100px;
   right: 50px;
 }
 .text h2{

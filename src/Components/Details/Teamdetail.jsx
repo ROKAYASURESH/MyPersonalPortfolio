@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { teamdata } from '../All file Data/Data';
+import { Link } from 'react-router-dom';
 
 
 
@@ -10,7 +11,11 @@ export default function Teamdetail() {
   return (
     <>  
     <div className="whole bg-dark py-5 ">
-       <div className="container bb py-5  rounded-5 my-5" style={{border:"1px solid black" ,background:"pink" }} >
+
+    <p style={{zIndex:'11', color:'white', fontSize:"1.5rem", paddingTop:"60px", paddingLeft:"30px"}}><Link className="nav-link" to="/team">Back</Link> </p>
+
+       <div className="container bb py-5  rounded-5 mb-5" style={{border:"1px solid black" ,background:"pink" }} >
+
         <div className="row ">
             <div className="col-lg-5 m-5 sds" style={{opacity: '0.9'}}>
                 <img className='rounded-5 ' src={foun.icon} alt="" width="95%" height="100%"/>
