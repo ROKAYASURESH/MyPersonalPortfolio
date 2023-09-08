@@ -12,7 +12,7 @@ import { FaDownload } from 'react-icons/fa';
 import { AiFillContacts } from "@react-icons/all-files/ai/AiFillContacts";
 import { Link } from 'react-router-dom';
 
-import img from '../images/suresh.webp'
+import img from '../images/suresh.png'
 import myphoto from '../images/myphoto.png'
 
 
