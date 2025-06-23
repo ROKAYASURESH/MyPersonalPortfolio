@@ -13,7 +13,7 @@ import { AiFillContacts } from "@react-icons/all-files/ai/AiFillContacts";
 import { Link } from 'react-router-dom';
 
 import img from '../images/suresh.png'
-import myphoto from '../images/myphoto.png'
+import myphoto from '../images/IMG_3682.jpg'
 
 
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
