@@ -1,66 +1,166 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom'
-import logo from '../images/logo.png'
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { NavLink, useLocation, Link } from 'react-router-dom';
+import logo from '../images/logo.png';
+import { FaDownload } from 'react-icons/fa';
+import ThemeToggle from '../Common/ThemeToggle';
 
-export default function Header() {  
-  /* ...........when scrol then bg color show....... */
-  const [color, setColor]=useState(false);
-  const changeColor=()=>{
-      if(window.scrollY >=50)
-      {
-          setColor(true);
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
       }
-      else
-      {
-          setColor(false);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (mobileMenuOpen && !event.target.closest('.navbar')) {
+        setMobileMenuOpen(false);
       }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [mobileMenuOpen]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.style.overflow = 'unset';
+      document.body.classList.remove('menu-open');
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.body.classList.remove('menu-open');
+    };
+  }, [mobileMenuOpen]);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  window.addEventListener("scroll",changeColor);
-  // end
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
+  const isActive = (path) => {
+    if (path === '/MyPersonalPortfolio') {
+      return location.pathname === '/MyPersonalPortfolio' || location.pathname === '/';
+    }
+    return location.pathname === path;
+  };
+
   return (
-    <>
-    <div className={color ?"header header-bg":"header"}>
-        <nav className="navbar navbar-expand-lg" >
-        <div className="container suresh">
-          <NavLink className="navbar-brand" to="/MyPersonalPortfolio">
-            <img src={logo} alt="" />
-           
-          </NavLink>
-          <h3>SURESH ROKAYA</h3>
-          <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon bg-light text-light" />
-          </button>
-          <div className="collapse navbar-collapse text-center" id="navbarSupportedContent">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink className="nav-link " aria-current="page" to="/MyPersonalPortfolio">Home</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/about">About</NavLink>
-              </li>
-
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/service">Service</NavLink>
-              </li>
-
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/portfolio">Portfolio</NavLink>
-              </li>
-
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/team">Our Teams</NavLink>
-              </li>
-
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/contact">Contact</NavLink>
-              </li>
-            </ul>
+    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+      <nav className="navbar">
+        <NavLink
+          className="navbar-brand"
+          to="/MyPersonalPortfolio"
+          onClick={closeMobileMenu}
+        >
+          <div className="brand-logo-wrapper">
+            <img src={logo} alt="Suresh Rokaya" />
+            <div className="logo-glow"></div>
           </div>
-        </div>
+          <div className="brand-text">
+            <span className="brand-name">SURESH ROKAYA</span>
+            <span className="brand-title">Full-Stack Developer</span>
+          </div>
+        </NavLink>
+
+        <button
+          className={`navbar-toggler ${mobileMenuOpen ? 'active' : ''}`}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle navigation"
+          aria-expanded={mobileMenuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div className={`navbar-overlay ${mobileMenuOpen ? 'active' : ''}`} onClick={closeMobileMenu}></div>
+
+        <ul className={`navbar-nav ${mobileMenuOpen ? 'active' : ''}`}>
+          <li className="nav-item">
+            <NavLink
+              className={`nav-link ${isActive('/MyPersonalPortfolio') ? 'active' : ''}`}
+              to="/MyPersonalPortfolio"
+              onClick={closeMobileMenu}
+            >
+              <span className="nav-text">Home</span>
+              <span className="nav-indicator"></span>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              className={`nav-link ${isActive('/about') ? 'active' : ''}`}
+              to="/about"
+              onClick={closeMobileMenu}
+            >
+              <span className="nav-text">About</span>
+              <span className="nav-indicator"></span>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              className={`nav-link ${isActive('/portfolio') ? 'active' : ''}`}
+              to="/portfolio"
+              onClick={closeMobileMenu}
+            >
+              <span className="nav-text">Portfolio</span>
+              <span className="nav-indicator"></span>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              className={`nav-link ${isActive('/service') ? 'active' : ''}`}
+              to="/service"
+              onClick={closeMobileMenu}
+            >
+              <span className="nav-text">Services</span>
+              <span className="nav-indicator"></span>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              className={`nav-link ${isActive('/teams') ? 'active' : ''}`}
+              to="/teams"
+              onClick={closeMobileMenu}
+            >
+              <span className="nav-text">Teams</span>
+              <span className="nav-indicator"></span>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
+              to="/contact"
+              onClick={closeMobileMenu}
+            >
+              <span className="nav-text">Contact</span>
+              <span className="nav-indicator"></span>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <ThemeToggle />
+          </li>
+        </ul>
       </nav>
-    </div>
-    </>
-  )
+    </header>
+  );
 }

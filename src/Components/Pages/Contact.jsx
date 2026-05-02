@@ -1,143 +1,217 @@
-import React, { useState, useEffect } from 'react'
-import { FaPhone, FaLocationArrow } from 'react-icons/fa';
-import { BsVoicemail, MdEmail } from "react-icons/bs";
-import { AiOutlineMail } from "react-icons/ai"
-import HeroImg from '../Common/HeroImg';
-
+import React, { useState, useEffect } from 'react';
+import { FaPhone, FaLocationArrow, FaEnvelope, FaMapMarkerAlt, FaArrowRight } from 'react-icons/fa';
+import { AiOutlineMail, AiFillContacts } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 export default function Contact() {
+  useEffect(() => {
+    document.title = 'Contact | Suresh Rokaya';
+  }, []);
 
+  const [data, setData] = useState({
+    fullname: '',
+    phone: '',
+    email: '',
+    msg: ''
+  });
 
-
-    useEffect(() => {
-        // Update the document title using the browser API
-        document.title = `Contact-Page`;
-
+  const InputEvent = (event) => {
+    const { name, value } = event.target;
+    setData((preVal) => {
+      return {
+        ...preVal,
+        [name]: value,
+      };
     });
+  };
 
-    const [data, setData] = useState({
-        fullname: " ",
-        phone: " ",
-        email: " ",
-        msg: " "
+  const formSubmit = (e) => {
+    e.preventDefault();
+    alert(`Thank you ${data.fullname}! I have received your message. I will get back to you at ${data.email} soon.`);
+    setData({
+      fullname: '',
+      phone: '',
+      email: '',
+      msg: ''
     });
+  };
 
-    const InputEvent = (event) => {
-        const { name, value } = event.target;
+  return (
+    <>
+      {/* Modern Hero Section */}
+      <section className="page-hero-section">
+        <div className="hero-background"></div>
+        <div className="hero-gradient"></div>
+        <div className="gradient-blob blob-1"></div>
+        <div className="gradient-blob blob-2"></div>
 
-        setData((preVal) => {
-            return {
-                ...preVal,
-                [name]: value,
-            }
+        <div className="hero-content">
+          {/* <div className="hero-badge">
+            <FaEnvelope className="badge-icon" />
+            <span>Let's Connect</span>
+          </div> */}
 
-        })
-    }
+          <h1 className="hero-title">
+            Get In <span className="text-gradient">Touch</span>
+          </h1>
 
-    const formSubmit = (e) => {
-        e.preventDefault();
-        alert(`My name is${data.fullname}. My mobile number is ${data.phone} and email is ${data.email}, Here is what i want to say ${data.msg}`)
-    };
+          <p className="hero-subtitle">
+            Have a project in mind? Let's work together to make it happen.
+            I'm always open to discussing new opportunities and exciting projects.
+          </p>
 
-    return (
-        <>
-
-            <HeroImg heading="Contact" text="Drop us a line. We're listening." />
-
-            <div className="container-fluid contact_div bg-dark py-4"  >
-                <div className=" container ">
-                    <div className="hed"> <h1 className='text-center'>Contact US </h1>
-                        <p className='para' style={{ fontSize: "20px", color: "white" , marginBottom:"40px" }}>"Please feel free to reach out to us with any questions, comments, or concerns. We are here to help and will respond to your inquiry as soon as possible."</p></div>
-
-                </div>
-                <div className="row">
-                    <div className="col-lg-5 col-10 mx-auto" style={{ border: "4px solid transparent", padding: "15px 70px", outline: "2px solid #041A80", boxShadow: "2px 2px 0px #041A80 inset, -2px -2px 0px #041A80 inset", borderRadius: "3px" }}>
-                        <h1 className='msg'>Send Message</h1>
-                        <form action="" onSubmit={formSubmit}>
-                            <div>
-                                <div className="mb-3">
-                                    <label htmlFor="exampleFormControlInput1" className="form-label ">Full Name</label>
-                                    <input required type="text" className="form-control" id="exampleFormControlInput1"
-                                        name="fullname"
-                                        value={data.fullname}
-                                        onChange={InputEvent}
-                                        placeholder="suresh" />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="exampleFormControlInput1" className="form-label">Phone</label>
-                                    <input type="number" className="form-control" id="exampleFormControlInput1"
-                                        name="phone"
-                                        value={data.phone}
-                                        onChange={InputEvent}
-                                        placeholder="Enter your Phone Number" required />
-                                </div>
-
-                                <div className="mb-3">
-                                    <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
-                                    <input type="email" className="form-control" id="exampleFormControlInput1"
-                                        name="email"
-                                        value={data.email}
-                                        onChange={InputEvent}
-                                        placeholder="enter Your Email Address" required />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="exampleFormControlTextarea1" className="form-label">Comment</label>
-                                    <textarea className="form-control" id="exampleFormControlTextarea1" rows={3}
-                                        name="msg"
-                                        value={data.msg}
-                                        onChange={InputEvent}
-                                        placeholder="Comment" required />
-                                </div>
-                            </div>
-
-                            <div className="col-12 button">
-                                <button className='btn btn-outline-primary px-4 py-2 ' type='submit'>Submit</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div className="col-lg-6">
-                        <div className="row">
-                            <div className="col-lg-12 col-10 mx-auto py-4 mx-auto ful-box">
-                                <h1 className='text-primary-emphasis fw-bold'>Contact me</h1>
-                                <div className="box">
-                                    <div className="icons">
-                                        <FaLocationArrow />
-                                    </div>
-                                    <div className="materoal">
-                                        <h3>Address</h3>
-                                        <a href="">M8CW+JJM Capital College & Research Center, Surya Kot Marg 35, Kathmandu 44600 <br />
-                                            Koteshwor, Kathmandu 44600</a>
-                                    </div>
-                                </div>
-
-                                <div className="box">
-                                    <div className="icons">
-                                        <FaPhone />
-                                    </div>
-                                    <div className="materoal">
-                                        <h3>Phone</h3>
-                                        <a href="tel:9869504717"> +997 9869504717</a>
-                                    </div>
-                                </div>
-
-                                <div className="box">
-                                    <div className="icons">
-                                        <AiOutlineMail />
-                                    </div>
-                                    <div className="materoal">
-                                        <h3>Email</h3>
-                                        <a href="mailto:rokayasursh028@gmail.com"> rokayasursh028@gmail.com</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div className="hero-features">
+            <div className="hero-feature-item">
+              <FaEnvelope className="feature-icon" />
+              <span>Quick Response</span>
             </div>
-            <br />
-            <br />
+            <div className="hero-feature-item">
+              <FaMapMarkerAlt className="feature-icon" />
+              <span>Kathmandu, Nepal</span>
+            </div>
+            <div className="hero-feature-item">
+              <FaPhone className="feature-icon" />
+              <span>Available 24/7</span>
+            </div>
+          </div>
 
-        </>
-    )
+          <div className="hero-buttons">
+            <a href="#contact" className="btn btn-primary btn-glow">
+              Send Message
+              <FaArrowRight style={{ marginLeft: '8px' }} />
+            </a>
+            <Link to="/portfolio" className="btn btn-outline">
+              View Portfolio
+              <FaArrowRight style={{ marginLeft: '8px' }} />
+            </Link>
+          </div>
+        </div>
+
+        <div className="hero-scroll-indicator">
+          <div className="scroll-mouse"></div>
+        </div>
+      </section>
+
+      <section className="contact-section" id="contact">
+        <div className="gradient-blob blob-3"></div>
+        <div className="container">
+          <div className="section-title">
+            <h2>Let's Start a <span className="text-gradient">Conversation</span></h2>
+            <p>
+              Whether you have a question about my work, want to discuss a project,
+              or just want to say hi, I'd love to hear from you.
+            </p>
+          </div>
+          <div className="contact-content">
+            <div className="contact-info-wrapper">
+              <div className="contact-info">
+                <div className="contact-item">
+                  <div className="contact-icon">
+                    <FaLocationArrow />
+                  </div>
+                  <div className="contact-details">
+                    <h4>Visit Me</h4>
+                    <p>M8CW+JJM Capital College, Koteshwor</p>
+                    <p>Kathmandu 44600, Nepal</p>
+                  </div>
+                </div>
+                <div className="contact-item">
+                  <div className="contact-icon">
+                    <FaPhone />
+                  </div>
+                  <div className="contact-details">
+                    <h4>Call Me</h4>
+                    <a href="tel:+9779869504717">+977 9869504717</a>
+                  </div>
+                </div>
+                <div className="contact-item">
+                  <div className="contact-icon">
+                    <AiOutlineMail />
+                  </div>
+                  <div className="contact-details">
+                    <h4>Email Me</h4>
+                    <a href="mailto:sureshrokaya761@gmail.com">sureshrokaya761@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="contact-map-container">
+                <iframe
+                  title="My Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.02983141154!2d85.34188701506161!3d27.685474982801454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199026369065%3A0x70b2ad0441584b42!2sKoteshwor%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1625470000000!5m2!1sen!2snp"
+                  width="100%"
+                  height="250"
+                  style={{ border: 0, borderRadius: '16px' }}
+                  allowFullScreen=""
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+
+            <div className="contact-form-card">
+              <div className="form-header">
+                <h3>Send a Message</h3>
+                <p>Feel free to drop a message, and I'll get back to you within 24 hours.</p>
+              </div>
+              <form onSubmit={formSubmit} className="modern-form">
+                <div className="form-row">
+                  <div className="form-group flex-1">
+                    <label className="form-label">Full Name</label>
+                    <input
+                      type="text"
+                      className="form-input"
+                      name="fullname"
+                      value={data.fullname}
+                      onChange={InputEvent}
+                      placeholder="John Doe"
+                      required
+                    />
+                  </div>
+                  <div className="form-group flex-1">
+                    <label className="form-label">Phone</label>
+                    <input
+                      type="tel"
+                      className="form-input"
+                      name="phone"
+                      value={data.phone}
+                      onChange={InputEvent}
+                      placeholder="+977 98..."
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label className="form-label">Email Address</label>
+                  <input
+                    type="email"
+                    className="form-input"
+                    name="email"
+                    value={data.email}
+                    onChange={InputEvent}
+                    placeholder="john@example.com"
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="form-label">Your Message</label>
+                  <textarea
+                    className="form-textarea"
+                    name="msg"
+                    value={data.msg}
+                    onChange={InputEvent}
+                    placeholder="How can I help you?"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" className="btn btn-primary btn-glow submit-btn">
+                  <span>Send Message</span>
+                  <FaArrowRight />
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }

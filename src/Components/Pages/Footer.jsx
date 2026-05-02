@@ -1,81 +1,88 @@
-import React from 'react'
-import logo from '../images/logo.png'
-import { FaFacebook, FaTwitterSquare, FaInstagramSquare } from 'react-icons/fa/';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../images/logo.png';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
 
-export default function
-    () {
-    return (
-        <>
-            <div className="contactsss mt-5">
+  return (
+    <footer className="footer">
+      <div className="footer-content">
+        <div className="footer-section">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1rem' }}>
+            <img src={logo} alt="Suresh Rokaya" style={{ width: '40px', height: '40px', borderRadius: '8px' }} />
+            <h3 style={{ margin: 0, fontSize: 'var(--font-size-xl)' }}>Suresh Rokaya</h3>
+          </div>
+          <p>
+          Full-Stack Developer skilled in Django REST and React.js, creating seamless web experiences.
+          </p>
+          <div className="social-icons">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <FaFacebook />
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <FaTwitter />
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <FaInstagram />
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <FaLinkedin />
+            </a>
+            <a href="https://github.com/ROKAYASURESH" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <FaGithub />
+            </a>
+          </div>
+        </div>
 
+        <div className="footer-section">
+          <h3>Location</h3>
+          <ul className="footer-links">
+            <li>Near CCRC College</li>
+            <li>Koteshwor, 32</li>
+            <li>Kathmandu, Nepal</li>
+          </ul>
+        </div>
 
-                <div className="container-fluid footer bg-dark ">
-                    <div className="row">
-                        <div className="col-lg-10 col-5 mx-auto ">
-                            <div className="row ">
-                                <div className="col-lg-3 hide mx-auto">
-                                    <div className="f-image">
-                                        <img src={logo} alt="" />
-                                        {/* <span>Suresh Rokaya</span>  */}
-                                    </div>
-                                    <div className="f-title">
-                                        <p> As a web developer, We have a strong team understanding of web technologies and the ability to create and maintain websites and web applications. We have a good grasp of programming languages such as HTML, CSS, and JavaScript, as well as experience with frameworks and libraries like Bootstrap , React, and React JS .</p>
-                                    </div>
-                                </div>
+        <div className="footer-section">
+          <h3>Quick Links</h3>
+          <ul className="footer-links">
+            <li>
+              <Link to="/MyPersonalPortfolio">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/portfolio">Portfolio</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+          </ul>
+        </div>
 
-                                <div className="col-lg-3 location hide  ">
-                                    <h3> <span>Location</span> </h3>
-                                    <ul>
-                                        <li>Near CCRC College</li>
-                                        <li>Koteshwork 32</li>
-                                        <li>Kathmandu</li>
+        <div className="footer-section">
+          <h3>Contact</h3>
+          <p style={{ marginBottom: '0.5rem' }}>
+            <a href="mailto:sureshrokaya761@gmail.com">sureshrokaya761@gmail.com</a>
+          </p>
+          <p style={{ marginBottom: '0.5rem' }}>
+            <a href="tel:+9779869504717">+977 9869504717</a>
+          </p>
+          <p style={{ marginBottom: '0.5rem' }}>
+            <a href="https://github.com/ROKAYASURESH" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+          </p>
+        </div>
+      </div>
 
-                                    </ul>
-                                </div>
-
-                                <div className="col-lg-2 location hide ">
-                                    <h3><span>Links</span> </h3>
-                                    <ul>
-                                        <li> <a href="/">Home</a> </li>
-                                        <li><a href="/about">About</a></li>
-                                        <li><a href="/service">Service</a></li>
-                                        <li><a href="/portfolio">portfolio</a></li>
-                                        <li> <a href="/team">Teams</a></li>
-                                        <li><a href="/contact">Contact</a></li>
-                                    </ul>
-                                </div>
-
-                                <div className="col-lg-3 location f-contact">
-                                    <h3><span>Contact</span></h3>
-                                    <form>
-                                        <div className="mb-3">
-                                            <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='fill email address' />
-                                        </div>
-
-                                        <button type="submit" className="btn btn-primary text-center">Submit</button>
-                                    </form>
-                                    <div className="f-icon">
-                                        <ul>
-
-                                            <li><a href="https://www.facebook.com/" target="_blank"><FaFacebook /></a></li>
-
-                                            <li>  <a href=""><FaTwitterSquare /></a> </li>
-                                            <li><FaInstagramSquare /></li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                        <div className="col-lg-12 cpright">Copyright © 2023 by Suresh Rokay</div>
-                    </div>
-                    <h1 className="class mx-auto bg-dark">Building beautiful and functional interfaces with code</h1>
-                </div>
-            </div>
-
-        </>
-    )
+      <div className="footer-bottom">
+        <p>Copyright © {currentYear} by Suresh Rokaya. All rights reserved.</p>
+        <p style={{ marginTop: '0.5rem', fontSize: 'var(--font-size-xs)', opacity: 0.7 }}>
+          Building beautiful and functional interfaces with code
+        </p>
+      </div>
+    </footer>
+  );
 }

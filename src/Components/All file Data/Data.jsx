@@ -22,31 +22,37 @@ import custom from "../images/custom.png"
 // ...............................ABOUT PAGE.........................................
 const tabcontent=[
     {
-        title:"HTML",
-        Percentages:"75%",
-        width:"75%",
+        title:"Django & Django REST Framework",
+        Percentages:"90%",
+        width:"90%",
        
     },
     {
-        title:"CSS",
-        Percentages:"65%",
-        width:"65%"
+        title:"React.js & Hooks",
+        Percentages:"85%",
+        width:"85%"
     },
     {
-        title:"JAVASCRIPT",
-        Percentages:"35%",
-        width:"35%"
+        title:"REST API Development",
+        Percentages:"88%",
+        width:"88%"
 
     },
     {
-        title:"REACT JS",
-        Percentages:"15%",
-        width:"15%",
+        title:"PostgreSQL & MySQL",
+        Percentages:"82%",
+        width:"82%",
     },
     {
-        title:"Designing",
-        Percentages:"50%",
-        width:"50%"
+        title:"JavaScript & TypeScript",
+        Percentages:"85%",
+        width:"85%"
+
+    },
+    {
+        title:"Git & GitHub",
+        Percentages:"90%",
+        width:"90%"
 
     },
     

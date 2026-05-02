@@ -1,98 +1,251 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { teamdata } from '../All file Data/Data';
-import { Link } from 'react-router-dom';
-
-
+import { FaArrowLeft, FaFacebook, FaWhatsappSquare, FaLinkedin } from 'react-icons/fa';
 
 export default function Teamdetail() {
-    let {id}=useParams();
-    const foun =teamdata.find(element=>element.id==id);
-  return (
-    <>  
-    <div className="whole bg-dark py-5 ">
+  const [activeTab, setActiveTab] = useState('skill');
+  const [skillsVisible, setSkillsVisible] = useState(false);
 
-    <p style={{zIndex:'11', color:'white', fontSize:"1.5rem", paddingTop:"60px", paddingLeft:"30px"}}><Link className="nav-link" to="/team">Back</Link> </p>
-
-       <div className="container bb py-5  rounded-5 mb-5" style={{border:"1px solid black" ,background:"pink" }} >
-
-        <div className="row ">
-            <div className="col-lg-5 m-5 sds" style={{opacity: '0.9'}}>
-                <img className='rounded-5 ' src={foun.icon} alt="" width="95%" height="100%"/>
-            </div>
-
-            <div className="col-lg-6 d-flex justify-content-center align-items-center flex-column">
-                <h1>{foun.heading} </h1>
-                <h3>{foun.paragraph} </h3>
-               <h4 style={{textAlign: 'justify' , padding:"10px 0"}}>{foun.About}</h4>
-               <div className="row">
-
-                <div className="col-lg-12 py-5 nn">
-                <ul className="nav Ramesh nav-pills justify-content-lg-between mb-3" id="pills-tab" role="tablist ">
-              <li className="nav-item" role="presentation ">
-                <button className="nav-link active " id="pills-skill-tab" data-bs-toggle="pill" data-bs-target="#pills-skill" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><div className="btt">{foun.MainSkill}</div></button>
-              </li>
+  useEffect(() => {
+    window.scrollTo(0, 0);
     
-              <li className="nav-item exp" role="presentation">
-                <button className="nav-link" id="pills-Experiance-tab" data-bs-toggle="pill" data-bs-target="#pills-Experiance" type="button" role="tab" aria-controls="pills-Experiance" aria-selected="false"><div className="btt">{foun.Experience}</div></button>
-              </li>
-              <li className="nav-item" role="presentation">
-                <button className="nav-link" id="pills-Education-tab" data-bs-toggle="pill" data-bs-target="#pills-Education" type="button" role="tab" aria-controls="pills-Education" aria-selected="false"> <div className="btt">{foun.Education} </div></button>
-              </li>
-            </ul>
+    // Intersection Observer for skills animation
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setSkillsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-            <div className="tab-content" id="pills-tabContent">
-            {/* Skilll */}
-         <div className="tab-pane fade show active" id="pills-skill" role="tabpanel" aria-labelledby="pills-skill-tab" tabIndex={0}>
-             <div className="single-progress">
-         <h6>{foun.HTMLtitle}</h6>
-         <div className="progress">
-           <div className="progress-bar" role="progressbar" style={{width: `${foun.HTMLwidth}`}}  aria-valuenow={50} aria-valuemin={0} aria-valuemax={100} />
-           <div><span className="label">{foun.HTMLpercentages}</span></div>
-         </div>
+    const skillsSection = document.querySelector('.team-skills-container');
+    if (skillsSection) {
+      observer.observe(skillsSection);
+    }
 
-         <h6>{foun.CSStitle}</h6>
-         <div className="progress">
-           <div className="progress-bar" role="progressbar" style={{width: `${foun.CSSwidth}`}}  aria-valuenow={50} aria-valuemin={0} aria-valuemax={100} />
-           <div><span className="label">{foun.CSSPercentages}</span></div>
-         </div>
+    return () => {
+      if (skillsSection) {
+        observer.unobserve(skillsSection);
+      }
+    };
+  }, []);
 
-         <h6>{foun.Fluttortitle}</h6>
-         <div className="progress">
-           <div className="progress-bar" role="progressbar" style={{width: `${foun.Fluttorwidth}`}}  aria-valuenow={50} aria-valuemin={0} aria-valuemax={100} />
-           <div><span className="label">{foun.FluttorPercentages}</span></div>
-         </div>
-       </div>
-    
+  let { id } = useParams();
+  const teamMember = teamdata.find(element => element.id == id);
 
-     </div>
-         {/* Experiance */}
-         <div className="tab-pane fade" id="pills-Experiance" role="tabpanel" aria-labelledby="pills-Experiancet-tab" tabIndex={0}>
-           <ul className="text-start ps-0">
-           <li>{foun.WorkExp}</li>
-           </ul>
-
-         </div>
-
-     {/* Education */}
-
-            <div className="tab-pane fade suresh" id="pills-Education" role="tabpanel" aria-labelledby="pills-Education-tab" tabIndex={0}>
-           <ul className="text-start ps-0">                 
-             <li><a href> {foun.SEE}</a></li>
-             <li><a href>{foun.Higher}</a> </li>
-
-             <li><a href> {foun.Bachelor}</a></li>
-
-           </ul>
-         </div>
-         </div>
-
-                </div>
-               </div>
-            </div>
+  if (!teamMember) {
+    return (
+      <div className="detail-page-error">
+        <div className="container">
+          <h2>Team member not found</h2>
+          <Link to="/teams" className="btn btn-primary">Back to Teams</Link>
         </div>
-       </div>
-       </div>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {/* Hero Section */}
+      <section className="detail-hero-section">
+        <div className="hero-background"></div>
+        <div className="hero-gradient"></div>
+        <div className="gradient-blob blob-1"></div>
+        <div className="gradient-blob blob-2"></div>
+        
+        <div className="container">
+          {/* <Link to="/teams" className="detail-back-button">
+            <FaArrowLeft style={{ marginRight: '8px' }} />
+            Back to Teams
+          </Link> */}
+          
+          <div className="detail-hero-content pt-5">
+            <div className="team-hero-image-wrapper pt-5">
+              <div className="team-hero-image-glow"></div>
+              <img src={teamMember.icon} alt={teamMember.heading} />
+            </div>
+            <h1 className="detail-hero-title">
+              {teamMember.heading}
+            </h1>
+            <p className="detail-hero-subtitle team-role-subtitle">
+              {teamMember.paragraph}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Detail Section */}
+      <section className="team-detail-section">
+        <div className="container">
+          <div className="team-detail-grid">
+            {/* Team Image */}
+            <div className="team-detail-image-wrapper">
+              <div className="team-detail-image-glow"></div>
+              <img src={teamMember.icon} alt={teamMember.heading} />
+              <div className="team-status-badge-large">
+                <span className="status-dot"></span>
+                Available
+              </div>
+            </div>
+
+            {/* Team Info */}
+            <div className="team-detail-info">
+              <div className="team-about-card">
+                <h2>About</h2>
+                <p>{teamMember.About}</p>
+              </div>
+
+              {/* Social Links */}
+              {(teamMember.message || teamMember.Whatsapp || teamMember.Linkedin) && (
+                <div className="team-social-links-large">
+                  {teamMember.message && (
+                    <a 
+                      href={teamMember.message} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="team-social-link-large"
+                      aria-label="Facebook"
+                    >
+                      <FaFacebook />
+                    </a>
+                  )}
+                  {teamMember.Whatsapp && (
+                    <a 
+                      href={teamMember.Whatsapp} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="team-social-link-large"
+                      aria-label="WhatsApp"
+                    >
+                      <FaWhatsappSquare />
+                    </a>
+                  )}
+                  {teamMember.Linkedin && (
+                    <a 
+                      href={teamMember.Linkedin} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="team-social-link-large"
+                      aria-label="LinkedIn"
+                    >
+                      <FaLinkedin />
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Tabs Section */}
+          <div className="team-tabs-container">
+            <div className="team-tabs-nav">
+              <button
+                className={`team-tab-button ${activeTab === 'skill' ? 'active' : ''}`}
+                onClick={() => setActiveTab('skill')}
+              >
+                {teamMember.MainSkill}
+              </button>
+              <button
+                className={`team-tab-button ${activeTab === 'experience' ? 'active' : ''}`}
+                onClick={() => setActiveTab('experience')}
+              >
+                {teamMember.Experience}
+              </button>
+              <button
+                className={`team-tab-button ${activeTab === 'education' ? 'active' : ''}`}
+                onClick={() => setActiveTab('education')}
+              >
+                {teamMember.Education}
+              </button>
+            </div>
+
+            <div className="team-tab-content">
+              {activeTab === 'skill' && (
+                <div className="team-skills-container">
+                  <div className="team-skill-item">
+                    <div className="team-skill-header">
+                      <span className="team-skill-name">{teamMember.HTMLtitle}</span>
+                      <span className="team-skill-percentage">{teamMember.HTMLpercentages}</span>
+                    </div>
+                    <div className="team-skill-progress">
+                      <div 
+                        className="team-skill-progress-bar"
+                        style={{ 
+                          width: skillsVisible ? teamMember.HTMLwidth : '0%',
+                          transitionDelay: '0.1s'
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div className="team-skill-item">
+                    <div className="team-skill-header">
+                      <span className="team-skill-name">{teamMember.CSStitle}</span>
+                      <span className="team-skill-percentage">{teamMember.CSSPercentages}</span>
+                    </div>
+                    <div className="team-skill-progress">
+                      <div 
+                        className="team-skill-progress-bar"
+                        style={{ 
+                          width: skillsVisible ? teamMember.CSSwidth : '0%',
+                          transitionDelay: '0.2s'
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div className="team-skill-item">
+                    <div className="team-skill-header">
+                      <span className="team-skill-name">{teamMember.Fluttortitle}</span>
+                      <span className="team-skill-percentage">{teamMember.FluttorPercentages}</span>
+                    </div>
+                    <div className="team-skill-progress">
+                      <div 
+                        className="team-skill-progress-bar"
+                        style={{ 
+                          width: skillsVisible ? teamMember.Fluttorwidth : '0%',
+                          transitionDelay: '0.3s'
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'experience' && (
+                <div className="team-tab-panel">
+                  <div className="team-experience-card">
+                    <p>{teamMember.WorkExp}</p>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'education' && (
+                <div className="team-tab-panel">
+                  <div className="team-education-list">
+                    <div className="team-education-item">
+                      <h4>School Level</h4>
+                      <p>{teamMember.SEE}</p>
+                    </div>
+                    <div className="team-education-item">
+                      <h4>Higher Secondary</h4>
+                      <p>{teamMember.Higher}</p>
+                    </div>
+                    <div className="team-education-item">
+                      <h4>Bachelor's Degree</h4>
+                      <p>{teamMember.Bachelor}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
     </>
-  )
+  );
 }
