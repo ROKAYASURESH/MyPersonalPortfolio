@@ -58,8 +58,8 @@ export default function Header() {
   };
 
   const isActive = (path) => {
-    if (path === '/MyPersonalPortfolio') {
-      return location.pathname === '/MyPersonalPortfolio' || location.pathname === '/';
+    if (path === '/') {
+      return location.pathname === '/' || location.pathname === '/';
     }
     return location.pathname === path;
   };
@@ -69,7 +69,7 @@ export default function Header() {
       <nav className="navbar">
         <NavLink
           className="navbar-brand"
-          to="/MyPersonalPortfolio"
+          to="/"
           onClick={closeMobileMenu}
         >
           <div className="brand-logo-wrapper">
@@ -98,8 +98,8 @@ export default function Header() {
         <ul className={`navbar-nav ${mobileMenuOpen ? 'active' : ''}`}>
           <li className="nav-item">
             <NavLink
-              className={`nav-link ${isActive('/MyPersonalPortfolio') ? 'active' : ''}`}
-              to="/MyPersonalPortfolio"
+              className={`nav-link ${isActive('/') ? 'active' : ''}`}
+              to="/"
               onClick={closeMobileMenu}
             >
               <span className="nav-text">Home</span>
