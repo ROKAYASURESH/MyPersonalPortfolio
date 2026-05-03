@@ -78,7 +78,7 @@ export default function About() {
           
           <div className="hero-buttons">
             <a href="#about" className="btn btn-primary btn-glow">
-              View About Me
+              View About Me  ddsdsds
               <FaArrowRight style={{ marginLeft: '8px' }} />
             </a>
             <Link to="/contact" className="btn btn-outline">
