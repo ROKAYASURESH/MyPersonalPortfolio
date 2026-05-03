@@ -78,7 +78,7 @@ export default function About() {
           
           <div className="hero-buttons">
             <a href="#about" className="btn btn-primary btn-glow">
-              View About Me  ddsdsds
+              View About Me
               <FaArrowRight style={{ marginLeft: '8px' }} />
             </a>
             <Link to="/contact" className="btn btn-outline">
@@ -160,7 +160,7 @@ export default function About() {
                 </span>
               </div> */}
               <h2 style={{ marginBottom: '1.5rem' }}>
-                About My fdff <span className="text-gradient">Details</span>
+                About My <span className="text-gradient">Details</span>
               </h2>
               <p style={{ fontSize: 'var(--font-size-lg)', lineHeight: '1.9', marginBottom: '1.5rem' }}>
                 I'm a <strong style={{ color: 'var(--accent-cyan)' }}>passionate Full-Stack Developer</strong> with 
