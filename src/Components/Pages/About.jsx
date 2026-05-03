@@ -160,7 +160,7 @@ export default function About() {
                 </span>
               </div> */}
               <h2 style={{ marginBottom: '1.5rem' }}>
-                About My <span className="text-gradient">Details</span>
+                About My fdff <span className="text-gradient">Details</span>
               </h2>
               <p style={{ fontSize: 'var(--font-size-lg)', lineHeight: '1.9', marginBottom: '1.5rem' }}>
                 I'm a <strong style={{ color: 'var(--accent-cyan)' }}>passionate Full-Stack Developer</strong> with 
