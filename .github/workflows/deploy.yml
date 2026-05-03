@@ -19,7 +19,9 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.SSHKEY }}
-          script: "cd /home/suresh/MyPersonalPortfolio && ./.scripts/deploy.sh"
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /var/www/MyPersonalPortfolio
+            chmod +x ./.scripts/deploy.sh
+            ./.scripts/deploy.sh
