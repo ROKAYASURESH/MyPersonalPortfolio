@@ -68,7 +68,7 @@ export default function Home() {
         <div className="gradient-blob blob-2"></div>
 
         <div className="hero-content">
-          <p className="hero-greeting">👋 Hello, I am</p>
+          <p className="hero-greeting">👋 Hello, I`m</p>
           <h1 className="hero-title">
             <span className="gradient-text">Suresh Rokaya</span>
           </h1>
