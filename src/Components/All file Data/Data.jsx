@@ -2,13 +2,10 @@ import {FaChrome,FaAndroid,FaGratipay } from 'react-icons/fa/';
 
 import  ecomerce  from "../images/1image.png";
 import  bootstrap  from "../images/2image.png";
-import  first  from "../images/3image.png";
 import  portfolio  from "../images/4image.png";
 import  bootstrap2  from "../images/5image.png";
-import  CSS  from "../images/6image.png";
 import  Portfolio2  from "../images/5image1 (2).png";
 import  Hotel  from "../images/9image.png";
-import {FaLink } from 'react-icons/fa/';
 
 import Imag from '../images/1images.jpg';
 import Ima from '../images/2images.jpg';
@@ -76,7 +73,7 @@ const ServiceData=[
         // heading:"Graphic Design",
         heading:"Ecommerce website",
         // paragraph:"Graphic design is the art and practice of creating visual content to communicate information and ideas to an audience. It involves the use of typography, imagery, and color to create designs that are both aesthetically pleasing and effective in conveying a message. Graphic designers use a variety of tools and techniques, including illustration, photography, and digital software such as Adobe Illustrator and Photoshop, to create their designs.",
-        paragraph:"Allows you to sell tangible goods or digital products or services online a website based a website based",
+        paragraph:"Online storefronts for presenting products and helping customers find what they need.",
         Button:"Learn More"
 
     },
@@ -88,7 +85,7 @@ const ServiceData=[
         heading:"Custom website",
 
         // paragraph:"Android development is the process of creating mobile applications for the Android operating system. It involves using the Java or Kotlin programming languages and the Android software development kit (SDK) to create apps that can run on a wide range of devices, including smartphones and tablets. Android developers use a variety of tools and technologies to create and test their apps, such as Android Studio.",
-        paragraph:"Creating a website based on the user’s requirement or unique to the brand a website based a website based",
+        paragraph:"Websites built around your content, requirements, and day-to-day workflow.",
 
         Button:"Learn More"
 
@@ -96,72 +93,15 @@ const ServiceData=[
 ]
 
 // .....................................PORTFOLIO PAGE...............................
-const PortfolioData=[
-    {
-        id:4,
-        Project:bootstrap2 ,
-        Pheading:"Bootstrap",
-        PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        Pincon:<FaLink/>,
-    },
-    {
-        id:5,
-        Project:portfolio,
-        Pheading:"Portfolio",
-        PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        Pincon:<FaLink/>
-
-    },
-    {
-        id:5,
-        Project:Hotel ,
-        Pheading:"Hotel",
-        PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        Pincon:<FaLink/>
-    },
-    {
-        id:1,
-        Project:ecomerce,
-        Pheading:"Professional",
-        PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        Pincon:<FaLink/>,
-        URL: "https://ismt.edu.np/"  
-    },
-    
-  
-    {
-        id:3,
-        Project:bootstrap,
-        Pheading:"Bootstrap",
-        PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        Pincon:<FaLink/>,
-    },
-    
-   
-    {
-        id:5,
-        Project:Portfolio2 ,
-        Pheading:"Library",
-        PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        Pincon:<FaLink/>
-    },
-     // {
-    //     id:2,
-    //     Project: CSS ,
-    //     Pheading:"Ecomerce",
-    //     PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    //     Pincon:<FaLink/>,
-    // },
-    // {
-    //     id:5,
-    //     Project:first ,
-    //     Pheading:"Hotel",
-    //     PParagraph:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    //     Pincon:<FaLink/>
-    // }
-    ,
-   
-]
+const PortfolioData = [
+    { id: 8, Pheading: 'Direct Sales Report', kind: 'Work project · Upveda', stack: 'Django REST Framework / React / Git', PParagraph: 'A system for managing sales data, reports, and analytics. I worked on the backend APIs and the React interface at Upveda Technology.', role: 'Full-Stack Developer', features: ['Authentication and secure access', 'Sales reporting and data processing APIs', 'Reusable React components'], focus: 'Connecting sales data and reporting services to the frontend while maintaining API performance and readable code.' },
+    { id: 4, Project: bootstrap2, Pheading: 'Bootstrap', kind: 'Layout study', stack: 'Bootstrap / HTML / CSS', PParagraph: 'An early website layout exploring Bootstrap components and page structure.' },
+    { id: 5, Project: portfolio, Pheading: 'Portfolio', kind: 'Personal website', stack: 'Frontend / Portfolio design', PParagraph: 'An earlier version of my portfolio, bringing my introduction, skills, and work into one place.' },
+    { id: 6, Project: Hotel, Pheading: 'Hotel', kind: 'Website project', stack: 'Frontend / Website layout', PParagraph: 'A hotel website interface focused on presenting the property and its information clearly.' },
+    { id: 1, Project: ecomerce, Pheading: 'Professional', kind: 'Website study', stack: 'Frontend / Page structure', PParagraph: 'A professional website layout from my earlier frontend work.', URL: 'https://ismt.edu.np/', linkLabel: 'Visit referenced website' },
+    { id: 3, Project: bootstrap, Pheading: 'Bootstrap layout', kind: 'Layout study', stack: 'Bootstrap / HTML / CSS', PParagraph: 'Another exploration of Bootstrap layouts, spacing, and reusable interface components.' },
+    { id: 7, Project: Portfolio2, Pheading: 'Library', kind: 'Website project', stack: 'Frontend / Website layout', PParagraph: 'A library-themed website from my collection of frontend projects.' },
+];
 
 // ...........................TEAM PAGE............................................
 const teamdata=[
@@ -171,7 +111,7 @@ const teamdata=[
         heading:"KSHITTIZ CHAUDARY",
         paragraph:"Mobile DEVELOPER",
         Button:"More Detail",
-        About:"   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos temporibus, voluptatibus ut enim odit ipsum tempore rerum, quasi et itaque necessitatibus sunt? Ex iste odit, non officia unde itaque. Repellat.    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos temporibus, voluptatibus ut enim odit ipsum tempore rerum, quasi et itaque necessitatibus sunt? Ex iste odit, non officia unde itaque. Repellat.",
+        About:"A collaborator from my developer network. See their skills and education below.",
         MainSkill:"Main Skill",
         Experience:"Experience",
         Education:"Education",
@@ -196,7 +136,7 @@ const teamdata=[
         heading:"RAHUL KUMAR THAKUR",
         paragraph:"WEB DEVELOPER",
         Button:"More Detail",
-        About:"   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos temporibus, voluptatibus ut enim odit ipsum tempore rerum, quasi et itaque necessitatibus sunt? Ex iste odit, non officia unde itaque. Repellat.    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos temporibus, voluptatibus ut enim odit ipsum tempore rerum, quasi et itaque necessitatibus sunt? Ex iste odit, non officia unde itaque. Repellat.",
+        About:"A collaborator from my developer network. See their skills and education below.",
         MainSkill:"Main Skill",
         Experience:"Experience",
         Education:"Education",
@@ -225,7 +165,7 @@ const teamdata=[
         heading:"BIGRAJ SUNUWAR",
         paragraph:"GRAPHIC DESIGNER",
         Button:"More Detail",
-        About:"   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos temporibus, voluptatibus ut enim odit ipsum tempore rerum, quasi et itaque necessitatibus sunt? Ex iste odit, non officia unde itaque. Repellat.    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos temporibus, voluptatibus ut enim odit ipsum tempore rerum, quasi et itaque necessitatibus sunt? Ex iste odit, non officia unde itaque. Repellat.",
+        About:"A collaborator from my developer network. See their skills and education below.",
         MainSkill:"Main Skill",
         Experience:"Experience",
         Education:"Education",
@@ -251,7 +191,7 @@ const teamdata=[
         heading:"Nikesh Deula",
         paragraph:"Graphic Designar",
         Button:"More Detail",
-        About:"   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos temporibus, voluptatibus ut enim odit ipsum tempore rerum, quasi et itaque necessitatibus sunt? Ex iste odit, non officia unde itaque. Repellat.    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos temporibus, voluptatibus ut enim odit ipsum tempore rerum, quasi et itaque necessitatibus sunt? Ex iste odit, non officia unde itaque. Repellat.",
+        About:"A collaborator from my developer network. See their skills and education below.",
         MainSkill:"Main Skill",
         Experience:"Experience",
         Education:"Education",

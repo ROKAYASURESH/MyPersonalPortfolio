@@ -1,50 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { ServiceData, PortfolioData } from '../All file Data/Data';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import ScrollReveal from "../Motion/ScrollReveal";
+import React, { useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import { ServiceData, PortfolioData } from "../All file Data/Data";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 export const Servicedetails = () => {
-  const [visibleProjects, setVisibleProjects] = useState({});
-
   useEffect(() => {
     document.title = "Service Details | Suresh Rokaya";
     window.scrollTo(0, 0);
-
-    // Intersection Observer for scroll animations
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleProjects((prev) => ({
-              ...prev,
-              [entry.target.dataset.index]: true,
-            }));
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const projects = document.querySelectorAll('.related-project-card');
-    projects.forEach((project, index) => {
-      project.dataset.index = index;
-      observer.observe(project);
-    });
-
-    return () => {
-      projects.forEach((project) => observer.unobserve(project));
-    };
   }, []);
 
   let { heading } = useParams();
-  const service = ServiceData.find(element => element.heading === heading);
+  const service = ServiceData.find((element) => element.heading === heading);
 
   if (!service) {
     return (
       <div className="detail-page-error">
         <div className="container">
           <h2>Service not found</h2>
-          <Link to="/service" className="btn btn-primary">Back to Services</Link>
+          <Link to="/service" className="btn btn-primary">
+            Back to Services
+          </Link>
         </div>
       </div>
     );
@@ -58,24 +34,20 @@ export const Servicedetails = () => {
         <div className="hero-gradient"></div>
         <div className="gradient-blob blob-1"></div>
         <div className="gradient-blob blob-2"></div>
-        
+
         <div className="container">
           <Link to="/service" className="detail-back-button">
-            <FaArrowLeft style={{ marginRight: '8px' }} />
+            <FaArrowLeft style={{ marginRight: "8px" }} />
             Back to Services
           </Link>
-          
+
           <div className="detail-hero-content">
             <div className="service-icon-large">
               <div className="service-icon-bg-large"></div>
               {service.icon}
             </div>
-            <h1 className="detail-hero-title">
-              {service.heading}
-            </h1>
-            <p className="detail-hero-subtitle">
-              {service.paragraph}
-            </p>
+            <h1 className="detail-hero-title">{service.heading}</h1>
+            <p className="detail-hero-subtitle">{service.paragraph}</p>
           </div>
         </div>
       </section>
@@ -87,7 +59,6 @@ export const Servicedetails = () => {
             <div className="service-detail-content">
               <h2 className="service-detail-heading">{service.heading}</h2>
               <div className="service-detail-description">
-                <p>{service.paragraph}</p>
                 <p>{service.paragraph}</p>
               </div>
             </div>
@@ -111,33 +82,35 @@ export const Servicedetails = () => {
 
           <div className="related-projects-grid">
             {PortfolioData.map((project, index) => (
-              <div
+              <ScrollReveal
                 key={project.id}
-                className={`related-project-card ${visibleProjects[index] ? 'visible' : ''}`}
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="related-project-card"
+                stagger={index % 3}
               >
                 <Link to={`/portfoliodetails/${project.Pheading}`}>
                   <div className="related-project-inner">
                     <div className="related-project-image-wrapper">
-                      <img src={project.Project} alt={project.Pheading} />
+                      {project.Project && (
+                        <img src={project.Project} alt={project.Pheading} />
+                      )}
                       <div className="related-project-overlay">
                         <div className="related-project-content">
                           <h3>{project.Pheading}</h3>
                           <p>{project.PParagraph}</p>
                           <span className="related-project-link">
                             View Details
-                            <FaArrowRight style={{ marginLeft: '8px' }} />
+                            <FaArrowRight style={{ marginLeft: "8px" }} />
                           </span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </Link>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
     </>
   );
-}
+};

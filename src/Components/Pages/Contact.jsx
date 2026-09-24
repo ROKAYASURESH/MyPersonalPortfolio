@@ -1,18 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { FaPhone, FaLocationArrow, FaEnvelope, FaMapMarkerAlt, FaArrowRight } from 'react-icons/fa';
-import { AiOutlineMail, AiFillContacts } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import ScrollReveal from "../Motion/ScrollReveal";
+import {
+  FaPhone,
+  FaLocationArrow,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaArrowRight,
+} from "react-icons/fa";
+import { AiOutlineMail } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export default function Contact() {
   useEffect(() => {
-    document.title = 'Contact | Suresh Rokaya';
+    document.title = "Contact | Suresh Rokaya";
   }, []);
 
+  const [notice, setNotice] = useState("");
   const [data, setData] = useState({
-    fullname: '',
-    phone: '',
-    email: '',
-    msg: ''
+    fullname: "",
+    phone: "",
+    email: "",
+    msg: "",
   });
 
   const InputEvent = (event) => {
@@ -27,13 +35,16 @@ export default function Contact() {
 
   const formSubmit = (e) => {
     e.preventDefault();
-    alert(`Thank you ${data.fullname}! I have received your message. I will get back to you at ${data.email} soon.`);
-    setData({
-      fullname: '',
-      phone: '',
-      email: '',
-      msg: ''
-    });
+    const subject = encodeURIComponent(
+      `Portfolio enquiry from ${data.fullname}`,
+    );
+    const body = encodeURIComponent(
+      `${data.msg}\n\nFrom: ${data.fullname}\nEmail: ${data.email}\nPhone: ${data.phone}`,
+    );
+    window.location.href = `mailto:sureshrokaya761@gmail.com?subject=${subject}&body=${body}`;
+    setNotice(
+      "Your email app should open with a draft. Send it there to complete your message. If it does not open, email sureshrokaya761@gmail.com directly.",
+    );
   };
 
   return (
@@ -56,14 +67,14 @@ export default function Contact() {
           </h1>
 
           <p className="hero-subtitle">
-            Have a project in mind? Let's work together to make it happen.
-            I'm always open to discussing new opportunities and exciting projects.
+            Have a project in mind? Let's work together to make it happen. I'm
+            always open to discussing new opportunities and exciting projects.
           </p>
 
           <div className="hero-features">
             <div className="hero-feature-item">
               <FaEnvelope className="feature-icon" />
-              <span>Quick Response</span>
+              <span>Email is best</span>
             </div>
             <div className="hero-feature-item">
               <FaMapMarkerAlt className="feature-icon" />
@@ -71,18 +82,18 @@ export default function Contact() {
             </div>
             <div className="hero-feature-item">
               <FaPhone className="feature-icon" />
-              <span>Available 24/7</span>
+              <span>Open to a conversation</span>
             </div>
           </div>
 
           <div className="hero-buttons">
             <a href="#contact" className="btn btn-primary btn-glow">
               Send Message
-              <FaArrowRight style={{ marginLeft: '8px' }} />
+              <FaArrowRight style={{ marginLeft: "8px" }} />
             </a>
             <Link to="/portfolio" className="btn btn-outline">
               View Portfolio
-              <FaArrowRight style={{ marginLeft: '8px' }} />
+              <FaArrowRight style={{ marginLeft: "8px" }} />
             </Link>
           </div>
         </div>
@@ -96,13 +107,15 @@ export default function Contact() {
         <div className="gradient-blob blob-3"></div>
         <div className="container">
           <div className="section-title">
-            <h2>Let's Start a <span className="text-gradient">Conversation</span></h2>
+            <h2>
+              Let's Start a <span className="text-gradient">Conversation</span>
+            </h2>
             <p>
-              Whether you have a question about my work, want to discuss a project,
-              or just want to say hi, I'd love to hear from you.
+              Whether you have a question about my work, want to discuss a
+              project, or just want to say hi, I'd love to hear from you.
             </p>
           </div>
-          <div className="contact-content">
+          <ScrollReveal className="contact-content">
             <div className="contact-info-wrapper">
               <div className="contact-info">
                 <div className="contact-item">
@@ -130,7 +143,9 @@ export default function Contact() {
                   </div>
                   <div className="contact-details">
                     <h4>Email Me</h4>
-                    <a href="mailto:sureshrokaya761@gmail.com">sureshrokaya761@gmail.com</a>
+                    <a href="mailto:sureshrokaya761@gmail.com">
+                      sureshrokaya761@gmail.com
+                    </a>
                   </div>
                 </div>
               </div>
@@ -141,7 +156,7 @@ export default function Contact() {
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.02983141154!2d85.34188701506161!3d27.685474982801454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199026369065%3A0x70b2ad0441584b42!2sKoteshwor%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1625470000000!5m2!1sen!2snp"
                   width="100%"
                   height="250"
-                  style={{ border: 0, borderRadius: '16px' }}
+                  style={{ border: 0, borderRadius: "16px" }}
                   allowFullScreen=""
                   loading="lazy"
                 ></iframe>
@@ -151,15 +166,21 @@ export default function Contact() {
             <div className="contact-form-card">
               <div className="form-header">
                 <h3>Send a Message</h3>
-                <p>Feel free to drop a message, and I'll get back to you within 24 hours.</p>
+                <p>
+                  This form prepares a draft in your email app. You can review
+                  it before sending.
+                </p>
               </div>
               <form onSubmit={formSubmit} className="modern-form">
                 <div className="form-row">
                   <div className="form-group flex-1">
-                    <label className="form-label">Full Name</label>
+                    <label className="form-label" htmlFor="fullname">
+                      Full Name
+                    </label>
                     <input
                       type="text"
                       className="form-input"
+                      id="fullname"
                       name="fullname"
                       value={data.fullname}
                       onChange={InputEvent}
@@ -168,10 +189,13 @@ export default function Contact() {
                     />
                   </div>
                   <div className="form-group flex-1">
-                    <label className="form-label">Phone</label>
+                    <label className="form-label" htmlFor="phone">
+                      Phone
+                    </label>
                     <input
                       type="tel"
                       className="form-input"
+                      id="phone"
                       name="phone"
                       value={data.phone}
                       onChange={InputEvent}
@@ -181,10 +205,13 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label className="form-label">Email Address</label>
+                  <label className="form-label" htmlFor="email">
+                    Email Address
+                  </label>
                   <input
                     type="email"
                     className="form-input"
+                    id="email"
                     name="email"
                     value={data.email}
                     onChange={InputEvent}
@@ -193,9 +220,12 @@ export default function Contact() {
                   />
                 </div>
                 <div className="form-group">
-                  <label className="form-label">Your Message</label>
+                  <label className="form-label" htmlFor="msg">
+                    Your Message
+                  </label>
                   <textarea
                     className="form-textarea"
+                    id="msg"
                     name="msg"
                     value={data.msg}
                     onChange={InputEvent}
@@ -203,13 +233,19 @@ export default function Contact() {
                     required
                   ></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary btn-glow submit-btn">
-                  <span>Send Message</span>
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-glow submit-btn"
+                >
+                  <span>Prepare email</span>
                   <FaArrowRight />
                 </button>
               </form>
+              <p role="status" className="form-notice">
+                {notice}
+              </p>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </>

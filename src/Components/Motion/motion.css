@@ -1,0 +1,385 @@
+/* Calm, precise motion. Keep timings here rather than in individual components. */
+:root {
+  --motion-fast: 180ms;
+  --motion-normal: 320ms;
+  --motion-entrance: 560ms;
+  --motion-exit: 150ms;
+  --motion-step: 65ms;
+  --motion-distance: 18px;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-settle: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --motion-press: cubic-bezier(0.4, 0, 1, 1);
+}
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes reveal-quiet {
+  from {
+    opacity: 0;
+    translate: 0 6px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes reveal-portrait {
+  from {
+    opacity: 0;
+    translate: 0 12px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes timeline-draw {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+.scroll-reveal.is-revealed {
+  animation: reveal-up var(--motion-entrance) var(--motion-ease) both;
+  animation-delay: calc(var(--reveal-order, 0) * var(--motion-step));
+}
+.scroll-reveal:focus-within {
+  animation: none;
+}
+/* First paint: a short sequence, completed in under a second. */
+.header {
+  animation: reveal-quiet var(--motion-normal) var(--motion-ease) both;
+  transition:
+    border-color var(--motion-normal),
+    box-shadow var(--motion-normal);
+}
+.header.is-scrolled {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.035);
+  border-bottom-color: var(--text-muted);
+}
+.header-sentinel {
+  height: 1px;
+  margin-bottom: -1px;
+  pointer-events: none;
+}
+.personal-hero h1,
+.hero-role,
+.hero-description,
+.hero-actions,
+.hero-footnote {
+  animation: reveal-up var(--motion-entrance) var(--motion-ease) backwards;
+}
+.personal-hero h1 {
+  animation-delay: var(--motion-step);
+}
+.hero-role,
+.hero-description {
+  animation-delay: calc(var(--motion-step) * 2);
+}
+.hero-actions {
+  animation-delay: calc(var(--motion-step) * 3);
+}
+.hero-footnote {
+  animation-delay: calc(var(--motion-step) * 4);
+}
+.portrait {
+  animation: reveal-portrait var(--motion-entrance) var(--motion-ease) backwards;
+  animation-delay: calc(var(--motion-step) * 4);
+}
+.portrait img {
+  transition: transform var(--motion-normal) var(--motion-settle);
+}
+.page-intro,
+.page-hero-section .hero-content,
+.detail-hero-content,
+.background-panel,
+.team-tab-content {
+  animation: reveal-quiet var(--motion-normal) var(--motion-ease) backwards;
+}
+/* One shared underline moves between desktop navigation items. */
+.navigation {
+  position: relative;
+}
+.navigation > a {
+  position: relative;
+  transition: color var(--motion-fast);
+}
+.navigation > a.active {
+  text-decoration: none;
+}
+.navigation > a::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 4px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--motion-fast) var(--motion-ease);
+}
+.navigation > a:hover {
+  text-decoration: none;
+}
+.navigation > a:hover::after,
+.navigation > a:focus-visible::after {
+  transform: scaleX(1);
+}
+.nav-active-line {
+  position: absolute;
+  width: 1px;
+  height: 2px;
+  background: var(--accent-primary);
+  left: 0;
+  bottom: 3px;
+  pointer-events: none;
+  transform-origin: left;
+  opacity: 0;
+  transition:
+    transform var(--motion-normal) var(--motion-settle),
+    opacity var(--motion-exit);
+}
+.btn,
+.menu-toggle,
+.theme-toggle,
+.about-tabs button,
+.team-tab-button {
+  transition:
+    translate var(--motion-fast) var(--motion-settle),
+    background-color var(--motion-fast),
+    border-color var(--motion-fast),
+    color var(--motion-fast),
+    box-shadow var(--motion-fast);
+}
+.btn:active,
+.menu-toggle:active,
+.theme-toggle:active {
+  translate: 0 1px;
+  transition-duration: var(--motion-exit);
+  transition-timing-function: var(--motion-press);
+}
+.text-link span,
+.btn > span[aria-hidden],
+.project-copy h3 span,
+.service-link-icon,
+.team-link-icon {
+  display: inline-block;
+  transition: transform var(--motion-fast) var(--motion-ease);
+}
+.text-link:focus-visible span,
+.btn:focus-visible > span[aria-hidden],
+.text-link:hover span,
+.btn:hover > span[aria-hidden] {
+  transform: translateX(3px);
+}
+/* Separate translate from reveal's transform to prevent hover/reveal conflicts. */
+.project-entry {
+  transition:
+    translate var(--motion-normal) var(--motion-settle),
+    border-color var(--motion-normal);
+}
+.project-preview {
+  overflow: hidden;
+  transition: border-color var(--motion-fast);
+}
+.project-preview img {
+  transition: transform var(--motion-normal) var(--motion-settle);
+}
+.project-entry:focus-within {
+  border-color: var(--accent-primary);
+}
+.project-entry:focus-within .project-copy h3 span {
+  transform: translate(2px, -2px);
+}
+.skill-row {
+  transition:
+    background-color var(--motion-fast),
+    border-color var(--motion-fast);
+}
+.skill-row h3 {
+  transition: translate var(--motion-fast) var(--motion-ease);
+}
+.experience-row {
+  position: relative;
+  padding-left: 24px;
+}
+.experience-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  inset-block: 0;
+  width: 1px;
+  background: var(--border-color);
+  transform-origin: top;
+}
+.experience-row::after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  top: 4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+}
+.experience-row.is-revealed::before {
+  animation: timeline-draw var(--motion-entrance) var(--motion-ease) both;
+}
+.form-input,
+.form-textarea {
+  transition:
+    border-color var(--motion-fast),
+    background-color var(--motion-fast),
+    box-shadow var(--motion-fast);
+}
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--accent-primary);
+  background: var(--bg-primary);
+  box-shadow: 0 0 0 2px var(--border-color);
+}
+.form-notice:not(:empty) {
+  border-left: 2px solid var(--accent-primary);
+  padding-left: 14px;
+  animation: reveal-quiet var(--motion-normal) var(--motion-ease);
+}
+.footer-links a {
+  display: inline-block;
+  transition:
+    translate var(--motion-fast),
+    color var(--motion-fast);
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover:not(:active) {
+    translate: 0 -2px;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 0.06);
+  }
+  .portrait:hover img {
+    transform: scale(1.015);
+  }
+  .project-entry:hover {
+    translate: 0 -4px;
+    border-color: var(--accent-primary);
+  }
+  .project-entry:hover .project-preview {
+    border-color: var(--accent-primary);
+  }
+  .project-preview:hover img {
+    transform: scale(1.03);
+  }
+  .project-entry:hover .project-copy h3 span {
+    transform: translate(2px, -2px);
+  }
+  .skill-row:hover {
+    background: var(--bg-secondary);
+    border-color: var(--accent-primary);
+  }
+  .skill-row:hover h3 {
+    translate: 3px 0;
+  }
+  .footer-links a:hover {
+    translate: 0 -2px;
+  }
+}
+/* Native scroll progress needs no JS scroll handler; omitted if unsupported. */
+@supports (animation-timeline: scroll()) {
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 101;
+    background: var(--accent-primary);
+    pointer-events: none;
+    transform-origin: left;
+    animation: reading-progress linear both;
+    animation-timeline: scroll(root);
+  }
+  @keyframes reading-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
+@media (max-width: 760px) {
+  :root {
+    --motion-distance: 9px;
+    --motion-step: 35ms;
+    --motion-entrance: 420ms;
+  }
+  .nav-active-line {
+    display: none;
+  }
+  .navigation > a.active {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+  .navigation > a::after {
+    display: none;
+  }
+  .navigation.is-open {
+    animation: reveal-quiet var(--motion-fast) var(--motion-ease);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reading-progress {
+    display: none;
+  }
+  .btn,
+  .project-entry,
+  .skill-row h3,
+  .footer-links a {
+    translate: none !important;
+  }
+  .project-preview img,
+  .portrait img,
+  .text-link span,
+  .btn > span[aria-hidden],
+  .project-copy h3 span {
+    transform: none !important;
+  }
+}
+
+/* Browsers with discrete transitions can fade the mobile menu out before
+   display:none removes it from layout and keyboard navigation. */
+@supports (transition-behavior: allow-discrete) {
+  @media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+    .navigation {
+      opacity: 0;
+      transition:
+        opacity var(--motion-exit) var(--motion-ease),
+        display var(--motion-exit) allow-discrete;
+    }
+    .navigation.is-open {
+      opacity: 1;
+    }
+  }
+}
+
+/* Never make a keyboard user wait for the initial entrance. */
+.header:focus-within,
+.hero-actions:focus-within,
+.background-panel:focus-within {
+  animation: none;
+}

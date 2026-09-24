@@ -52,7 +52,7 @@ export default function Portfoliodetails() {
       {/* Project Image Section */}
       <section className="portfolio-detail-section">
         <div className="container">
-          <div className="portfolio-image-wrapper">
+          {portfolio.Project && <div className="portfolio-image-wrapper">
             <div className="portfolio-image-glow"></div>
             <img 
               src={portfolio.Project} 
@@ -60,8 +60,9 @@ export default function Portfoliodetails() {
               className="portfolio-detail-image"
             />
             <div className="portfolio-image-overlay"></div>
-          </div>
+          </div>}
           
+          <div className="project-facts"><div><span className="eyebrow">PROJECT TYPE</span><p>{portfolio.kind}</p></div><div><span className="eyebrow">TECHNOLOGIES / FOCUS</span><p>{portfolio.stack}</p></div><div><span className="eyebrow">PROJECT NOTES</span>{portfolio.role ? <><p><strong>My role:</strong> {portfolio.role}</p><ul>{portfolio.features.map(feature => <li key={feature}>{feature}</li>)}</ul><p><strong>Development focus:</strong> {portfolio.focus}</p></> : <p>This is an earlier frontend project from my archive. The screenshot records the interface; detailed implementation notes and a source repository are not yet listed.</p>}</div></div>
           {portfolio.URL && (
             <div className="portfolio-actions">
               <a 
@@ -70,7 +71,7 @@ export default function Portfoliodetails() {
                 rel="noopener noreferrer"
                 className="btn btn-primary btn-glow"
               >
-                View Live Project
+                {portfolio.linkLabel || 'View Live Project'}
                 <FaExternalLinkAlt style={{ marginLeft: '8px' }} />
               </a>
             </div>

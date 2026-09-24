@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c31299fa.css",
+    "main.js": "/static/js/main.b4f27be3.js",
+    "static/media/2image.png": "/static/media/2image.0546ef85595fe4e92196.png",
+    "static/media/4image.png": "/static/media/4image.1d49a7bb85d9b1392515.png",
+    "static/media/1image.png": "/static/media/1image.a2b5ce7e5efb59fe74bc.png",
+    "static/media/9image.png": "/static/media/9image.cc5ede95c801074dffa6.png",
+    "static/media/5image1 (2).png": "/static/media/5image1 (2).88d0441f8fbdfaf6df46.png",
+    "static/media/5image.png": "/static/media/5image.a7195f81cd3b0c70004d.png",
+    "static/media/IMG_3682.jpg": "/static/media/IMG_3682.186574bb80c76d2b95af.jpg",
+    "static/media/My Personal CV (1).pdf": "/static/media/My Personal CV (1).cd6f40642a3ab71b4760.pdf",
+    "static/media/4images.jpg": "/static/media/4images.8f5c8f47516f6bacd335.jpg",
+    "static/media/respnsive.png": "/static/media/respnsive.37721c616789e7c458b4.png",
+    "static/media/ecomerce.png": "/static/media/ecomerce.0feb97a34e43765929ec.png",
+    "static/media/custom.png": "/static/media/custom.e2e50aea62de7c8b04c4.png",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.c31299fa.css",
+    "static/js/main.b4f27be3.js"
+  ]
+}
