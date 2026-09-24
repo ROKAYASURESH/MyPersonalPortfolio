@@ -99,10 +99,8 @@
   transition: transform var(--motion-normal) var(--motion-settle);
 }
 .page-intro,
-.page-hero-section .hero-content,
 .detail-hero-content,
-.background-panel,
-.team-tab-content {
+.background-panel {
   animation: reveal-quiet var(--motion-normal) var(--motion-ease) backwards;
 }
 /* One shared underline moves between desktop navigation items. */
@@ -150,8 +148,7 @@
 .btn,
 .menu-toggle,
 .theme-toggle,
-.about-tabs button,
-.team-tab-button {
+.about-tabs button {
   transition:
     translate var(--motion-fast) var(--motion-settle),
     background-color var(--motion-fast),
@@ -168,9 +165,7 @@
 }
 .text-link span,
 .btn > span[aria-hidden],
-.project-copy h3 span,
-.service-link-icon,
-.team-link-icon {
+.project-copy h3 span {
   display: inline-block;
   transition: transform var(--motion-fast) var(--motion-ease);
 }

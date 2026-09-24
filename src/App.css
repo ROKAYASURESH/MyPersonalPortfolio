@@ -332,83 +332,46 @@
 }
 /* Existing standalone pages and detail routes share the same restrained layout. */
 .page-intro,
-.page-hero-section,
 .detail-hero-section {
   padding-block: 55px 40px;
 }
 .page-intro > p,
-.hero-subtitle,
 .detail-hero-subtitle {
   max-width: 680px;
   font-size: 1.05rem;
 }
-.hero-content {
-  width: min(1080px, calc(100% - 64px));
-  margin: auto;
-}
-.hero-title,
 .detail-hero-title {
   font-size: clamp(2rem, 4vw, 3rem);
-}
-.hero-buttons,
-.hero-features {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 26px;
-}
-.hero-features {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-.hero-feature-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 /* Legacy button names are retained by existing page components. */
 .btn-glow {
   display: inline-flex;
 }
-.contact-section,
-.services-section-modern,
-.teams-section-modern,
-.portfolio-detail-section,
-.team-detail-section,
-.service-detail-section,
-.related-projects-section {
+.portfolio-detail-section {
   padding-block: 32px 60px;
-}
-.section-title,
-.section-header-modern {
-  margin-bottom: 32px;
-}
-.section-description {
-  max-width: 720px;
-}
-.section-badge {
-  font-family: ui-monospace, monospace;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  display: block;
-  margin-bottom: 12px;
 }
 .contact-content {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
   gap: 65px;
+  align-items: start;
 }
 .contact-item {
   display: flex;
   gap: 16px;
   margin-bottom: 26px;
 }
-.contact-details h4 {
+.contact-item:last-of-type {
+  margin-bottom: 0;
+}
+.contact-details .small-label {
+  display: block;
   margin-bottom: 6px;
 }
 .contact-details p {
   margin: 0;
   font-size: 0.9rem;
+  color: var(--text-primary);
 }
 .contact-details a {
   font-size: 0.9rem;
@@ -418,8 +381,23 @@
   color: var(--accent-primary);
   padding-top: 3px;
 }
+.contact-elsewhere-label {
+  display: block;
+  margin: 30px 0 10px;
+}
+.contact-map-container {
+  margin-top: 30px;
+}
 .contact-map-container iframe {
-  border-radius: 3px !important;
+  border-radius: 3px;
+}
+.contact-form-card {
+  padding: 28px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+}
+.form-header h2 {
+  font-size: 1.35rem;
 }
 .form-header p {
   font-size: 0.88rem;
@@ -456,33 +434,33 @@
   min-height: 145px;
   resize: vertical;
 }
+.contact-form-card .form-input,
+.contact-form-card .form-textarea {
+  background: var(--bg-primary);
+}
 .form-notice {
   margin-top: 18px;
   font-size: 0.85rem;
 }
-.about-tabs,
-.team-tabs-nav {
+.about-tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 26px;
   margin-top: 45px;
   border-bottom: 1px solid var(--border-color);
 }
-.about-tabs button,
-.team-tab-button {
+.about-tabs button {
   border: 0;
   border-bottom: 2px solid transparent;
   color: var(--text-secondary);
   background: transparent;
   padding: 12px 0;
 }
-.about-tabs .active,
-.team-tab-button.active {
+.about-tabs .active {
   border-color: var(--accent-primary);
   color: var(--accent-primary);
 }
-.background-panel,
-.team-tab-content {
+.background-panel {
   padding-top: 32px;
 }
 .education-list {
@@ -495,44 +473,6 @@
 }
 .education-list p {
   font-size: 0.9rem;
-}
-.services-grid-modern,
-.teams-grid-modern,
-.related-projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
-}
-.service-image,
-.team-image {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-}
-.service-content,
-.team-content {
-  padding-top: 20px;
-}
-.service-description,
-.team-role {
-  font-size: 0.9rem;
-}
-.service-icon-wrapper {
-  margin-bottom: 14px;
-  color: var(--accent-primary);
-}
-.service-link,
-.team-detail-link {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  font-size: 0.88rem;
-}
-.team-social-links,
-.team-social-links-large {
-  display: flex;
-  gap: 18px;
-  margin-bottom: 16px;
 }
 .portfolio-detail-image {
   width: 100%;
@@ -557,35 +497,6 @@
   display: inline-flex;
   align-items: center;
   margin-bottom: 25px;
-  font-size: 0.85rem;
-}
-.team-detail-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 40px;
-}
-.team-detail-image-wrapper img {
-  width: 100%;
-  max-height: 350px;
-  object-fit: cover;
-}
-.team-skill-item {
-  padding: 14px 0;
-  border-bottom: 1px solid var(--border-color);
-}
-.related-project-image-wrapper img {
-  aspect-ratio: 16/10;
-  object-fit: contain;
-  width: 100%;
-}
-.related-project-overlay {
-  display: block;
-  padding-top: 20px;
-}
-.related-project-content h3 {
-  font-size: 1.1rem;
-}
-.related-project-content p {
   font-size: 0.85rem;
 }
 .detail-page-error {
@@ -666,8 +577,7 @@
   }
   .story-layout,
   .experience-row,
-  .contact-content,
-  .team-detail-grid {
+  .contact-content {
     grid-template-columns: 1fr;
     gap: 28px;
   }
@@ -714,24 +624,20 @@
   .footer-links {
     max-width: none;
   }
-  .services-grid-modern,
-  .teams-grid-modern,
-  .related-projects-grid,
   .education-list,
   .project-facts {
     grid-template-columns: 1fr;
   }
-  .hero-content {
-    width: calc(100% - 40px);
-  }
   .page-intro,
-  .page-hero-section,
   .detail-hero-section {
     padding-block: 38px 24px;
   }
   .form-row {
     flex-direction: column;
     gap: 0;
+  }
+  .contact-form-card {
+    padding: 20px;
   }
 }
 

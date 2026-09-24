@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ScrollReveal from "../Motion/ScrollReveal";
-import {
-  FaPhone,
-  FaLocationArrow,
-  FaEnvelope,
-  FaMapMarkerAlt,
-  FaArrowRight,
-} from "react-icons/fa";
+import { FaPhone, FaLocationArrow, FaArrowRight } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
@@ -49,185 +43,159 @@ export default function Contact() {
 
   return (
     <>
-      <section className="page-hero-section">
-        <div className="hero-content">
-          <h1 className="hero-title">
-            Get In <span className="text-gradient">Touch</span>
-          </h1>
-
-          <p className="hero-subtitle">
-            Have a project in mind? Let's work together to make it happen. I'm
-            always open to discussing new opportunities and exciting projects.
-          </p>
-
-          <div className="hero-features">
-            <div className="hero-feature-item">
-              <FaEnvelope />
-              <span>Email is best</span>
-            </div>
-            <div className="hero-feature-item">
-              <FaMapMarkerAlt />
-              <span>Kathmandu, Nepal</span>
-            </div>
-            <div className="hero-feature-item">
-              <FaPhone />
-              <span>Open to a conversation</span>
-            </div>
-          </div>
-
-          <div className="hero-buttons">
-            <a href="#contact" className="btn btn-primary btn-glow">
-              Send Message
-              <FaArrowRight style={{ marginLeft: "8px" }} />
-            </a>
-            <Link to="/portfolio" className="btn btn-outline">
-              View Portfolio
-              <FaArrowRight style={{ marginLeft: "8px" }} />
-            </Link>
-          </div>
-        </div>
+      <section className="page-intro container">
+        <span className="eyebrow">CONTACT</span>
+        <h1>Get in touch.</h1>
+        <p>
+          Have a project in mind? Let&apos;s work together to make it happen.
+          I&apos;m always open to discussing new opportunities and exciting
+          projects.{" "}
+          <Link className="text-link" to="/portfolio">
+            View my work <span aria-hidden="true">↗</span>
+          </Link>
+        </p>
       </section>
 
-      <section className="contact-section" id="contact">
-        <div className="container">
-          <div className="section-title">
-            <h2>
-              Let's Start a <span className="text-gradient">Conversation</span>
-            </h2>
-            <p>
-              Whether you have a question about my work, want to discuss a
-              project, or just want to say hi, I'd love to hear from you.
-            </p>
-          </div>
-          <ScrollReveal className="contact-content">
-            <div>
-              <div>
-                <div className="contact-item">
-                  <div className="contact-icon">
-                    <FaLocationArrow />
-                  </div>
-                  <div className="contact-details">
-                    <h4>Visit Me</h4>
-                    <p>M8CW+JJM Capital College, Koteshwor</p>
-                    <p>Kathmandu 44600, Nepal</p>
-                  </div>
-                </div>
-                <div className="contact-item">
-                  <div className="contact-icon">
-                    <FaPhone />
-                  </div>
-                  <div className="contact-details">
-                    <h4>Call Me</h4>
-                    <a href="tel:+9779869504717">+977 9869504717</a>
-                  </div>
-                </div>
-                <div className="contact-item">
-                  <div className="contact-icon">
-                    <AiOutlineMail />
-                  </div>
-                  <div className="contact-details">
-                    <h4>Email Me</h4>
-                    <a href="mailto:sureshrokaya761@gmail.com">
-                      sureshrokaya761@gmail.com
-                    </a>
-                  </div>
-                </div>
+      <section className="section container" id="contact">
+        <ScrollReveal className="contact-content">
+          <div>
+            <span className="eyebrow">DIRECT</span>
+            <div className="contact-item">
+              <div className="contact-icon">
+                <AiOutlineMail />
               </div>
-
-              <div className="contact-map-container">
-                <iframe
-                  title="My Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.02983141154!2d85.34188701506161!3d27.685474982801454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199026369065%3A0x70b2ad0441584b42!2sKoteshwor%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1625470000000!5m2!1sen!2snp"
-                  width="100%"
-                  height="250"
-                  style={{ border: 0, borderRadius: "16px" }}
-                  allowFullScreen=""
-                  loading="lazy"
-                ></iframe>
+              <div className="contact-details">
+                <span className="small-label">Email — best way to reach me</span>
+                <a href="mailto:sureshrokaya761@gmail.com">
+                  sureshrokaya761@gmail.com
+                </a>
+              </div>
+            </div>
+            <div className="contact-item">
+              <div className="contact-icon">
+                <FaPhone />
+              </div>
+              <div className="contact-details">
+                <span className="small-label">Phone</span>
+                <a href="tel:+9779869504717">+977 9869504717</a>
+              </div>
+            </div>
+            <div className="contact-item">
+              <div className="contact-icon">
+                <FaLocationArrow />
+              </div>
+              <div className="contact-details">
+                <span className="small-label">Based in</span>
+                <p>Koteshwor, Kathmandu 44600, Nepal</p>
               </div>
             </div>
 
-            <div>
-              <div className="form-header">
-                <h3>Send a Message</h3>
-                <p>
-                  This form prepares a draft in your email app. You can review
-                  it before sending.
-                </p>
-              </div>
-              <form onSubmit={formSubmit}>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="fullname">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      className="form-input"
-                      id="fullname"
-                      name="fullname"
-                      value={data.fullname}
-                      onChange={InputEvent}
-                      placeholder="John Doe"
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="phone">
-                      Phone
-                    </label>
-                    <input
-                      type="tel"
-                      className="form-input"
-                      id="phone"
-                      name="phone"
-                      value={data.phone}
-                      onChange={InputEvent}
-                      placeholder="+977 98..."
-                      required
-                    />
-                  </div>
-                </div>
+            <span className="small-label contact-elsewhere-label">
+              Elsewhere
+            </span>
+            <div className="footer-links">
+              <a
+                href="https://github.com/ROKAYASURESH"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub ↗
+              </a>
+            </div>
+
+            <div className="contact-map-container">
+              <iframe
+                title="Map of Koteshwor, Kathmandu"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.02983141154!2d85.34188701506161!3d27.685474982801454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199026369065%3A0x70b2ad0441584b42!2sKoteshwor%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1625470000000!5m2!1sen!2snp"
+                width="100%"
+                height="250"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+
+          <div className="contact-form-card">
+            <div className="form-header">
+              <h2>Send a message</h2>
+              <p>
+                This form prepares a draft in your email app. You can review
+                it before sending.
+              </p>
+            </div>
+            <form onSubmit={formSubmit}>
+              <div className="form-row">
                 <div className="form-group">
-                  <label className="form-label" htmlFor="email">
-                    Email Address
+                  <label className="form-label" htmlFor="fullname">
+                    Full Name
                   </label>
                   <input
-                    type="email"
+                    type="text"
                     className="form-input"
-                    id="email"
-                    name="email"
-                    value={data.email}
+                    id="fullname"
+                    name="fullname"
+                    value={data.fullname}
                     onChange={InputEvent}
-                    placeholder="john@example.com"
+                    placeholder="John Doe"
                     required
                   />
                 </div>
                 <div className="form-group">
-                  <label className="form-label" htmlFor="msg">
-                    Your Message
+                  <label className="form-label" htmlFor="phone">
+                    Phone
                   </label>
-                  <textarea
-                    className="form-textarea"
-                    id="msg"
-                    name="msg"
-                    value={data.msg}
+                  <input
+                    type="tel"
+                    className="form-input"
+                    id="phone"
+                    name="phone"
+                    value={data.phone}
                     onChange={InputEvent}
-                    placeholder="How can I help you?"
+                    placeholder="+977 98..."
                     required
-                  ></textarea>
+                  />
                 </div>
-                <button type="submit" className="btn btn-primary btn-glow">
-                  <span>Prepare email</span>
-                  <FaArrowRight />
-                </button>
-              </form>
-              <p role="status" className="form-notice">
-                {notice}
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor="email">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  className="form-input"
+                  id="email"
+                  name="email"
+                  value={data.email}
+                  onChange={InputEvent}
+                  placeholder="john@example.com"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor="msg">
+                  Your Message
+                </label>
+                <textarea
+                  className="form-textarea"
+                  id="msg"
+                  name="msg"
+                  value={data.msg}
+                  onChange={InputEvent}
+                  placeholder="How can I help you?"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" className="btn btn-primary btn-glow">
+                <span>Prepare email</span>
+                <FaArrowRight />
+              </button>
+            </form>
+            <p role="status" className="form-notice">
+              {notice}
+            </p>
+          </div>
+        </ScrollReveal>
       </section>
     </>
   );

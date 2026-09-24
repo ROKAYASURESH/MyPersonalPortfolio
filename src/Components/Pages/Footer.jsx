@@ -21,8 +21,8 @@ export default function Footer() {
           GitHub ↗
         </a>
         <a href="mailto:sureshrokaya761@gmail.com">Email ↗</a>
-        <Link to="/service">Services</Link>
-        <Link to="/teams">People I've worked with</Link>
+        <Link to="/portfolio">Projects</Link>
+        <Link to="/contact">Contact</Link>
       </div>
     </footer>
   );
