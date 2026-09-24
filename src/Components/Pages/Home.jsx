@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import resume from "../images/My Personal CV (1).pdf";
-import photo from "../images/IMG_3682.jpg";
+import photo from "../images/homeImage.png";
 import {
   SectionHeading,
   AboutStory,
