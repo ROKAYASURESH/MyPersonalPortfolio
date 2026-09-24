@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import ScrollReveal from "../Motion/ScrollReveal";
 import { Link } from "react-router-dom";
+import {
+  gsap,
+  useGSAP,
+  prefersReducedMotion,
+} from "../../animations/gsapSetup";
 import { PortfolioData } from "../All file Data/Data";
 
 export function SectionHeading({ number, title, children }) {
@@ -86,36 +91,123 @@ export function Skills() {
   );
 }
 export function Experience() {
+  const wrap = useRef(null);
+
+  // The timeline rail draws in step with the scroll position. The progress
+  // value inherits into .experience-row, whose ::before rail reads it.
+  // Without scroll (or with reduced motion) the rail simply shows fully.
+  useGSAP(
+    () => {
+      const wrapper = wrap.current;
+      if (!wrapper || prefersReducedMotion()) return undefined;
+      const draw = gsap.fromTo(
+        wrapper,
+        { "--tl-progress": 0 },
+        {
+          "--tl-progress": 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: wrapper,
+            start: "top 78%",
+            end: "bottom 45%",
+            scrub: 0.6,
+          },
+        },
+      );
+      return () => {
+        draw.scrollTrigger?.kill();
+        draw.kill();
+      };
+    },
+    { scope: wrap },
+  );
+
   return (
-    <ScrollReveal className="experience-row">
-      <div>
-        <span className="eyebrow">PROFESSIONAL EXPERIENCE</span>
-        <p className="small-label">1+ year of experience</p>
-      </div>
-      <div>
-        <h3>Full-Stack Developer</h3>
-        <p className="company">Upveda Technology Pvt. Ltd</p>
-        <ul>
-          <li>
-            Developed a Direct Sales Report system for managing sales data and
-            reporting.
-          </li>
-          <li>
-            Built Django REST APIs for authentication, reporting, and data
-            processing.
-          </li>
-          <li>
-            Created React interfaces with reusable components and integrated
-            them with backend services.
-          </li>
-          <li>
-            Worked on API performance, code reviews, and version control with
-            Git.
-          </li>
-        </ul>
-        <p className="project-stack">Django REST Framework / React / Git</p>
-      </div>
-    </ScrollReveal>
+    <div ref={wrap}>
+      <ScrollReveal className="experience-row">
+        <div>
+          <span className="eyebrow">PROFESSIONAL EXPERIENCE</span>
+          <p className="small-label">1+ year of experience</p>
+        </div>
+        <div>
+          <h3>Full-Stack Developer</h3>
+          <p className="company">Upveda Technology Pvt. Ltd</p>
+          <p>
+            Worked on business management and customer-facing web applications
+            for Consistent Infosystems, using Django, Django REST Framework,
+            React, and Next.js.
+          </p>
+          <ul>
+            <li>
+              Developed and maintained the Direct Sales Report (DSR/MIS)
+              application for managing sales-related data, reporting, and
+              business operations.
+            </li>
+            <li>
+              Developed responsive and reusable React/Next.js interfaces for
+              internal users and customer-facing workflows.
+            </li>
+            <li>
+              Implemented frontend-backend integration using REST APIs and
+              handled application state and data flow.
+            </li>
+            <li>
+              Worked on features related to sales reporting, customer information, product/business data, and dashboard-based workflows.
+            </li>
+            <li>
+              Debugged existing functionality, fixed application issues, and implemented new features based on business requirements.
+            </li>
+            <li>
+              Collaborated with the development team using Git and version control and followed structured development practices.
+            </li>
+            <li>
+              Worked across both backend and frontend, gaining practical experience in full-stack application development.
+            </li>
+          </ul>
+          <p className="project-stack">Django · Django REST Framework · React · Next.js · JavaScript · REST API · Git</p>
+        </div>
+      </ScrollReveal>
+      <ScrollReveal className="experience-row">
+        <div>
+          <span className="eyebrow">PROFESSIONAL EXPERIENCE</span>
+          <p className="small-label">Dec 2025 – Present</p>
+        </div>
+        <div>
+          <h3>Full-Stack Developer</h3>
+          <p className="company">Thimi Tech Pvt. Ltd.</p>
+          <p>
+            Working on web applications using Django, Django REST Framework,
+            Vue.js, PostgreSQL, and GIS technologies. Developing REST APIs,
+            integrating frontend and backend services, working with geospatial
+            data, and maintaining existing production codebases.
+          </p>
+          <ul>
+            <li>
+              Developed and maintained backend services using Django & Django
+              REST Framework.
+            </li>
+            <li>Built and integrated Vue.js interfaces with REST APIs.</li>
+            <li>
+              Worked with PostgreSQL/PostGIS for application and geospatial
+              data.
+            </li>
+            <li>
+              Contributed to the Pure Nepal platform and its GIS-based features.
+            </li>
+            <li>
+              Worked on database migration, debugging, feature development, and
+              performance improvements.
+            </li>
+            <li>
+              Used Git, Docker, and Linux for development and project workflows.
+            </li>
+          </ul>
+          <p className="project-stack">
+            Django · DRF · Vue.js · PostgreSQL · PostGIS · GIS · Docker · Git
+          </p>
+        </div>
+      </ScrollReveal>
+    </div>
   );
 }
 export function ProjectList({ compact = false }) {

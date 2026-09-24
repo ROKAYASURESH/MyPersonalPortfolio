@@ -1,5 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import {
+  gsap,
+  useGSAP,
+  prefersReducedMotion,
+  hasFinePointer,
+} from "../../animations/gsapSetup";
 import resume from "../images/My Personal CV (1).pdf";
 import photo from "../images/homeImage.png";
 import {
@@ -11,31 +17,122 @@ import {
   ContactInvite,
 } from "../Common/PortfolioSections";
 export default function Home() {
+  const hero = useRef(null);
+  const badge = useRef(null);
+  const title = useRef(null);
+  const role = useRef(null);
+  const description = useRef(null);
+  const actions = useRef(null);
+  const media = useRef(null);
+  const footnote = useRef(null);
+
   useEffect(() => {
     document.title = "Suresh Rokaya | Full-Stack Developer";
   }, []);
+
+  // Hero entrance: badge -> heading words -> supporting copy -> CTAs and
+  // portrait -> footnote. From-tweens never block interaction, and the whole
+  // sequence finishes in about a second. Static layout when reduced motion
+  // is preferred.
+  useGSAP(
+    () => {
+      if (prefersReducedMotion()) return undefined;
+      const words = title.current?.querySelectorAll(".hero-word");
+      const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
+      timeline
+        .from(badge.current, { opacity: 0, y: 14, duration: 0.45 }, 0.05)
+        .from(
+          words,
+          { opacity: 0, y: 40, duration: 0.6, stagger: 0.07 },
+          0.1,
+        )
+        .from(
+          [role.current, description.current],
+          { opacity: 0, y: 30, duration: 0.55, stagger: 0.08 },
+          0.3,
+        )
+        .from(actions.current, { opacity: 0, y: 30, duration: 0.5 }, 0.5)
+        .from(
+          media.current,
+          { opacity: 0, scale: 0.95, duration: 0.6 },
+          0.45,
+        )
+        .from(footnote.current, { opacity: 0, duration: 0.5 }, 0.7);
+      return () => {
+        timeline.kill();
+      };
+    },
+    { scope: hero },
+  );
+
+  // Barely-there depth on the portrait for fine-pointer devices only.
+  // A few pixels of drift; nothing moves on touch or reduced motion.
+  useEffect(() => {
+    if (prefersReducedMotion() || !hasFinePointer()) return undefined;
+    const section = hero.current;
+    const portrait = media.current;
+    if (!section || !portrait) return undefined;
+    const driftX = gsap.quickTo(portrait, "x", {
+      duration: 0.4,
+      ease: "power2.out",
+    });
+    const driftY = gsap.quickTo(portrait, "y", {
+      duration: 0.4,
+      ease: "power2.out",
+    });
+    const move = (event) => {
+      const bounds = section.getBoundingClientRect();
+      if (!bounds.width || !bounds.height) return;
+      driftX(((event.clientX - bounds.left) / bounds.width - 0.5) * 14);
+      driftY(((event.clientY - bounds.top) / bounds.height - 0.5) * 10);
+    };
+    const reset = () => {
+      driftX(0);
+      driftY(0);
+    };
+    section.addEventListener("mousemove", move);
+    section.addEventListener("mouseleave", reset);
+    return () => {
+      section.removeEventListener("mousemove", move);
+      section.removeEventListener("mouseleave", reset);
+    };
+  }, []);
   return (
     <>
-      <section id="home" className="personal-hero container">
+      <section id="home" ref={hero} className="personal-hero container">
         <div>
-          <p className="eyebrow location-label">
+          <p ref={badge} className="eyebrow location-label">
             <span aria-hidden="true" />
             KATHMANDU, NEPAL
           </p>
-          <h1>
-            Hi, I'm Suresh Rokaya<span className="accent">.</span>
+          <h1 ref={title} aria-label="Hi, I'm Suresh Rokaya.">
+            <span aria-hidden="true" className="hero-word">
+              Hi,
+            </span>{" "}
+            <span aria-hidden="true" className="hero-word">
+              I&apos;m
+            </span>{" "}
+            <span aria-hidden="true" className="hero-word">
+              Suresh
+            </span>{" "}
+            <span aria-hidden="true" className="hero-word">
+              Rokaya
+            </span>
+            <span aria-hidden="true" className="accent">
+              .
+            </span>
           </h1>
-          <p className="hero-role">
+          <p ref={role} className="hero-role">
             A developer who enjoys
             <br />
             making useful things for the web.
           </p>
-          <p className="hero-description">
+          <p ref={description} className="hero-description">
             I build practical web applications with Django, React, and Vue. From
             the API to the small details on screen, I like making things work
             well together.
           </p>
-          <div className="hero-actions">
+          <div ref={actions} className="hero-actions">
             <Link className="btn btn-primary" to="/portfolio">
               Explore my work <span aria-hidden="true">↗</span>
             </Link>
@@ -47,12 +144,12 @@ export default function Home() {
               Download résumé <span aria-hidden="true">↓</span>
             </a>
           </div>
-          <div className="hero-footnote">
+          <div ref={footnote} className="hero-footnote">
             <span className="small-label">Mostly working with</span>
             <span>Django &nbsp; / &nbsp; React &nbsp; / &nbsp; PostgreSQL</span>
           </div>
         </div>
-        <figure className="portrait">
+        <figure ref={media} className="portrait">
           <img src={photo} alt="Suresh Rokaya" fetchpriority="high" />
           <figcaption>
             <span>Suresh, away from the keyboard.</span>

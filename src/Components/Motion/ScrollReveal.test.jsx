@@ -1,42 +1,42 @@
 import { render, screen, fireEvent, act } from "@testing-library/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ScrollReveal from "./ScrollReveal";
 
-const originalObserver = window.IntersectionObserver;
 const originalMatchMedia = window.matchMedia;
-let enter, changePreference, observer;
+let triggerConfig;
+let killMock;
 
 beforeEach(() => {
-  observer = { observe: jest.fn(), disconnect: jest.fn() };
-  window.IntersectionObserver = jest.fn((callback) => {
-    enter = callback;
-    return observer;
+  triggerConfig = null;
+  killMock = jest.fn();
+  jest.spyOn(ScrollTrigger, "create").mockImplementation((config) => {
+    triggerConfig = config;
+    return { kill: killMock };
   });
   window.matchMedia = jest.fn(() => ({
     matches: false,
-    addEventListener: jest.fn((type, callback) => {
-      changePreference = callback;
-    }),
+    addEventListener: jest.fn(),
     removeEventListener: jest.fn(),
   }));
 });
 afterEach(() => {
-  window.IntersectionObserver = originalObserver;
+  ScrollTrigger.create.mockRestore();
   window.matchMedia = originalMatchMedia;
 });
 
-test("reveals a group once on entry and releases its observer", () => {
+test("reveals a group once on entry", () => {
   render(
     <ScrollReveal as="section" aria-label="Work">
       Project notes
     </ScrollReveal>,
   );
   const group = screen.getByRole("region", { name: "Work" });
-  expect(group).toBeVisible();
-  act(() => enter([{ isIntersecting: false }]));
   expect(group).not.toHaveClass("is-revealed");
-  act(() => enter([{ isIntersecting: true }]));
+  expect(ScrollTrigger.create).toHaveBeenCalledWith(
+    expect.objectContaining({ start: "top 88%", once: true }),
+  );
+  act(() => triggerConfig.onEnter());
   expect(group).toHaveClass("is-revealed");
-  expect(observer.disconnect).toHaveBeenCalled();
 });
 
 test("keyboard focus immediately finishes a reveal", () => {
@@ -45,41 +45,28 @@ test("keyboard focus immediately finishes a reveal", () => {
       <a href="/portfolio">Work</a>
     </ScrollReveal>,
   );
-  act(() => enter([{ isIntersecting: true }]));
   const link = screen.getByRole("link");
-  fireEvent.focusIn(link);
   expect(link.parentElement).not.toHaveClass("is-revealed");
-  expect(link).toBeVisible();
+  fireEvent.focusIn(link);
+  expect(link.parentElement).toHaveClass("is-revealed");
+  expect(killMock).toHaveBeenCalled();
 });
 
-test("reduced motion never starts an observer", () => {
-  window.matchMedia = jest.fn(() => ({ matches: true }));
+test("reduced motion never starts a trigger and keeps content visible", () => {
+  window.matchMedia = jest.fn(() => ({
+    matches: true,
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+  }));
   render(<ScrollReveal>Visible content</ScrollReveal>);
-  expect(window.IntersectionObserver).not.toHaveBeenCalled();
-  expect(screen.getByText("Visible content")).toBeVisible();
+  expect(ScrollTrigger.create).not.toHaveBeenCalled();
+  const content = screen.getByText("Visible content");
+  expect(content).toHaveClass("is-revealed");
+  expect(content).toBeVisible();
 });
 
-test("switching to reduced motion cancels an active reveal", () => {
-  render(<ScrollReveal>Visible content</ScrollReveal>);
-  act(() => enter([{ isIntersecting: true }]));
-  act(() => changePreference({ matches: true }));
-  expect(screen.getByText("Visible content")).not.toHaveClass("is-revealed");
-});
-
-test("missing IntersectionObserver preserves visible content", () => {
-  window.IntersectionObserver = undefined;
-  render(<ScrollReveal>Visible content</ScrollReveal>);
-  expect(screen.getByText("Visible content")).toBeVisible();
-});
-
-test("unmounting disconnects observation and preference listeners", () => {
-  const preference = window.matchMedia();
-  window.matchMedia.mockReturnValue(preference);
+test("unmounting kills its trigger", () => {
   const view = render(<ScrollReveal>Content</ScrollReveal>);
   view.unmount();
-  expect(observer.disconnect).toHaveBeenCalled();
-  expect(preference.removeEventListener).toHaveBeenCalledWith(
-    "change",
-    expect.any(Function),
-  );
+  expect(killMock).toHaveBeenCalled();
 });

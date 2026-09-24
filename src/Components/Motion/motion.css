@@ -4,21 +4,9 @@
   --motion-normal: 320ms;
   --motion-entrance: 560ms;
   --motion-exit: 150ms;
-  --motion-step: 65ms;
-  --motion-distance: 18px;
   --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --motion-settle: cubic-bezier(0.2, 0.8, 0.2, 1);
   --motion-press: cubic-bezier(0.4, 0, 1, 1);
-}
-@keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(var(--motion-distance));
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 @keyframes reveal-quiet {
   from {
@@ -30,34 +18,9 @@
     translate: 0 0;
   }
 }
-@keyframes reveal-portrait {
-  from {
-    opacity: 0;
-    translate: 0 12px;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-@keyframes timeline-draw {
-  from {
-    transform: scaleY(0);
-  }
-  to {
-    transform: scaleY(1);
-  }
-}
-.scroll-reveal.is-revealed {
-  animation: reveal-up var(--motion-entrance) var(--motion-ease) both;
-  animation-delay: calc(var(--reveal-order, 0) * var(--motion-step));
-}
-.scroll-reveal:focus-within {
-  animation: none;
-}
-/* First paint: a short sequence, completed in under a second. */
+/* The header entrance is orchestrated by GSAP; the sticky state still
+   transitions here. */
 .header {
-  animation: reveal-quiet var(--motion-normal) var(--motion-ease) both;
   transition:
     border-color var(--motion-normal),
     box-shadow var(--motion-normal);
@@ -71,29 +34,10 @@
   margin-bottom: -1px;
   pointer-events: none;
 }
-.personal-hero h1,
-.hero-role,
-.hero-description,
-.hero-actions,
-.hero-footnote {
-  animation: reveal-up var(--motion-entrance) var(--motion-ease) backwards;
-}
-.personal-hero h1 {
-  animation-delay: var(--motion-step);
-}
-.hero-role,
-.hero-description {
-  animation-delay: calc(var(--motion-step) * 2);
-}
-.hero-actions {
-  animation-delay: calc(var(--motion-step) * 3);
-}
-.hero-footnote {
-  animation-delay: calc(var(--motion-step) * 4);
-}
-.portrait {
-  animation: reveal-portrait var(--motion-entrance) var(--motion-ease) backwards;
-  animation-delay: calc(var(--motion-step) * 4);
+/* The hero entrance is orchestrated by GSAP (timeline + word reveal);
+   these words need a transformable box. */
+.hero-word {
+  display: inline-block;
 }
 .portrait img {
   transition: transform var(--motion-normal) var(--motion-settle);
@@ -214,6 +158,8 @@
   width: 1px;
   background: var(--border-color);
   transform-origin: top;
+  /* Drawn by a GSAP scrub linked to scroll; fully shown without motion. */
+  transform: scaleY(var(--tl-progress, 1));
 }
 .experience-row::after {
   content: "";
@@ -224,9 +170,6 @@
   height: 7px;
   border-radius: 50%;
   background: var(--accent-primary);
-}
-.experience-row.is-revealed::before {
-  animation: timeline-draw var(--motion-entrance) var(--motion-ease) both;
 }
 .form-input,
 .form-textarea {
@@ -253,6 +196,13 @@
     color var(--motion-fast);
 }
 @media (hover: hover) and (pointer: fine) {
+  /* Education stays calmer than hero/projects: a small lift only. */
+  .education-list article {
+    transition: translate var(--motion-fast) var(--motion-ease);
+  }
+  .education-list article:hover {
+    translate: 0 -3px;
+  }
   .btn:hover:not(:active) {
     translate: 0 -2px;
     box-shadow: 0 3px 6px rgb(0 0 0 / 0.06);
@@ -310,8 +260,6 @@
 }
 @media (max-width: 760px) {
   :root {
-    --motion-distance: 9px;
-    --motion-step: 35ms;
     --motion-entrance: 420ms;
   }
   .nav-active-line {
@@ -372,9 +320,7 @@
   }
 }
 
-/* Never make a keyboard user wait for the initial entrance. */
-.header:focus-within,
-.hero-actions:focus-within,
+/* Never make a keyboard user wait for a mount entrance. */
 .background-panel:focus-within {
   animation: none;
 }

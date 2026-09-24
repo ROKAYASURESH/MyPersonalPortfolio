@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { gsap, useGSAP, prefersReducedMotion } from "../../animations/gsapSetup";
 import ThemeToggle from "../Common/ThemeToggle";
 
 const links = [
@@ -20,6 +21,7 @@ export default function Header() {
   const sentinel = useRef(null);
   const navigation = useRef(null);
   const indicator = useRef(null);
+  const bar = useRef(null);
   const location = useLocation();
   const active =
     location.pathname === "/"
@@ -31,6 +33,24 @@ export default function Header() {
   useEffect(() => {
     setOpen(false);
   }, [location]);
+  // Step 1 of the hero entrance: navigation fades down first. Content stays
+  // visible for reduced-motion users and whenever GSAP cannot run.
+  useGSAP(
+    () => {
+      const header = bar.current;
+      if (!header || prefersReducedMotion()) return undefined;
+      const entrance = gsap.from(header, {
+        y: -14,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+      return () => {
+        entrance.kill();
+      };
+    },
+    { scope: bar },
+  );
   useEffect(() => {
     const close = (event) => {
       if (event.key === "Escape") {
@@ -114,7 +134,7 @@ export default function Header() {
   return (
     <>
       <div ref={sentinel} className="header-sentinel" aria-hidden="true" />
-      <header className={`header ${scrolled ? "is-scrolled" : ""}`}>
+      <header ref={bar} className={`header ${scrolled ? "is-scrolled" : ""}`}>
         <a className="skip-link" href="#main">
           Skip to content
         </a>

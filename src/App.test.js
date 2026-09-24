@@ -44,9 +44,11 @@ test("about preserves the education and experience sections", () => {
 });
 
 test("project route keeps its screenshot and handles unknown projects", () => {
-  const view = page("/portfoliodetails/Hotel");
-  expect(screen.getByRole("heading", { name: "Hotel" })).toBeInTheDocument();
-  expect(screen.getByAltText("Hotel")).toHaveAttribute("src");
+  const view = page("/portfoliodetails/Portfolio");
+  expect(
+    screen.getByRole("heading", { name: "Portfolio" }),
+  ).toBeInTheDocument();
+  expect(screen.getByAltText("Portfolio")).toHaveAttribute("src");
   view.unmount();
   page("/portfoliodetails/missing");
   expect(screen.getByText("Project not found")).toBeInTheDocument();

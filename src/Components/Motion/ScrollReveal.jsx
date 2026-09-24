@@ -1,7 +1,20 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
+import {
+  gsap,
+  ScrollTrigger,
+  useGSAP,
+  prefersReducedMotion,
+  reduceMotionQuery,
+  revealDistance,
+  revealDuration,
+  revealEase,
+  staggerDelay,
+} from "../../animations/gsapSetup";
 
-// Content is visible by default. Observation only adds a one-time entrance;
-// unsupported browsers and reduced-motion users receive the static layout.
+// Content is visible by default. GSAP only hides it when a reveal will
+// actually run, so reduced-motion users and unsupported browsers always
+// receive the static layout. One consistent language everywhere:
+// opacity 0 -> 1, small y movement, played once on entry.
 export default function ScrollReveal({
   as: Element = "div",
   className = "",
@@ -12,45 +25,62 @@ export default function ScrollReveal({
 }) {
   const ref = useRef(null);
 
-  useEffect(() => {
-    const element = ref.current;
-    const preference = window.matchMedia?.("(prefers-reduced-motion: reduce)");
-    if (!element || preference?.matches || !window.IntersectionObserver) return;
+  useGSAP(
+    () => {
+      const element = ref.current;
+      if (!element) return undefined;
+      let trigger = null;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
+      const finish = () => {
+        gsap.set(element, { clearProps: "opacity,transform" });
         element.classList.add("is-revealed");
-        observer.disconnect();
-      },
-      { threshold: 0.08 },
-    );
+        trigger?.kill();
+        trigger = null;
+      };
 
-    // Keyboard navigation must never wait for a reveal or its stagger delay.
-    const finish = () => {
-      element.classList.remove("is-revealed");
-      observer.disconnect();
-    };
-    const onPreferenceChange = (event) => {
-      if (event.matches) finish();
-    };
-    element.addEventListener("focusin", finish);
-    preference?.addEventListener?.("change", onPreferenceChange);
-    observer.observe(element);
-    return () => {
-      observer.disconnect();
-      element.removeEventListener("focusin", finish);
-      preference?.removeEventListener?.("change", onPreferenceChange);
-    };
-  }, []);
+      if (prefersReducedMotion() || typeof ScrollTrigger === "undefined") {
+        finish();
+        return undefined;
+      }
+
+      gsap.set(element, { opacity: 0, y: revealDistance() });
+      trigger = ScrollTrigger.create({
+        trigger: element,
+        start: "top 88%",
+        once: true,
+        onEnter: () => {
+          element.classList.add("is-revealed");
+          gsap.to(element, {
+            opacity: 1,
+            y: 0,
+            duration: revealDuration,
+            ease: revealEase,
+            delay: staggerDelay(stagger),
+            onComplete: () =>
+              gsap.set(element, { clearProps: "opacity,transform" }),
+          });
+        },
+      });
+
+      // Keyboard navigation must never wait for a reveal or its stagger delay.
+      const preference = window.matchMedia?.(reduceMotionQuery);
+      const onPreferenceChange = (event) => {
+        if (event.matches) finish();
+      };
+      element.addEventListener("focusin", finish);
+      preference?.addEventListener?.("change", onPreferenceChange);
+      return () => {
+        trigger?.kill();
+        trigger = null;
+        element.removeEventListener("focusin", finish);
+        preference?.removeEventListener?.("change", onPreferenceChange);
+      };
+    },
+    { scope: ref },
+  );
 
   return (
-    <Element
-      ref={ref}
-      className={`scroll-reveal ${className}`}
-      style={{ "--reveal-order": Math.max(0, Math.min(stagger, 3)), ...style }}
-      {...props}
-    >
+    <Element ref={ref} className={`scroll-reveal ${className}`} style={style} {...props}>
       {children}
     </Element>
   );
