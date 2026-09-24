@@ -49,19 +49,8 @@ export default function Contact() {
 
   return (
     <>
-      {/* Modern Hero Section */}
       <section className="page-hero-section">
-        <div className="hero-background"></div>
-        <div className="hero-gradient"></div>
-        <div className="gradient-blob blob-1"></div>
-        <div className="gradient-blob blob-2"></div>
-
         <div className="hero-content">
-          {/* <div className="hero-badge">
-            <FaEnvelope className="badge-icon" />
-            <span>Let's Connect</span>
-          </div> */}
-
           <h1 className="hero-title">
             Get In <span className="text-gradient">Touch</span>
           </h1>
@@ -73,15 +62,15 @@ export default function Contact() {
 
           <div className="hero-features">
             <div className="hero-feature-item">
-              <FaEnvelope className="feature-icon" />
+              <FaEnvelope />
               <span>Email is best</span>
             </div>
             <div className="hero-feature-item">
-              <FaMapMarkerAlt className="feature-icon" />
+              <FaMapMarkerAlt />
               <span>Kathmandu, Nepal</span>
             </div>
             <div className="hero-feature-item">
-              <FaPhone className="feature-icon" />
+              <FaPhone />
               <span>Open to a conversation</span>
             </div>
           </div>
@@ -97,14 +86,9 @@ export default function Contact() {
             </Link>
           </div>
         </div>
-
-        <div className="hero-scroll-indicator">
-          <div className="scroll-mouse"></div>
-        </div>
       </section>
 
       <section className="contact-section" id="contact">
-        <div className="gradient-blob blob-3"></div>
         <div className="container">
           <div className="section-title">
             <h2>
@@ -116,8 +100,8 @@ export default function Contact() {
             </p>
           </div>
           <ScrollReveal className="contact-content">
-            <div className="contact-info-wrapper">
-              <div className="contact-info">
+            <div>
+              <div>
                 <div className="contact-item">
                   <div className="contact-icon">
                     <FaLocationArrow />
@@ -163,7 +147,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="contact-form-card">
+            <div>
               <div className="form-header">
                 <h3>Send a Message</h3>
                 <p>
@@ -171,9 +155,9 @@ export default function Contact() {
                   it before sending.
                 </p>
               </div>
-              <form onSubmit={formSubmit} className="modern-form">
+              <form onSubmit={formSubmit}>
                 <div className="form-row">
-                  <div className="form-group flex-1">
+                  <div className="form-group">
                     <label className="form-label" htmlFor="fullname">
                       Full Name
                     </label>
@@ -188,7 +172,7 @@ export default function Contact() {
                       required
                     />
                   </div>
-                  <div className="form-group flex-1">
+                  <div className="form-group">
                     <label className="form-label" htmlFor="phone">
                       Phone
                     </label>
@@ -233,10 +217,7 @@ export default function Contact() {
                     required
                   ></textarea>
                 </div>
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-glow submit-btn"
-                >
+                <button type="submit" className="btn btn-primary btn-glow">
                   <span>Prepare email</span>
                   <FaArrowRight />
                 </button>

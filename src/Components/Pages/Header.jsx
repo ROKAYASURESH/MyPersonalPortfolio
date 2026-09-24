@@ -5,8 +5,9 @@ import ThemeToggle from "../Common/ThemeToggle";
 const links = [
   { label: "Home", to: "/", section: "home" },
   { label: "About", to: "/about", section: "about" },
-  { label: "Skills", to: "/#skills", section: "skills" },
   { label: "Projects", to: "/portfolio", section: "projects" },
+  { label: "Skills", to: "/#skills", section: "skills" },
+  
   { label: "Experience", to: "/#experience", section: "experience" },
   { label: "Contact", to: "/contact", section: "contact" },
 ];

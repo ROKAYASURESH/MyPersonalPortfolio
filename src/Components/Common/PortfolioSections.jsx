@@ -71,7 +71,7 @@ export function Skills() {
     ],
   ];
   return (
-    <div className="skills-list">
+    <div>
       {groups.map(([name, stack, use], i) => (
         <ScrollReveal className="skill-row" key={name} stagger={i}>
           <span className="eyebrow">0{i + 1}</span>
@@ -125,7 +125,7 @@ export function ProjectList({ compact = false }) {
       )
     : PortfolioData;
   return (
-    <div className="project-list">
+    <div>
       {projects.map((project, index) => (
         <ScrollReveal
           as="article"

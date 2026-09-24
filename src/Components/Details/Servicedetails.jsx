@@ -28,13 +28,7 @@ export const Servicedetails = () => {
 
   return (
     <>
-      {/* Hero Section */}
       <section className="detail-hero-section">
-        <div className="hero-background"></div>
-        <div className="hero-gradient"></div>
-        <div className="gradient-blob blob-1"></div>
-        <div className="gradient-blob blob-2"></div>
-
         <div className="container">
           <Link to="/service" className="detail-back-button">
             <FaArrowLeft style={{ marginRight: "8px" }} />
@@ -42,8 +36,8 @@ export const Servicedetails = () => {
           </Link>
 
           <div className="detail-hero-content">
-            <div className="service-icon-large">
-              <div className="service-icon-bg-large"></div>
+            <div>
+              <div></div>
               {service.icon}
             </div>
             <h1 className="detail-hero-title">{service.heading}</h1>
@@ -52,13 +46,12 @@ export const Servicedetails = () => {
         </div>
       </section>
 
-      {/* Service Details Section */}
       <section className="service-detail-section">
         <div className="container">
-          <div className="service-detail-card">
-            <div className="service-detail-content">
-              <h2 className="service-detail-heading">{service.heading}</h2>
-              <div className="service-detail-description">
+          <div>
+            <div>
+              <h2>{service.heading}</h2>
+              <div>
                 <p>{service.paragraph}</p>
               </div>
             </div>
@@ -66,13 +59,11 @@ export const Servicedetails = () => {
         </div>
       </section>
 
-      {/* Related Projects Section */}
       <section className="related-projects-section">
-        <div className="gradient-blob blob-3"></div>
         <div className="container">
           <div className="section-header-modern">
             <span className="section-badge">Related Work</span>
-            <h2 className="section-title-modern">
+            <h2>
               Related <span className="text-gradient">Projects</span>
             </h2>
             <p className="section-description">
@@ -82,13 +73,9 @@ export const Servicedetails = () => {
 
           <div className="related-projects-grid">
             {PortfolioData.map((project, index) => (
-              <ScrollReveal
-                key={project.id}
-                className="related-project-card"
-                stagger={index % 3}
-              >
+              <ScrollReveal key={project.id} stagger={index % 3}>
                 <Link to={`/portfoliodetails/${project.Pheading}`}>
-                  <div className="related-project-inner">
+                  <div>
                     <div className="related-project-image-wrapper">
                       {project.Project && (
                         <img src={project.Project} alt={project.Pheading} />
@@ -97,7 +84,7 @@ export const Servicedetails = () => {
                         <div className="related-project-content">
                           <h3>{project.Pheading}</h3>
                           <p>{project.PParagraph}</p>
-                          <span className="related-project-link">
+                          <span>
                             View Details
                             <FaArrowRight style={{ marginLeft: "8px" }} />
                           </span>

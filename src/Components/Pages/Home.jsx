@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <section id="home" className="personal-hero container">
-        <div className="intro">
+        <div>
           <p className="eyebrow location-label">
             <span aria-hidden="true" />
             KATHMANDU, NEPAL

@@ -28,54 +28,28 @@ export default function Teamdetail() {
 
   return (
     <>
-      {/* Hero Section */}
       <section className="detail-hero-section">
-        <div className="hero-background"></div>
-        <div className="hero-gradient"></div>
-        <div className="gradient-blob blob-1"></div>
-        <div className="gradient-blob blob-2"></div>
-
         <div className="container">
-          {/* <Link to="/teams" className="detail-back-button">
-            <FaArrowLeft style={{ marginRight: '8px' }} />
-            Back to Teams
-          </Link> */}
-
-          <div className="detail-hero-content pt-5">
-            <div className="team-hero-image-wrapper pt-5">
-              <div className="team-hero-image-glow"></div>
-              <img src={teamMember.icon} alt={teamMember.heading} />
-            </div>
+          <div className="detail-hero-content">
             <h1 className="detail-hero-title">{teamMember.heading}</h1>
-            <p className="detail-hero-subtitle team-role-subtitle">
-              {teamMember.paragraph}
-            </p>
+            <p className="detail-hero-subtitle">{teamMember.paragraph}</p>
           </div>
         </div>
       </section>
 
-      {/* Team Detail Section */}
       <section className="team-detail-section">
         <div className="container">
           <div className="team-detail-grid">
-            {/* Team Image */}
             <div className="team-detail-image-wrapper">
-              <div className="team-detail-image-glow"></div>
               <img src={teamMember.icon} alt={teamMember.heading} />
-              <div className="team-status-badge-large">
-                <span className="status-dot"></span>
-                Available
-              </div>
             </div>
 
-            {/* Team Info */}
-            <div className="team-detail-info">
-              <div className="team-about-card">
+            <div>
+              <div>
                 <h2>About</h2>
                 <p>{teamMember.About}</p>
               </div>
 
-              {/* Social Links */}
               {(teamMember.message ||
                 teamMember.Whatsapp ||
                 teamMember.Linkedin) && (
@@ -85,7 +59,6 @@ export default function Teamdetail() {
                       href={teamMember.message}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="team-social-link-large"
                       aria-label="Facebook"
                     >
                       <FaFacebook />
@@ -96,7 +69,6 @@ export default function Teamdetail() {
                       href={teamMember.Whatsapp}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="team-social-link-large"
                       aria-label="WhatsApp"
                     >
                       <FaWhatsappSquare />
@@ -107,7 +79,6 @@ export default function Teamdetail() {
                       href={teamMember.Linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="team-social-link-large"
                       aria-label="LinkedIn"
                     >
                       <FaLinkedin />
@@ -118,8 +89,7 @@ export default function Teamdetail() {
             </div>
           </div>
 
-          {/* Tabs Section */}
-          <div className="team-tabs-container">
+          <div>
             <div className="team-tabs-nav">
               <button
                 className={`team-tab-button ${activeTab === "skill" ? "active" : ""}`}
@@ -143,53 +113,47 @@ export default function Teamdetail() {
 
             <div className="team-tab-content" key={activeTab}>
               {activeTab === "skill" && (
-                <div className="team-skills-container">
+                <div>
                   <div className="team-skill-item">
-                    <div className="team-skill-header">
-                      <span className="team-skill-name">
-                        {teamMember.HTMLtitle}
-                      </span>
+                    <div>
+                      <span>{teamMember.HTMLtitle}</span>
                     </div>
                   </div>
 
                   <div className="team-skill-item">
-                    <div className="team-skill-header">
-                      <span className="team-skill-name">
-                        {teamMember.CSStitle}
-                      </span>
+                    <div>
+                      <span>{teamMember.CSStitle}</span>
                     </div>
                   </div>
 
                   <div className="team-skill-item">
-                    <div className="team-skill-header">
-                      <span className="team-skill-name">
-                        {teamMember.Fluttortitle}
-                      </span>
+                    <div>
+                      <span>{teamMember.Fluttortitle}</span>
                     </div>
                   </div>
                 </div>
               )}
 
               {activeTab === "experience" && (
-                <div className="team-tab-panel">
-                  <div className="team-experience-card">
+                <div>
+                  <div>
                     <p>{teamMember.WorkExp}</p>
                   </div>
                 </div>
               )}
 
               {activeTab === "education" && (
-                <div className="team-tab-panel">
-                  <div className="team-education-list">
-                    <div className="team-education-item">
+                <div>
+                  <div>
+                    <div>
                       <h4>School Level</h4>
                       <p>{teamMember.SEE}</p>
                     </div>
-                    <div className="team-education-item">
+                    <div>
                       <h4>Higher Secondary</h4>
                       <p>{teamMember.Higher}</p>
                     </div>
-                    <div className="team-education-item">
+                    <div>
                       <h4>Bachelor's Degree</h4>
                       <p>{teamMember.Bachelor}</p>
                     </div>

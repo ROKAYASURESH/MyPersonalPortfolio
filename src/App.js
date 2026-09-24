@@ -1,6 +1,6 @@
 import "./App.css";
 import "./Components/Motion/motion.css";
-import { Route, Routes, useLocation } from "react-router";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "./Components/Pages/Header";
 import Home from "./Components/Pages/Home";
@@ -17,7 +17,6 @@ import Portfoliodetails from "./Components/Details/Portfoliodetails";
 function App() {
   const location = useLocation();
 
-  // Scroll to top on route change
   useEffect(() => {
     if (location.hash) {
       document
