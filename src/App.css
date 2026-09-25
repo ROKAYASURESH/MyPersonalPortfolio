@@ -530,14 +530,17 @@
     gap: 0;
   }
   .menu-toggle {
-    display: block;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
     background: transparent;
     border: 1px solid var(--border-color);
     border-radius: 3px;
-    padding: 6px 13px;
-    min-height: 40px;
     color: var(--text-primary);
-    font-size: 0.85rem;
+    font-size: 1.1rem;
+    padding: 0;
   }
   .navigation {
     display: none;

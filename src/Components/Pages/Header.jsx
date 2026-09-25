@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { gsap, useGSAP, prefersReducedMotion } from "../../animations/gsapSetup";
 import ThemeToggle from "../Common/ThemeToggle";
 
@@ -33,6 +34,24 @@ export default function Header() {
   useEffect(() => {
     setOpen(false);
   }, [location]);
+
+  // Auto-close the mobile menu on scroll (including scroll-up).
+  // Without this, the open dropdown stays stuck over content on small screens.
+  useEffect(() => {
+    if (!open) return;
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      // Small threshold avoids closing on tiny jitter / rubber-banding.
+      // Covers both scroll-up (y < lastY) and scroll-down.
+      if (Math.abs(y - lastY) > 5) {
+        setOpen(false);
+      }
+      lastY = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [open]);
   // Step 1 of the hero entrance: navigation fades down first. Content stays
   // visible for reduced-motion users and whenever GSAP cannot run.
   useGSAP(
@@ -148,9 +167,10 @@ export default function Header() {
             className="menu-toggle"
             aria-expanded={open}
             aria-controls="navigation"
+            aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen(!open)}
           >
-            {open ? "Close" : "Menu"}
+            {open ? <FaTimes aria-hidden="true" /> : <FaBars aria-hidden="true" />}
           </button>
           <div
             ref={navigation}
@@ -162,6 +182,7 @@ export default function Header() {
                 key={link.section}
                 to={link.to}
                 className={active === link.section ? "active" : ""}
+                onClick={() => setOpen(false)}
                 aria-current={
                   active === link.section
                     ? location.pathname === "/"
