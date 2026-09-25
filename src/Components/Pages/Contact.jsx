@@ -3,10 +3,11 @@ import ScrollReveal from "../Motion/ScrollReveal";
 import { FaPhone, FaLocationArrow, FaArrowRight } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import SEO from "../Common/SEO";
 
 export default function Contact() {
   useEffect(() => {
-    document.title = "Contact | Suresh Rokaya";
+    document.title = "Contact Suresh Rokaya | Software Developer in Kathmandu";
   }, []);
 
   const [notice, setNotice] = useState("");
@@ -43,13 +44,17 @@ export default function Contact() {
 
   return (
     <>
+      <SEO
+        title="Contact Suresh Rokaya | Software Developer in Kathmandu"
+        description="Contact Suresh Rokaya, full-stack software developer in Kathmandu, Nepal — available for web development projects, REST APIs, and Django / React work."
+        path="/contact"
+      />
       <section className="page-intro container">
         <span className="eyebrow">CONTACT</span>
-        <h1>Get in touch.</h1>
+        <h1>Contact Suresh Rokaya.</h1>
         <p>
-          Have a project in mind? Let&apos;s work together to make it happen.
-          I&apos;m always open to discussing new opportunities and exciting
-          projects.{" "}
+          Have a project in mind? I&apos;m a full-stack developer open to web
+          development work, API projects, and collaborations.{" "}
           <Link className="text-link" to="/portfolio">
             View my work <span aria-hidden="true">↗</span>
           </Link>
@@ -97,10 +102,14 @@ export default function Contact() {
               <a
                 href="https://github.com/ROKAYASURESH"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer me"
               >
-                GitHub ↗
+                GitHub — Suresh Rokaya ↗
               </a>
+              <a href="mailto:sureshrokaya761@gmail.com">
+                Email — Suresh Rokaya ↗
+              </a>
+              <Link to="/about">About Suresh Rokaya</Link>
             </div>
 
             <div className="contact-map-container">

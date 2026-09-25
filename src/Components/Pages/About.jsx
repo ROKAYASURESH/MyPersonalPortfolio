@@ -5,18 +5,27 @@ import {
   Experience,
   ContactInvite,
 } from "../Common/PortfolioSections";
+import SEO from "../Common/SEO";
 export default function About() {
   const [active, setActive] = useState("Skills");
   useEffect(() => {
-    document.title = "About | Suresh Rokaya";
+    document.title = "About Suresh Rokaya | Software Developer from Nepal";
   }, []);
   return (
     <>
+      <SEO
+        title="About Suresh Rokaya | Software Developer from Nepal"
+        description="About Suresh Rokaya — full-stack software developer in Kathmandu, Nepal, working with Python, Django, Django REST Framework, React, Vue.js, and PostgreSQL."
+        path="/about"
+      />
       <section className="page-intro container">
         <span className="eyebrow">A LITTLE ABOUT ME</span>
-        <h1>More than a list of technologies.</h1>
+        <h1>About Suresh Rokaya — software developer.</h1>
         <p>
-          My background, the way I work, and what I've learned along the way.
+          I&apos;m a full-stack developer based in Kathmandu, Nepal, building
+          web applications and REST APIs with Python, Django, React, Vue.js,
+          and PostgreSQL. My background, the way I work, and what I&apos;ve
+          learned along the way.
         </p>
       </section>
       <section className="container section">

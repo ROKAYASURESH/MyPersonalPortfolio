@@ -264,7 +264,7 @@
 }
 @media (hover: hover) and (pointer: fine) {
   .project-preview.has-cursor {
-    cursor: none;
+    cursor: pointer;
   }
 }
 @media (hover: none), (max-width: 760px) {

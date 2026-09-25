@@ -1,6 +1,6 @@
 import "./App.css";
 import "./Components/Motion/motion.css";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion } from "./animations/gsapSetup";
 import Header from "./Components/Pages/Header";
@@ -10,6 +10,32 @@ import Portfolio from "./Components/Pages/Portfolio";
 import Contact from "./Components/Pages/Contact";
 import Footer from "./Components/Pages/Footer";
 import Portfoliodetails from "./Components/Details/Portfoliodetails";
+import SEO from "./Components/Common/SEO";
+
+function NotFound() {
+  return (
+    <div className="detail-page-error">
+      <div className="container">
+        <SEO
+          title="Page not found | Suresh Rokaya"
+          description="The requested page could not be found on the official portfolio of Suresh Rokaya."
+          path="/"
+          noindex
+        />
+        <span className="eyebrow">404</span>
+        <h1>Page not found.</h1>
+        <p>
+          This page doesn&apos;t exist.{" "}
+          <Link to="/">Return to Suresh Rokaya&apos;s homepage</Link> or{" "}
+          <Link to="/portfolio">browse projects</Link>.
+        </p>
+        <Link to="/" className="btn btn-primary">
+          Back to home
+        </Link>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   const location = useLocation();
@@ -63,6 +89,7 @@ function App() {
             path="/portfoliodetails/:Pheading"
             element={<Portfoliodetails />}
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Suresh Rokaya",
+  "name": "Suresh Rokaya — Software Developer & Full-Stack Web Developer",
+  "description": "Official personal website and professional portfolio of Suresh Rokaya, software and full-stack web developer from Nepal.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,16 +11,12 @@
     {
       "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#315940",
+  "background_color": "#f7f6f0"
 }

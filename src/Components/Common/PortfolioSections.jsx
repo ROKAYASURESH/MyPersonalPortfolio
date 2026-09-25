@@ -28,29 +28,38 @@ export function AboutStory() {
           easier to use.
         </p>
         <p>
-          I'm Suresh, a full-stack developer based in Kathmandu, Nepal. I work
-          with Django REST Framework and React, connecting the data behind an
-          application to the interface people use every day.
+          I&apos;m Suresh Rokaya, a software and full-stack developer based in
+          Kathmandu, Nepal. I build web applications and REST APIs with
+          Python, Django, Django REST Framework, React, Vue.js, and
+          PostgreSQL — connecting the data behind an application to the
+          interface people use every day.
         </p>
         <p>
-          My work has included sales reporting, authentication, REST APIs, and
-          frontend integration. I enjoy the practical parts: untangling a data
-          flow, fixing a stubborn bug, and making code easier for the next
-          person to follow.
+          My work has included sales reporting, authentication, REST APIs,
+          PostgreSQL data modeling, and frontend integration with React and
+          Vue.js. I enjoy the practical parts: untangling a data flow, fixing
+          a stubborn bug, and making code easier for the next person to
+          follow.
         </p>
         <p>
-          My approach is simple: understand the problem, build a clear solution,
-          and keep learning from the work.
+          My approach is simple: understand the problem, build a clear
+          solution, and keep learning from the work. Lately I&apos;ve been
+          working with Docker and Linux workflows, TypeScript, and GIS-backed
+          web applications. <Link to="/about">Read more about Suresh Rokaya</Link> or{" "}
+          <Link to="/portfolio">browse selected projects</Link>.
         </p>
       </div>
       <aside className="working-note">
         <span className="eyebrow">AT MY DESK</span>
         <h3>Backend to browser.</h3>
-        <p>Currently working with Django, React, and relational databases.</p>
+        <p>
+          Currently working with Django, React, Vue.js, and PostgreSQL on
+          Linux with Docker.
+        </p>
         <span className="small-label">A principle I come back to</span>
         <p>Readable code is easier to improve.</p>
         <Link to="/about">
-          More about me <span aria-hidden="true">↗</span>
+          More about Suresh Rokaya <span aria-hidden="true">↗</span>
         </Link>
       </aside>
     </ScrollReveal>
@@ -68,11 +77,11 @@ export function Skills() {
       "React, Vue, JavaScript, TypeScript",
       "Reusable components · responsive interfaces",
     ],
-    ["Databases", "PostgreSQL, MySQL", "Relational data · application queries"],
+    ["Databases", "PostgreSQL, MySQL, SQL", "Relational data · application queries"],
     [
       "Tools & workflow",
-      "Git, GitHub",
-      "Version control · collaboration · code reviews",
+      "Git, GitHub, Docker, Linux",
+      "Version control · collaboration · containers",
     ],
   ];
   return (
@@ -222,7 +231,9 @@ function ProjectPreview({ project }) {
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
     if (badgeRef.current) {
-      badgeRef.current.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) scale(1)`;
+      // Offset +24px right so the native mouse arrow stays visible
+      // next to the pill (like the screenshot) instead of hidden under it.
+      badgeRef.current.style.transform = `translate(${x + 24}px, ${y}px) translate(-50%, -50%) scale(1)`;
     }
   };
 
@@ -239,15 +250,16 @@ function ProjectPreview({ project }) {
     <Link
       className="project-preview has-cursor"
       to={`/portfoliodetails/${encodeURIComponent(project.Pheading)}`}
-      aria-label={`View ${project.Pheading} project`}
+      aria-label={`View ${project.Pheading} project details by Suresh Rokaya`}
       onMouseMove={moveBadge}
       onMouseEnter={showBadge}
       onMouseLeave={hideBadge}
     >
       <img
         src={project.Project}
-        alt={`${project.Pheading} website screenshot`}
+        alt={`${project.Pheading} website interface screenshot — project by Suresh Rokaya`}
         loading="lazy"
+        decoding="async"
       />
       <span ref={badgeRef} className="cursor-view" aria-hidden="true">
         VIEW <span aria-hidden="true">↗</span>
@@ -291,6 +303,7 @@ export function ProjectList({ compact = false }) {
             <h3>
               <Link
                 to={`/portfoliodetails/${encodeURIComponent(project.Pheading)}`}
+                aria-label={`${project.Pheading} — project details`}
               >
                 {project.Pheading} <span aria-hidden="true">↗</span>
               </Link>
@@ -300,8 +313,9 @@ export function ProjectList({ compact = false }) {
             <Link
               className="text-link"
               to={`/portfoliodetails/${encodeURIComponent(project.Pheading)}`}
+              aria-label={`Read project notes for ${project.Pheading}`}
             >
-              Project notes <span aria-hidden="true">→</span>
+              Project notes for {project.Pheading} <span aria-hidden="true">→</span>
             </Link>
           </div>
         </ScrollReveal>

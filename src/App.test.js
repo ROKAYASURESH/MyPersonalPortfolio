@@ -27,7 +27,7 @@ test("home exposes the introduction, projects, skills, and real experience", () 
 
 test("mobile menu closes with Escape and restores keyboard focus", () => {
   page("/");
-  const menu = screen.getByRole("button", { name: "Menu" });
+  const menu = screen.getByRole("button", { name: /open menu/i });
   fireEvent.click(menu);
   expect(menu).toHaveAttribute("aria-expanded", "true");
   fireEvent.keyDown(document, { key: "Escape" });
@@ -48,7 +48,9 @@ test("project route keeps its screenshot and handles unknown projects", () => {
   expect(
     screen.getByRole("heading", { name: "Portfolio" }),
   ).toBeInTheDocument();
-  expect(screen.getByAltText("Portfolio")).toHaveAttribute("src");
+  expect(screen.getByAltText(/Portfolio.*website interface/)).toHaveAttribute(
+    "src",
+  );
   view.unmount();
   page("/portfoliodetails/missing");
   expect(screen.getByText("Project not found")).toBeInTheDocument();

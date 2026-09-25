@@ -7,7 +7,7 @@ import {
   hasFinePointer,
 } from "../../animations/gsapSetup";
 import resume from "../images/My Personal CV (1).pdf";
-import photo from "../images/homeImage.png";
+import photo from "../images/homeImage.jpg";
 import {
   SectionHeading,
   AboutStory,
@@ -16,6 +16,7 @@ import {
   ProjectList,
   ContactInvite,
 } from "../Common/PortfolioSections";
+import SEO from "../Common/SEO";
 export default function Home() {
   const hero = useRef(null);
   const badge = useRef(null);
@@ -27,7 +28,9 @@ export default function Home() {
   const footnote = useRef(null);
 
   useEffect(() => {
-    document.title = "Suresh Rokaya | Full-Stack Developer";
+    // Route metadata is handled by <SEO />; keep this as a fallback.
+    document.title =
+      "Suresh Rokaya | Software Developer & Full-Stack Web Developer";
   }, []);
 
   // Hero entrance: badge -> heading words -> supporting copy -> CTAs and
@@ -99,6 +102,11 @@ export default function Home() {
   }, []);
   return (
     <>
+      <SEO
+        title="Suresh Rokaya | Software Developer & Full-Stack Web Developer"
+        description="Suresh Rokaya is a software and full-stack web developer from Nepal specializing in Django, Django REST Framework, React, Vue.js, PostgreSQL, and modern web applications."
+        path="/"
+      />
       <section id="home" ref={hero} className="personal-hero container">
         <div>
           <p ref={badge} className="eyebrow location-label">
@@ -123,14 +131,15 @@ export default function Home() {
             </span>
           </h1>
           <p ref={role} className="hero-role">
-            A developer who enjoys
+            Software developer building
             <br />
-            making useful things for the web.
+            practical web applications &amp; REST APIs.
           </p>
           <p ref={description} className="hero-description">
-            I build practical web applications with Django, React, and Vue. From
-            the API to the small details on screen, I like making things work
-            well together.
+            I&apos;m Suresh Rokaya, a full-stack developer based in Kathmandu,
+            Nepal. I build web applications with Python, Django, React,
+            Vue.js, and PostgreSQL — from the API to the small details on
+            screen.
           </p>
           <div ref={actions} className="hero-actions">
             <Link className="btn btn-primary" to="/portfolio">
@@ -150,7 +159,14 @@ export default function Home() {
           </div>
         </div>
         <figure ref={media} className="portrait">
-          <img src={photo} alt="Suresh Rokaya" fetchpriority="high" />
+          <img
+            src={photo}
+            alt="Suresh Rokaya, software developer from Nepal"
+            width="800"
+            height="960"
+            fetchPriority="high"
+            decoding="async"
+          />
           <figcaption>
             <span>Suresh, away from the keyboard.</span>
             <span aria-hidden="true">↳</span>

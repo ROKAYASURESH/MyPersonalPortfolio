@@ -158,7 +158,7 @@ export default function Header() {
           Skip to content
         </a>
         <nav className="navbar" aria-label="Main navigation">
-          <Link to="/" className="brand">
+          <Link to="/" className="brand" aria-label="Suresh Rokaya — home">
             suresh<span>.</span>
             <span className="brand-note"> / developer</span>
           </Link>
