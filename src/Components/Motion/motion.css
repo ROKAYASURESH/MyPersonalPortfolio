@@ -156,7 +156,7 @@
   left: 0;
   inset-block: 0;
   width: 1px;
-  background: var(--border-color);
+  background:#2bc52b;
   transform-origin: top;
   /* Drawn by a GSAP scrub linked to scroll; fully shown without motion. */
   transform: scaleY(var(--tl-progress, 1));

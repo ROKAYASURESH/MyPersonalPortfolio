@@ -317,25 +317,107 @@
 .skill-row .eyebrow {
   margin: 0;
 }
+.experience-list {
+  display: grid;
+  gap: 28px;
+}
 .experience-row {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 50px;
+  grid-template-columns: 220px 1fr;
+  gap: 44px;
+  padding: 30px 30px 30px 54px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--bg-secondary);
 }
 .experience-row h3 {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  font-size: 1.35rem;
+}
+.exp-meta {
+  align-self: start;
+  position: sticky;
+  top: 110px;
+}
+.exp-meta .eyebrow {
+  margin-bottom: 12px;
+}
+.exp-period {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--bg-primary);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
 }
 .company {
   color: var(--accent-primary);
   font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 14px;
 }
-.experience-row ul {
-  padding-left: 19px;
+.exp-body > p {
+  font-size: 0.92rem;
+}
+.exp-label {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin: 24px 0 12px;
+}
+.exp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
   color: var(--text-secondary);
   font-size: 0.92rem;
 }
-.experience-row li {
-  padding: 4px 0 4px 5px;
+.exp-list li {
+  position: relative;
+  padding: 5px 0 5px 26px;
+  border-bottom: 1px dashed var(--border-color);
+}
+.exp-list li:last-child {
+  border-bottom: 0;
+}
+.exp-list li::before {
+  content: "→";
+  position: absolute;
+  left: 2px;
+  top: 5px;
+  color: var(--accent-primary);
+  font-size: 0.85rem;
+}
+.exp-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+}
+.exp-tech-chip {
+  display: inline-block;
+  padding: 5px 13px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-size: 0.78rem;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+/* Keep the scroll-drawn timeline rail inside the card edge. */
+.experience-row::before {
+  left: 26px;
+}
+.experience-row::after {
+  left: 23px;
 }
 .contact-invite {
   border-top: 1px solid var(--border-color);
@@ -628,6 +710,18 @@
   .contact-content {
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+  .experience-row {
+    padding: 22px 20px 22px 40px;
+  }
+  .experience-row::before {
+    left: 18px;
+  }
+  .experience-row::after {
+    left: 15px;
+  }
+  .exp-meta {
+    position: static;
   }
   .section {
     padding-block: 38px;

@@ -140,13 +140,15 @@ export function Experience() {
   );
 
   return (
-    <div ref={wrap}>
+    <div ref={wrap} className="experience-list">
       <ScrollReveal className="experience-row">
-        <div>
+        <div className="exp-meta">
           <span className="eyebrow">PROFESSIONAL EXPERIENCE</span>
-          <p className="small-label">1+ year of professional experience</p>
+          <p className="small-label exp-period">
+            1+ year of professional experience
+          </p>
         </div>
-        <div>
+        <div className="exp-body">
           <h3>Full-Stack Developer</h3>
           <p className="company">Upveda Technology Pvt. Ltd</p>
           <p>
@@ -158,8 +160,8 @@ export function Experience() {
             frontend and backend systems, working with business data and
             improving existing application functionality.
           </p>
-          <h5>What I worked on:</h5>
-          <ul>
+          <h5 className="exp-label">What I worked on:</h5>
+          <ul className="exp-list">
             <li>
               Developed and maintained the Direct Sales Report (DSR/MIS)
               application for managing sales-related data, reporting and
@@ -201,19 +203,32 @@ export function Experience() {
               in full-stack web development.
             </li>
           </ul>
-          <h5>Technologies Used:</h5>
-          <p className="project-stack">
-            Django · Django REST Framework · React.js · Next.js · JavaScript ·
-            REST APIs · Authentication · Authorization · Git
+          <h5 className="exp-label">Technologies Used:</h5>
+          <p className="project-stack exp-tech">
+            {[
+              "Django",
+              "Django REST Framework",
+              "React.js",
+              "Next.js",
+              "JavaScript",
+              "REST APIs",
+              "Authentication",
+              "Authorization",
+              "Git",
+            ].map((tech) => (
+              <span key={tech} className="exp-tech-chip">
+                {tech}
+              </span>
+            ))}
           </p>
         </div>
       </ScrollReveal>
       <ScrollReveal className="experience-row">
-        <div>
+        <div className="exp-meta">
           <span className="eyebrow">PROFESSIONAL EXPERIENCE</span>
-          <p className="small-label">Dec 2025 – Present</p>
+          <p className="small-label exp-period">Dec 2025 – Present</p>
         </div>
-        <div>
+        <div className="exp-body">
           <h3>Django Developer</h3>
           <p className="company">Thimi Tech Pvt. Ltd.</p>
           <p>
@@ -227,8 +242,8 @@ export function Experience() {
             integrating frontend and backend services, working with geospatial
             data, and maintaining existing production codebases. */}
           </p>
-          <h5>What I work on:</h5>
-          <ul>
+          <h5 className="exp-label">What I work on:</h5>
+          <ul className="exp-list">
             <li>Develop backend features using Python and Django.</li>
             <li>Build and maintain REST APIs using Django REST Framework</li>
             <li>
@@ -253,10 +268,22 @@ export function Experience() {
               Collaborate with the development team using Git and Git-based workflows.
             </li>
           </ul>
-          <h5>Technologies Used:</h5>
-          <p className="project-stack">
-            Python · Django · Django REST Framework · Vue.js · PostgreSQL ·
-            PostGIS · GIS · Git
+          <h5 className="exp-label">Technologies Used:</h5>
+          <p className="project-stack exp-tech">
+            {[
+              "Python",
+              "Django",
+              "Django REST Framework",
+              "Vue.js",
+              "PostgreSQL",
+              "PostGIS",
+              "GIS",
+              "Git",
+            ].map((tech) => (
+              <span key={tech} className="exp-tech-chip">
+                {tech}
+              </span>
+            ))}
           </p>
         </div>
       </ScrollReveal>
