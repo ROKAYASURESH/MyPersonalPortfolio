@@ -210,6 +210,51 @@ export function Experience() {
     </div>
   );
 }
+// Image card with a "VIEW" pill that follows the mouse (like the screenshot).
+// - Desktop only: hidden on touch / small screens via CSS.
+// - Uses a ref + direct transform for smooth 1:1 follow without re-renders.
+function ProjectPreview({ project }) {
+  const badgeRef = useRef(null);
+
+  const moveBadge = (event) => {
+    const card = event.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    if (badgeRef.current) {
+      badgeRef.current.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) scale(1)`;
+    }
+  };
+
+  const showBadge = (event) => {
+    moveBadge(event);
+    badgeRef.current?.classList.add("is-visible");
+  };
+
+  const hideBadge = () => {
+    badgeRef.current?.classList.remove("is-visible");
+  };
+
+  return (
+    <Link
+      className="project-preview has-cursor"
+      to={`/portfoliodetails/${encodeURIComponent(project.Pheading)}`}
+      aria-label={`View ${project.Pheading} project`}
+      onMouseMove={moveBadge}
+      onMouseEnter={showBadge}
+      onMouseLeave={hideBadge}
+    >
+      <img
+        src={project.Project}
+        alt={`${project.Pheading} website screenshot`}
+        loading="lazy"
+      />
+      <span ref={badgeRef} className="cursor-view" aria-hidden="true">
+        VIEW <span aria-hidden="true">↗</span>
+      </span>
+    </Link>
+  );
+}
 export function ProjectList({ compact = false }) {
   const projects = compact
     ? PortfolioData.filter((p) =>
@@ -226,17 +271,7 @@ export function ProjectList({ compact = false }) {
           stagger={index % 2}
         >
           {project.Project ? (
-            <Link
-              className="project-preview"
-              to={`/portfoliodetails/${encodeURIComponent(project.Pheading)}`}
-              aria-label={`View ${project.Pheading} project`}
-            >
-              <img
-                src={project.Project}
-                alt={`${project.Pheading} website screenshot`}
-                loading="lazy"
-              />
-            </Link>
+            <ProjectPreview project={project} />
           ) : (
             <div className="project-work-note">
               <span className="eyebrow">FROM MY WORK AT UPVEDA</span>
