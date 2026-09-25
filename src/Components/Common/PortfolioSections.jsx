@@ -29,32 +29,31 @@ export function AboutStory() {
         </p>
         <p>
           I&apos;m Suresh Rokaya, a software and full-stack developer based in
-          Kathmandu, Nepal. I build web applications and REST APIs with
-          Python, Django, Django REST Framework, React, Vue.js, and
-          PostgreSQL — connecting the data behind an application to the
-          interface people use every day.
+          Kathmandu, Nepal. I build web applications and REST APIs with Python,
+          Django, Django REST Framework, React, Vue.js, and PostgreSQL —
+          connecting the data behind an application to the interface people use
+          every day.
         </p>
         <p>
           My work has included sales reporting, authentication, REST APIs,
           PostgreSQL data modeling, and frontend integration with React and
-          Vue.js. I enjoy the practical parts: untangling a data flow, fixing
-          a stubborn bug, and making code easier for the next person to
-          follow.
+          Vue.js. I enjoy the practical parts: untangling a data flow, fixing a
+          stubborn bug, and making code easier for the next person to follow.
         </p>
         <p>
-          My approach is simple: understand the problem, build a clear
-          solution, and keep learning from the work. Lately I&apos;ve been
-          working with Docker and Linux workflows, TypeScript, and GIS-backed
-          web applications. <Link to="/about">Read more about Suresh Rokaya</Link> or{" "}
-          <Link to="/portfolio">browse selected projects</Link>.
+          My approach is simple: understand the problem, build a clear solution,
+          and keep learning from the work. Lately I&apos;ve been working with
+          Docker and Linux workflows, TypeScript, and GIS-backed web
+          applications. <Link to="/about">Read more about Suresh Rokaya</Link>{" "}
+          or <Link to="/portfolio">browse selected projects</Link>.
         </p>
       </div>
       <aside className="working-note">
         <span className="eyebrow">AT MY DESK</span>
         <h3>Backend to browser.</h3>
         <p>
-          Currently working with Django, React, Vue.js, and PostgreSQL on
-          Linux with Docker.
+          Currently working with Django, React, Vue.js, and PostgreSQL on Linux
+          with Docker.
         </p>
         <span className="small-label">A principle I come back to</span>
         <p>Readable code is easier to improve.</p>
@@ -70,18 +69,27 @@ export function Skills() {
     [
       "Backend",
       "Python, Django, Django REST Framework",
-      "REST APIs · authentication · data processing",
+      "REST APIs · authentication · permissions · business logic · data processing",
     ],
     [
       "Frontend",
-      "React, Vue, JavaScript, TypeScript",
-      "Reusable components · responsive interfaces",
+      "React.js, Vue.js, Next.js, Nuxt.js, JavaScript, TypeScript",
+      "Reusable components · API integration · responsive interfaces · state management",
     ],
-    ["Databases", "PostgreSQL, MySQL, SQL", "Relational data · application queries"],
     [
-      "Tools & workflow",
-      "Git, GitHub, Docker, Linux",
-      "Version control · collaboration · containers",
+      "Databases & GIS",
+      "PostgreSQL, PostGIS, MySQL, SQL Server",
+      "Relational data · database design · queries · migrations · geospatial data",
+    ],
+    [
+      "Tools & Deployment",
+      "Git, GitHub, GitLab, Linux, Docker, Nginx, Gunicorn",
+      "Version control · collaboration · containers · deployment",
+    ],
+    [
+      "Currently Exploring",
+      "Cloud deployment · system design · application performance· AI-assisted development",
+      "Infrastructure · scalability · development workflows",
     ],
   ];
   return (
@@ -136,44 +144,68 @@ export function Experience() {
       <ScrollReveal className="experience-row">
         <div>
           <span className="eyebrow">PROFESSIONAL EXPERIENCE</span>
-          <p className="small-label">1+ year of experience</p>
+          <p className="small-label">1+ year of professional experience</p>
         </div>
         <div>
           <h3>Full-Stack Developer</h3>
           <p className="company">Upveda Technology Pvt. Ltd</p>
           <p>
-            Worked on business management and customer-facing web applications
-            for Consistent Infosystems, using Django, Django REST Framework,
-            React, and Next.js.
+            I worked on business management and customer-facing web applications
+            using Django, Django REST Framework, React.js and Next.js.
           </p>
+          <p>
+            My work involved building new features, developing APIs, connecting
+            frontend and backend systems, working with business data and
+            improving existing application functionality.
+          </p>
+          <h5>What I worked on:</h5>
           <ul>
             <li>
               Developed and maintained the Direct Sales Report (DSR/MIS)
-              application for managing sales-related data, reporting, and
+              application for managing sales-related data, reporting and
               business operations.
             </li>
             <li>
-              Developed responsive and reusable React/Next.js interfaces for
-              internal users and customer-facing workflows.
+              Developed and integrated REST APIs using Django REST Framework.
             </li>
             <li>
-              Implemented frontend-backend integration using REST APIs and
-              handled application state and data flow.
+              Implemented authentication, role-based access and permissions to
+              control what different users can view and manage within the
+              application.
             </li>
             <li>
-              Worked on features related to sales reporting, customer information, product/business data, and dashboard-based workflows.
+              Built and improved reusable React.js and Next.js interfaces for
+              internal and customer-facing workflows.
+            </li>
+
+            <li>
+              Worked with application state, data flow and frontend-backend
+              integration.
+            </li>
+
+            <li>
+              Implemented features related to sales reporting, customer
+              information, products and business data.
+            </li>
+            <li>Worked on dashboards and data-driven interfaces.</li>
+            <li>
+              Debugged existing functionality and fixed issues based on business
+              requirements.
             </li>
             <li>
-              Debugged existing functionality, fixed application issues, and implemented new features based on business requirements.
+              Collaborated with the development team using Git and version
+              control.
             </li>
             <li>
-              Collaborated with the development team using Git and version control and followed structured development practices.
-            </li>
-            <li>
-              Worked across both backend and frontend, gaining practical experience in full-stack application development.
+              Worked across backend and frontend, gaining practical experience
+              in full-stack web development.
             </li>
           </ul>
-          <p className="project-stack">Django · Django REST Framework · React · Next.js · JavaScript · REST API · Git</p>
+          <h5>Technologies Used:</h5>
+          <p className="project-stack">
+            Django · Django REST Framework · React.js · Next.js · JavaScript ·
+            REST APIs · Authentication · Authorization · Git
+          </p>
         </div>
       </ScrollReveal>
       <ScrollReveal className="experience-row">
@@ -182,37 +214,49 @@ export function Experience() {
           <p className="small-label">Dec 2025 – Present</p>
         </div>
         <div>
-          <h3>Full-Stack Developer</h3>
+          <h3>Django Developer</h3>
           <p className="company">Thimi Tech Pvt. Ltd.</p>
           <p>
+            I work primarily with Django and Django REST Framework, building and
+            maintaining web applications and APIs. I also work with Vue.js,
+            PostgreSQL and GIS-related functionality depending on the project
+            requirements.
+            {/* <br />
             Working on web applications using Django, Django REST Framework,
             Vue.js, PostgreSQL, and GIS technologies. Developing REST APIs,
             integrating frontend and backend services, working with geospatial
-            data, and maintaining existing production codebases.
+            data, and maintaining existing production codebases. */}
           </p>
+          <h5>What I work on:</h5>
           <ul>
+            <li>Develop backend features using Python and Django.</li>
+            <li>Build and maintain REST APIs using Django REST Framework</li>
             <li>
-              Developed and maintained backend services using Django & Django
-              REST Framework.
+              Work with PostgreSQL databases, models, relationships and queries.
             </li>
-            <li>Built and integrated Vue.js interfaces with REST APIs.</li>
+            <li>Integrate backend APIs with Vue.js frontend applications.</li>
+            <li>Work with GIS-related features and geospatial data.</li>
+            <li>Troubleshoot database and migration issues.</li>
             <li>
-              Worked with PostgreSQL/PostGIS for application and geospatial
-              data.
+              Debug existing application functionality and implement new
+              requirements.
             </li>
             <li>
-              Contributed to the Pure Nepal platform and its GIS-based features.
+              Work with existing codebases and understand application
+              architecture before making changes.
             </li>
             <li>
               Worked on database migration, debugging, feature development, and
               performance improvements.
             </li>
             <li>
-              Used Git, Docker, and Linux for development and project workflows.
+              Collaborate with the development team using Git and Git-based workflows.
             </li>
           </ul>
+          <h5>Technologies Used:</h5>
           <p className="project-stack">
-            Django · DRF · Vue.js · PostgreSQL · PostGIS · GIS · Docker · Git
+            Python · Django · Django REST Framework · Vue.js · PostgreSQL ·
+            PostGIS · GIS · Git
           </p>
         </div>
       </ScrollReveal>
@@ -315,7 +359,8 @@ export function ProjectList({ compact = false }) {
               to={`/portfoliodetails/${encodeURIComponent(project.Pheading)}`}
               aria-label={`Read project notes for ${project.Pheading}`}
             >
-              Project notes for {project.Pheading} <span aria-hidden="true">→</span>
+              Project notes for {project.Pheading}{" "}
+              <span aria-hidden="true">→</span>
             </Link>
           </div>
         </ScrollReveal>

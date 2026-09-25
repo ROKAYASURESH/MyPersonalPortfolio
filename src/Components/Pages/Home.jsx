@@ -138,7 +138,7 @@ export default function Home() {
           <p ref={description} className="hero-description">
             I&apos;m Suresh Rokaya, a full-stack developer based in Kathmandu,
             Nepal. I build web applications with Python, Django, React,
-            Vue.js, and PostgreSQL — from the API to the small details on
+            Vue.js, Next, Nuxt.js, and MySql, PostgreSQL — from the API to the small details on
             screen.
           </p>
           <div ref={actions} className="hero-actions">
@@ -155,7 +155,7 @@ export default function Home() {
           </div>
           <div ref={footnote} className="hero-footnote">
             <span className="small-label">Mostly working with</span>
-            <span>Django &nbsp; / &nbsp; React &nbsp; / &nbsp; PostgreSQL</span>
+            <span>Django &nbsp; / DRF / &nbsp; React &nbsp; / Vue.js / &nbsp; Next.js / &nbsp; Nuxt.js / &nbsp; PostgreSQL</span>
           </div>
         </div>
         <figure ref={media} className="portrait">
