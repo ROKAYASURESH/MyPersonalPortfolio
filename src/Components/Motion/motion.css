@@ -326,3 +326,18 @@
 .background-panel:focus-within {
   animation: none;
 }
+
+/* Let the control itself signal interactivity; the decorative cursor hides here. */
+@media (hover: hover) and (pointer: fine) {
+  .about-tabs button:hover,
+  .about-tabs button:focus-visible {
+    color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
+  }
+
+  .theme-toggle:hover,
+  .menu-toggle:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--accent-primary);
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   AboutStory,
   Skills,
@@ -6,8 +6,31 @@ import {
   ContactInvite,
 } from "../Common/PortfolioSections";
 import SEO from "../Common/SEO";
+import { ScrollTrigger, prefersReducedMotion } from "../../animations/gsapSetup";
 export default function About() {
   const [active, setActive] = useState("Skills");
+  const [selection, setSelection] = useState(0);
+  const tabs = useRef(null);
+
+  useEffect(() => {
+    if (!selection) return undefined;
+    // Wait for the selected panel and its reveal triggers to mount.
+    const frame = requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+      const headerHeight = document.querySelector(".header")?.getBoundingClientRect().height || 0;
+      const top = window.scrollY + tabs.current.getBoundingClientRect().top - headerHeight - 16;
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: prefersReducedMotion() ? "instant" : "smooth",
+      });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [selection]);
+
+  const selectTab = (tab) => {
+    setActive(tab);
+    setSelection(value => value + 1);
+  };
   useEffect(() => {
     document.title = "About Suresh Rokaya | Software Developer from Nepal";
   }, []);
@@ -30,13 +53,13 @@ export default function About() {
       </section>
       <section className="container section">
         <AboutStory />
-        <div className="about-tabs" aria-label="Background sections">
+        <div ref={tabs} className="about-tabs" aria-label="Background sections">
           {["Skills", "Experience", "Education"].map((tab) => (
             <button
               key={tab}
               aria-pressed={active === tab}
               className={active === tab ? "active" : ""}
-              onClick={() => setActive(tab)}
+              onClick={() => selectTab(tab)}
             >
               {tab}
             </button>

@@ -41,7 +41,7 @@ export default function WaterCursor() {
       const ease = 1 - Math.exp(-22 * dt);
       drop.x += (pointer.x - drop.x) * ease;
       drop.y += (pointer.y - drop.y) * ease;
-      const targetRadius = pointer.pressed ? 3 : pointer.interactive ? 14 : 3;
+      const targetRadius = 3;
       drop.radius += (targetRadius - drop.radius) * ease;
       ctx.strokeStyle = accent;
       ctx.fillStyle = accent;
@@ -77,15 +77,15 @@ export default function WaterCursor() {
         ctx.lineWidth = 1 - age * 0.5;
         ctx.stroke();
       });
-      if (pointer.active) {
+      if (pointer.active && !pointer.interactive) {
         // A fine, translucent halo matches the portfolio's understated palette.
         const wobble = pointer.pressed ? Math.sin(time * 0.008) * 0.07 : 0;
         ctx.beginPath();
         ctx.ellipse(drop.x, drop.y, drop.radius * (1 + wobble),
           drop.radius * (1 - wobble), 0, 0, Math.PI * 2);
-        ctx.globalAlpha = pointer.interactive ? 0.05 : 0.035;
+        ctx.globalAlpha = 0.035;
         ctx.fill();
-        ctx.globalAlpha = pointer.interactive ? 0.45 : 0.32;
+        ctx.globalAlpha = 0.32;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
@@ -99,8 +99,17 @@ export default function WaterCursor() {
     const move = event => {
       if (event.pointerType !== "mouse" || motion.matches || !mouse.matches) return;
       pointer.interactive = Boolean(event.target instanceof Element &&
-        event.target.closest('a, button, input, textarea, select, [role="button"]'));
+        event.target.closest('a, button, input, textarea, select, [contenteditable], [role="button"]'));
       pointer.x = event.clientX; pointer.y = event.clientY;
+      if (pointer.interactive) {
+        pointer.active = false;
+        pointer.pressed = false;
+        drop.x = pointer.x; drop.y = pointer.y;
+        trail = [];
+        // Hide the hover ring without interrupting a click's fading waves.
+        if (!frame) frame = requestAnimationFrame(draw);
+        return;
+      }
       if (!pointer.active) { drop.x = pointer.x; drop.y = pointer.y; }
       pointer.active = true;
       pointer.pressed = (event.buttons & 1) === 1;
@@ -108,7 +117,9 @@ export default function WaterCursor() {
     };
     const down = event => {
       if (event.button !== 0 || event.pointerType !== "mouse" || motion.matches || !mouse.matches) return;
-      move(event); pointer.pressed = true;
+      move(event);
+      pointer.pressed = !pointer.interactive;
+      if (!frame) frame = requestAnimationFrame(draw);
       const now = performance.now();
       for (let wave = 0; wave < 3; wave += 1) {
         ripples.push({ x: pointer.x, y: pointer.y, born: now + wave * 140 });
