@@ -12,6 +12,8 @@ import Footer from "./Components/Pages/Footer";
 import Portfoliodetails from "./Components/Details/Portfoliodetails";
 import SEO from "./Components/Common/SEO";
 
+import WaterCursor from "./Components/Motion/WaterCursor";
+
 function NotFound() {
   return (
     <div className="detail-page-error">
@@ -77,6 +79,7 @@ function App() {
 
   return (
     <>
+      <WaterCursor />
       <Header />
       <div className="reading-progress" aria-hidden="true" />
       <main ref={main} id="main" tabIndex="-1">
