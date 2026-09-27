@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import {
   gsap,
   useGSAP,
-  prefersReducedMotion,
+  reduceMotionQuery,
 } from "../../animations/gsapSetup";
 import { PortfolioData } from "../All file Data/Data";
 
@@ -110,31 +110,39 @@ export function Skills() {
 export function Experience() {
   const wrap = useRef(null);
 
-  // The timeline rail draws in step with the scroll position. The progress
-  // value inherits into .experience-row, whose ::before rail reads it.
-  // Without scroll (or with reduced motion) the rail simply shows fully.
+  // Each card draws its own rail; the dot uses the same progress value.
   useGSAP(
     () => {
       const wrapper = wrap.current;
-      if (!wrapper || prefersReducedMotion()) return undefined;
-      const draw = gsap.fromTo(
-        wrapper,
-        { "--tl-progress": 0 },
-        {
+      if (!wrapper) return undefined;
+      const media = gsap.matchMedia();
+
+      media.add(`(prefers-reduced-motion: no-preference)`, () => {
+        wrapper.querySelectorAll(".experience-row").forEach((row) => {
+          gsap.fromTo(
+            row,
+            { "--tl-progress": 0 },
+            {
+              "--tl-progress": 1,
+              ease: "none",
+              scrollTrigger: {
+                trigger: row,
+                start: "top 65%",
+                end: "bottom 65%",
+                scrub: 0.35,
+                invalidateOnRefresh: true,
+              },
+            },
+          );
+        });
+      });
+      media.add(reduceMotionQuery, () => {
+        gsap.set(wrapper.querySelectorAll(".experience-row"), {
           "--tl-progress": 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: wrapper,
-            start: "top 78%",
-            end: "bottom 45%",
-            scrub: 0.6,
-          },
-        },
-      );
-      return () => {
-        draw.scrollTrigger?.kill();
-        draw.kill();
-      };
+        });
+      });
+
+      return () => media.revert();
     },
     { scope: wrap },
   );
